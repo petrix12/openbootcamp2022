@@ -1,6 +1,7 @@
 # Campus | OpenBootcamp
 + [OpenBootcamp](https://campus.open-bootcamp.com/cursos)
 + [Repositorio en GitHub](https://github.com/petrix12/openbootcamp2022.git)
++ [Resolución de ejercios](https://github.com/Open-Bootcamp/ResolucionEjercicios)
 
 
 ## Antes de iniciar:
@@ -16,6 +17,7 @@
     + $ git push -u origin main
 
 ## [Introducción a la programación](apuntes\001_introduccion_a_la_programacion.md)
+## [Python](apuntes\002_python.md)
 
 
 

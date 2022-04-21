@@ -404,11 +404,3 @@
 ### Vídeo ronda de preguntas
 + **Contenido**:
     + Ronda de preguntas y respuestas. 
-
-
-
-
-    ```java
-    ≡
-    ≡
-    ```
