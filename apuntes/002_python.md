@@ -378,6 +378,151 @@
         print("Número: ", 100 - numero)
     ```
 
+## Funciones
+### Vídeo sesión 5
+1. Estructura de una función:
+    ```py
+    def funcionx():
+        pass
+    ```
+2. Ejemplo de una función:
+    ```py
+    def suma(a, b):
+        print(a + b)
+    ```
+3. Ejemplo para modificar una variable global dentro de una función:
+    ```py
+    numero = 12
+
+    def funcion(a, b):
+        global numero
+        numero = 7
+    ```
+4. Ejemplo de función con parámetros opcionales:
+    ```py
+    def suma(a = 1, b = 2, c = 3):
+        print(a + b + c)
+    
+    suma()
+    suma(4, 5)
+    suma(4, 5, 6)
+    suma(c = 7)
+    suma(c = 7, a = 2, b = 8)
+    ```
+5. Ejemplo de función con parámetros variables:
+    ```py
+    def suma(*args):
+        resultado = 0
+        for arg in args:
+            resultado += arg
+        print(resultado)
+    
+    
+    suma(4, 5, 6)
+    ```
+6. Ejemplo de función que recibe un diccionario como parámetro:
+    ```py
+    def suma(**kwargs):
+        print(kwargs)
+        for key, value in kwargs.items():
+            print(key, "=", value)
+        if 'coche' in kwargs and kwargs['coche'] == 'bonito':
+            return "Coche bonito"
+    
+    # Los paramétros llegan como un diccionario a la función
+    suma(viviendo = "piso", coche = "rojo")
+    ```
+    ```py
+    def sumador(**kwargs):
+        inicial = kwargs['inicial'] if 'inicial' in kwargs else 0
+        final = kwargs['final'] if 'final' in kwargs else inicial
+
+        resultado = 0
+        for i in range(inicial, final + 1):
+            resutlado += i
+        
+        return resultado
+
+    print(sumador(inicial = 15, final = 30))
+    ```
+7. Ejemplo de función que retorna una tupla:
+    ```py
+    def operaciones(a, b):
+        return a + b, a - b, a * b, a / c
+    
+    suma, resta, multi, divi = suma(7, 3)
+    res = sumar(7, 3)
+    ```
+8. Ejemplo de función anónima (función asignada a una variable):
+    ```py
+    anonima = lambda: print("hola")
+    anonima()
+    ```
+    + Con parámetro:
+    ```py
+    anonima = lambda nombre: print("hola", nombre)
+    anonima("Petrix")
+    ```
+    + Con multiples parámetros:
+    ```py
+    anonima = lambda nombre, apellido: print("hola", nombre, apellido)
+    anonima("César", "Pérez")
+    ```
+    + Otro ejemplo:
+    ```py
+    anonima = lambda x: x*x
+    anonima(3)
+    ```
+
+### Ejercicio 1
++ Escribe una función que calcule el área de un triángulo, recibiendo la altura y la base como parámetros y otra función que calcule el área de un círculo recibiendo el radio del mismo.
++ **Resolción**:
+    ```py
+    def areaTriangulo(altura, base):
+        return base * altura / 2
+
+    def areaCirculo(radio):
+        return 3.14159265359 * radio * radio
+
+    print("Área de un triángulo (h = 2, b = 3) = ", areaTriangulo(2, 3))
+    print("Área de un círculo (r = 3) = ", areaCirculo(3))
+    ```
+### Ejercicio 2
++ Escribe una función que pueda decirte si un número (número entero) es primo o no.
++ **Resolción**:
+    ```py
+    def esPrimo(numero):
+        bPrimo = True
+        for i in range(2, numero // 2 + 1):
+            if (numero % i == 0):
+                bPrimo = False
+                break
+        return bPrimo
+
+    numero = 15
+    print("El número", numero, "es primo" if esPrimo(numero) else "no es primo")
+    ```
+### Ejercicio 3
++ Escribe una función que pueda decirte si un año (número entero) es bisiesto o no.
++ **Resolción**:
+    ```py
+    def esBisiesto(anho):
+        if ((anho % 4 == 0) and not (anho % 100 == 0)):
+            return True
+        elif((anho % 4 == 0) and (anho % 400 == 0)):
+            return True
+        return False
+
+    anho = 2002
+    print("El año", anho, "es bisiesto" if esBisiesto(anho) else "no es bisiesto")
+    ```
+
+## Clases y objetos
+### Vídeo sesión 6
+
+
+
+
 
 
     ```py
@@ -386,29 +531,12 @@
     ```
 
 
-## Funciones
-4 lecciones
-1h3min
-Vídeo sesión 5
-48min
-Ejercicio 1
-5min
-Ejercicio 2
-5min
-Ejercicio 3
-5min
-6
-Clases y objetos
-3 lecciones
-1h 11min
-Vídeo sesión 6
-1h1min
-Ejercicio 1
-5min
-Ejercicio 2
-5min
-7
-Módulos: ejecutando módulos como scripts
+
+
+### Ejercicio 1
+### Ejercicio 2
+
+## Módulos: ejecutando módulos como scripts
 3 lecciones
 1h 17min
 Vídeo sesión 7
