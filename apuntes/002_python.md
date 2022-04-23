@@ -519,7 +519,169 @@
 
 ## Clases y objetos
 ### Vídeo sesión 6
+1. Definición de una clase:
+    ```py
+    class Clase:
+        propiedad = False
+        def metodo(self):
+            self.propiedad = True
 
+    objeto = Clase()
+    print(objeto.propiedad)
+    objeto.metodo()
+    print(objeto.propiedad)
+    ```
+2. Ejemplo clase estática:
+    ```py
+    class Estatica:
+        numero = 1
+        def incrementa():
+            Estatica.numero += 1
+
+    print(Estatica.numero)
+    Estatica.incrementa()
+    print(Estatica.numero)
+    ```
+3. Ejemplo de herencia:
+    ```py
+    class ClasePadre:
+        propiedadPadre = False
+        def metodoPadre(self):
+            self.propiedadPadre = True
+
+    class ClaseHija(ClasePadre):
+        propiedadHija = False
+        def metodoHija(self):
+            self.propiedadHija = True
+
+    objeto = ClaseHija()
+    print(objeto.propiedadPadre)
+    print(objeto.propiedadHija)
+    objeto.metodoPadre()
+    objeto.metodoHija()
+    print(objeto.propiedadPadre)
+    print(objeto.propiedadHija)
+    ```
+4. Ejemplo de constructor y destructor:
+    ```py
+    class Clase:
+        propiedad = False
+
+        def __init__(self):
+            self.propiedad = True
+
+        def __del__(self):
+            self.propiedad = False
+            print('Se ejecutó el destructor')
+            
+    objeto = Clase()
+    print(objeto.propiedad)
+
+    # forzar la ejecución del destructor
+    del(objeto)
+
+    ```
+5. **Nota**: las clases en Python realmente son diccionarios.
+6. Ejemplo de clase abstracta:
+    ```py
+    from abc import ABC, abstractmethod
+
+    class Animal(ABC):
+        @abstractmethod
+        def sonido(self):
+            pass
+
+        def diHola(self):
+            print("Hola")
+
+    class Perro(Animal):
+        def sonido(self):
+            print("Guau")
+
+    perro = Perro()
+    perro.sonido()
+    perro.diHola()
+    ```
+7. Ejemplo de clase de composición:
+    ```py
+    class Motor:
+        tipo = "Diesel"
+
+    class Ventanas:
+        cantidad = 5
+
+    class Ruedas:
+        cantidad = 4
+
+    class Carroceria:
+        ventanas = Ventanas()
+        ruedas = Ruedas()
+
+    class Coche:
+        motor = Motor()
+        carroceria = Carroceria()
+
+    coche = Coche()
+    print("Motor: ", coche.motor.tipo)
+    print("Ventanas: ", coche.carroceria.ventanas.cantidad)
+    print("Ruedas: ", coche.carroceria.ruedas.cantidad)
+    ```
+
+### Ejercicio 1
++ En este ejercicio vais a crear la clase Vehículo la cual tendrá los siguientes atributos:
+    + Color
+    + Ruedas
+    + Puertas
++ Por otro lado crearéis la clase Coche la cual heredará de Vehículo y tendrá los siguientes atributos:
+    + Velocidad
+    + Cilindrada
++ Por último, tendrás que crear un objeto de la clase Coche y mostrarlo por consola.
++ **Resolción**:
+    ```py
+    class Vehiculo:
+        color = "azul"
+        ruedas = 4
+        puertas = 5
+
+    class Coche(Vehiculo):
+        velocidad = 150
+        cilindrada = 4
+
+    coche = Coche()
+    print("Color:", coche.color)
+    print("Ruedas:", coche.ruedas)
+    print("Puertas:", coche.puertas)
+    print("Velocidad:", coche.velocidad)
+    print("Cilindrada:", coche.cilindrada)
+    ```
+
+### Ejercicio 2
++ En este segundo ejercicio, tendréis que crear un programa que tenga una clase llamada Alumno que tenga como atributos su nombre y su nota. Deberéis de definir los métodos para inicializar sus atributos, imprimirlos y mostrar un mensaje con el resultado de la nota y si ha aprobado o no.
++ **Resolción**:
+    ```py
+    class Alumno:
+        nombre = None
+        nota = None
+
+        def setNombre(self, nombre):
+            self.nombre = nombre
+
+        def setNota(self, nota):
+            self.nota = int(nota)
+
+        def showResultados(self):
+            print("Nombre:", self.nombre)
+            print("Nota:", self.nota)
+            print("APROBADO" if self.nota >= 16 else "REPROBADO")
+
+    alumno = Alumno()
+    alumno.setNombre(input("Nombre: "))
+    alumno.setNota(input("Nota: "))
+    alumno.showResultados()
+    ```
+
+## Módulos: ejecutando módulos como scripts
+### Vídeo sesión 7
 
 
 
@@ -533,20 +695,12 @@
 
 
 
+
 ### Ejercicio 1
 ### Ejercicio 2
 
-## Módulos: ejecutando módulos como scripts
-3 lecciones
-1h 17min
-Vídeo sesión 7
-1h7min
-Ejercicio 1
-5min
-Ejercicio 2
-5min
-8
-Entrada y salida
+
+## Entrada y salida
 3 lecciones
 1h 18min
 Vídeo sesión 8
