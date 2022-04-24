@@ -682,6 +682,124 @@
 
 ## Módulos: ejecutando módulos como scripts
 ### Vídeo sesión 7
+1. Ejemplo de creación de módulos:
+    1. Crear módulo principal **proyectos\002\ejercicios7\modulos\main.py**:
+        ```py
+        import operaciones as op
+
+        def main():
+            res1 = op.suma(3, 7)
+            operador = op.Operador()
+            res2 = operador.multi(5, 12)
+            print("Main: ", res1, res2)
+            op.nombreModulo()
+
+        if __name__ == '__main__':
+            main()
+        ```
+    2. Crear módulo **proyectos\002\ejercicios7\modulos\operaciones.py**:
+        ```py
+        def suma(a, b):
+            return a + b
+
+        def resta(a, b):
+            return a - b
+
+        def nombreModulo():
+            print(__name__)
+
+        class Operador:
+            def multi(self, a, b):
+                return a * b
+        ```
+2. Ejemplo de creación de paquetes:
+    1. Crear módulo principal **proyectos\002\ejercicios7\paquetes\main.py**:
+        ```py
+        from operaciones import suma
+        import operaciones.resta
+
+        def main():
+            res1 = suma.suma(2, 7)
+            res2 = operaciones.resta.resta(12, 7)
+            print(res1, res2)
+
+        if __name__ == '__main__':
+            main()
+        ```
+    2. Crear módulo **proyectos\002\ejercicios7\paquetes\operaciones\\__init__.py**:
+        ```py
+        # archivo vacio
+        ```
+    3. Crear módulo **proyectos\002\ejercicios7\paquetes\operaciones\suma.py**:
+        ```py
+        def suma(a, b):
+            return a + b
+        ```
+    4. Crear módulo **proyectos\002\ejercicios7\paquetes\operaciones\resta.py**:
+        ```py
+        def resta(a, b):
+            return a - b
+        ```  
+
+### Ejercicio 1
++ En este ejercicio tendréis que crear un módulo que contenga las operaciones básicas de una calculadora: sumar, restar, multiplicar y dividir.
++ Este módulo lo importaréis a un archivo python y llamaréis a las funciones creadas. Los resultados tenéis que mostrarlos por consola.
++ **Resolción**:
+    + Crear módulo **operaciones.py**:
+    ```py
+    def suma(a, b):
+        return a + b
+
+    def resta(a, b):
+        return a - b
+
+    def multiplicar(a, b):
+        return a * b
+
+    def dividir(a, b):
+        return a / b
+    ```
+    + Crear módulo principal **main.py**:
+    ```py
+    import operaciones as op
+
+    def main():
+        a = 12
+        b = 7
+        res_suma = op.sumar(a, b)
+        res_resta = op.restar(a, b)
+        res_multiplicacion = op.multiplicar(a, b)
+        res_division = op.dividir(a, b)
+
+        print("a = ", a, ", b = ", b)
+        print("a + b = ", res_suma)
+        print("a - b = ", res_resta)
+        print("a * b = ", res_multiplicacion)
+        print("a / b = ", res_division)
+
+    if __name__ == '__main__':
+        main()
+    ```
+
+### Ejercicio 2
++ En este segundo ejercicios tendréis que crear un script que nos diga si es la hora de ir a casa. Tendréis que hacer uso del modulo time. Necesitaréis la fecha del sistema y poder comprobar la hora.
++ En el caso de que sean más de las 7, se mostrará un mensaje y en caso contrario, haréis una operación para calcular el tiempo que queda de trabajo.
++ **Resolción**:
+    ```py
+    import time
+
+    horas = time.strftime('%H') 
+    minutos = time.strftime('%M') 
+
+    if int(horas) >= 19:
+        print ("Hora de ir a casa") 
+    else:
+        print ("Faltan {} horas y {} minutos para ir a casa".format(18- int(horas), 59-int(minutos)))
+    ```
+
+
+## Entrada y salida
+### Vídeo sesión 8
 
 
 
@@ -697,20 +815,18 @@
 
 
 ### Ejercicio 1
++ mmmm
++ **Resolción**:
+    ```py
+    ```
 ### Ejercicio 2
++ mmmm
++ **Resolción**:
+    ```py
+    ```
 
 
-## Entrada y salida
-3 lecciones
-1h 18min
-Vídeo sesión 8
-1h8min
-Ejercicio 1
-5min
-Ejercicio 2
-5min
-9
-Introducción a la biblioteca estándar de Python y funciones Built-in
+## Introducción a la biblioteca estándar de Python y funciones Built-in
 3 lecciones
 49min
 Vídeo sesión 9
