@@ -800,6 +800,243 @@
 
 ## Entrada y salida
 ### Vídeo sesión 8
+1. Formato de cádenas (Opción 1 - Forma antigua - Mala):
+    ```py
+    numero = 12
+    texto = "Petrix"
+    peso = 100.33
+
+    print("Texto: %s" % texto)
+    print("El %d es el número de %s, que pesa %.3f" % (numero, texto, peso))
+    ```
+2. Formato de cádenas (Opción 2 - Forma habitual - Fea):
+    ```py
+    numero = 12
+    texto = "Petrix"
+    peso = 100.33
+
+    print("El {} es el número de {}, que pesa {}".format(numero, texto, peso))
+    print("El {2} es el número de {0}, que pesa {1}".format(texto, peso, numero))
+    print("El {n} es el número de {t}, que pesa {p}".format(n = numero, t = texto, p = peso))
+    ```
+3. Formato de cádenas (Opción 3 - Forma Moderna - Bonita):
+    ```py
+    numero = 12
+    texto = "Petrix"
+    peso = 100.33
+
+    print(f"El {numero} es el número de {texto}, que pesa {peso}")
+    print(f"El {numero + numero} es el número de {texto.upper()}, que pesa {peso}")
+
+    salida = f"El {numero + numero} es el número de {texto.upper()}, que pesa {peso}"
+    print(salida)
+    ```
+4. Ejemplo de manipulación de cádenas de texto:
+    ```py
+    class Clase:
+        nombre = None
+        precio = None
+
+        def __init__(self, nombre, precio):
+            self.nombre = nombre
+            self.precio = precio
+
+        def __str__(self):
+            return f'Nombre: {self.nombre}, Precio: {self.precio}'
+        
+        def __repr__(self):
+            return f'Clase({self.nombre}, {self.precio})'
+
+        # Buenas prácticas: str para salidas informales y repr para salidas técnicas
+
+    c1 = Clase("Petrix", 12)
+    print(c1)
+    print(str(c1))
+    print(repr(c1))
+
+    # Métodos de una cádena de texto
+    import pprint
+    pprint.pprint(dir(""))
+
+    # Métodos comunes de una cádena de texto
+    cadena = " eN un lugAr De la manCha "
+    print(cadena.capitalize())
+    print(cadena.title())
+    print(cadena.lower())
+    print(cadena.upper())
+    print(cadena.strip())
+    print(cadena.lstrip())
+    print(cadena.rstrip())
+    print(cadena.count('a'))
+    print(cadena.lower().count('a'))
+    print(cadena.upper().count('a'))
+    print(cadena.isdigit())
+    print(cadena.isalnum())
+    print(cadena.isalpha())
+    print(cadena.split())
+    print(cadena.split('a'))
+    print(cadena.startswith('un'))
+    print(cadena.startswith(' eN'))
+    print(cadena.endswith('un'))
+    print(cadena.endswith('Cha '))
+    ```
+5. Ejemplo 1 de manipulación de archivos:
+    ```py
+    f = open('/archivo.txt', 'r')
+    # Modos:
+    # r: lectura
+    # a: append
+    # w: escritura
+    # x: create
+    # t: texto
+    # b: binary
+    # Caracter especial: +
+
+    datos1 = f.readline()
+    datos2 = f.read()
+    f.close()
+
+    # leer archivo línea a línea
+    while datos2 != "":         # o while len(datos2) > 0:
+        datos2 = f.readline()
+
+    # para almacenar el archivo en una lista
+    datos3 = f.readlines()
+
+    print(datos1)
+    print("----------")
+    print(datos2)
+    ```
+6. Ejemplo 2 de manipulación de archivos:
+    ```py
+    # Solo funciona en Mac o Linux
+    def main():
+        usuarios = listarUsuarios()
+        for usuario in usuarios:
+            print(f'Usurario: {usuario}')
+
+    def listarUsuarios():
+        f = open('etc/passwd', 'r')
+        datos = f.readlines()
+        f.close()
+
+        resultado = []
+        for linea in datos:
+            if linea[0] == '#':
+                continue
+            if linea[0] == '_':
+                continue
+            partes = linea.split(':')
+            resultado.append(partes[0])
+        
+        return resultado
+
+    if __name__ == '__main__':
+        main()
+    ```
+7. Ejemplo 1 de escritura de archivos:
+    ```py
+    f = open('proyectos/002/ejercicios8/archivo.txt', 'w')
+
+    f.write('datos1\n')
+    f.write('datos2\n')
+    f.write('datos3\n')
+
+    f.close()
+
+    g = open('proyectos/002/ejercicios8/archivo.txt', 'a')
+
+    g.write('datos4\n')
+    g.write('datos5\n')
+    g.write('datos5\n')
+
+    g.close()
+    ```
+8. Ejemplo 2 de escritura de archivos:
+    ```py
+    f = open('proyectos/002/ejercicios8/archivo.txt', 'w')
+
+    lista = [
+        'línea 1\n',
+        'línea 2\n',
+        'línea 3\n'
+    ]
+
+    f.writelines(lista)
+
+    f.close()
+    ```
+9. Ejemplo de serialización:
+    ```py
+    import pickle
+
+    class Clase:
+        nombre = None
+        precio = None
+
+        def __init__(self, nombre, precio):
+            self.nombre = nombre
+            self.precio = precio
+
+    # Guardar objeto en archivo (serialización)
+    objeto = Clase("Petrix", 12)
+    f = open('proyectos/002/ejercicios8/datos.bin', 'wb')
+    pickle.dump(objeto, f)
+    f.close()
+
+    # Recuperar objeto desde un archivo (deserialización)
+    g = open('proyectos/002/ejercicios8/datos.bin', 'rb')
+    objetoRecuperado = pickle.load(g)
+    g.close()
+    print(type(objetoRecuperado))
+    ```
+
+### Ejercicio 1
++ En este ejercicio, tendréis que crear un archivo py donde creéis un archivo txt, lo abráis y escribáis dentro del archivo. Para ello, tendréis que acceder dos veces al archivo creado.
++ **Resolción**:
+    ```py
+    w = open('archivo.txt', 'w')
+    w.write('datos linea 1\n')
+    w.write('datos linea 2\n')
+    w.close()
+
+    a = open('archivo.txt', 'a')
+    a.write('datos linea 3\n')
+    a.write('datos linea 4\n')
+    a.close()
+    ```
+### Ejercicio 2
++ En este segundo ejercicio, tendréis que crear un archivo py y dentro crearéis una clase Vehículo, haréis un objeto de ella, lo guardaréis en un archivo y luego lo cargamos.
++ **Resolción**:
+    ```py
+    import pickle
+
+    class Vehiculo:
+        puertas = None
+        ruedas = None
+        motor = None
+
+        def __init__(self, puertas, ruedas, motor):
+            self.puertas = puertas
+            self.ruedas = ruedas
+            self.motor = motor
+
+    # Guardar objeto en archivo (serialización)
+    vehiculo = Vehiculo(5, 4, "Diesel")
+    f = open('vehiculos.bin', 'wb')
+    pickle.dump(vehiculo, f)
+    f.close()
+
+    # Recuperar objeto desde un archivo (deserialización)
+    g = open('vehiculos.bin', 'rb')
+    vehiculoRecuperado = pickle.load(g)
+    g.close()
+    print(type(vehiculoRecuperado))
+    ```
+
+
+## Introducción a la biblioteca estándar de Python y funciones Built-in
+### Vídeo sesión 9
 
 
 
@@ -815,28 +1052,10 @@
 
 
 ### Ejercicio 1
-+ mmmm
-+ **Resolción**:
-    ```py
-    ```
 ### Ejercicio 2
-+ mmmm
-+ **Resolción**:
-    ```py
-    ```
 
 
-## Introducción a la biblioteca estándar de Python y funciones Built-in
-3 lecciones
-49min
-Vídeo sesión 9
-39min
-Ejercicio 1
-5min
-Ejercicio 2
-5min
-10
-GUI
+## GUI
 3 lecciones
 1h 31min
 Vídeo sesión 10
