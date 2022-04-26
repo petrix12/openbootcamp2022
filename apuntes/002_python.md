@@ -1037,6 +1037,216 @@
 
 ## Introducción a la biblioteca estándar de Python y funciones Built-in
 ### Vídeo sesión 9
++ Biblioteca estándar de Python: https://docs.python.org/es/3/library/index.html
+1. Ejemplo de programación multi hilo:
+    ```py
+    import _thread
+    import time
+
+    def horaActual(nombre_thread, tiempo_de_espera):
+        count = 0
+        while count < 5:
+            time.sleep(tiempo_de_espera)
+            count += 1
+            print(f'hilo: {nombre_thread} - {time.ctime(time.time())}')
+
+    _thread.start_new_thread(horaActual, ("thread 1", 1))
+    _thread.start_new_thread(horaActual, ("thread 2", 2))
+
+    print("He disparado los hilos")
+
+    while True:
+        time.sleep(0.1)
+    ```
+2. Ejemplo de la libreria logging:
+    ```py
+    import logging
+
+    # logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
+    # logging.basicConfig(level=logging.WARNING)
+    # logging.basicConfig(level=logging.ERROR)
+    # logging.basicConfig(level=logging.CRITICAL)
+    logging.debug("sto es un Debug")
+    logging.info("sto es un Info")
+    logging.warning("Esto es un Warning")
+    logging.error("Esto es un Error")
+    logging.critical("Esto es un Critical")
+    ```
+3. Ejemplo de la función filter:
+    ```py
+    numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    def funcion(x):
+        if x % 2 == 0:
+            return True
+        return False
+
+    resultado1 = filter(funcion, numeros)
+    resultado2 = filter(lambda x: x % 2 == 0, numeros)
+
+    print(list(resultado1))
+    print(list(resultado2))
+    ```
+4. Ejemplo de la función map:
+    ```py
+    def cuadrado(x):
+        return x * x
+
+    resultado1 = map(cuadrado, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+    resultado2 = map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+
+    print(list(resultado1))
+    print(list(resultado2))
+    ```
+5. Ejemplo del módulo reduce:
+    ```py
+    from functools import reduce
+
+    def suma(a, b):
+        print(f'a = {a}, b = {b}')
+        return a + b
+
+    res = reduce(suma, [1, 2, 3, 4])
+    print("Prueba 1:", res)
+
+    res = reduce(suma, [1, 2, 3])
+    print("Prueba 2:", res)
+
+    res = reduce(suma, [1, 2])
+    print("Prueba 3:", res)
+
+    res = reduce(suma, [1])
+    print("Prueba 4:", res)
+    ```
+6. Ejemplo la función zip:
+    ```py
+    cursos = ['Laravel', 'Vue.js', 'Node.js', 'Elemenot de más']
+    asistentes = [15, 20, 4]
+
+    demo = zip(cursos, asistentes)
+    print(list(demo))
+    ```
+7. Ejemplo de las funciones any y all:
+    ```py
+    listaA = [1 == 1, 2 ==2, 3 == 4]
+
+    res = any(listaA)
+    print(res)
+
+    res = all(listaA)
+    print(res)
+    ```
+8. Ejemplo la función round:
+    ```py
+    a = 5.5
+    b = 5.4
+    c = 5.6
+
+    print(round(a))
+    print(round(b))
+    print(round(c))
+    ```
+9. Ejemplo las funciones min y max:
+    ```py
+    print(min(5, 4, 1, 3))
+    print(max(5, 4, 1, 3))
+    ```
+10. Ejemplo la función pow:
+    ```py
+    print(pow(2, 3))
+    print(2**3)
+    ```
+11. Ejemplo la función getpass:
+    ```py
+    from getpass import getpass
+
+    usuario = input('Usuario: ')
+    clave = getpass('Clave: ')
+
+    print(usuario, clave)
+    ```
+
+### Ejercicio 1
++ Crea un script que le pida al usuario una lista de países (separados por comas). Éstos se deben almacenar en una lista. No debería haber países repetidos (haz uso de set). Finalmente, muestra por consola la lista de países ordenados alfabéticamente y separados por comas.
++ **Resolción**:
+    ```py
+    paisesString = input("Lista de países separados por comas: ")
+    paises = [pais for pais in paisesString.split(",")]
+    print("Lista ordenada:", ",".join(sorted(list(set(paises)))))
+    ```
+
+### Ejercicio 2
++ En este segundo ejercicio, tenéis que crear una aplicación que obtendrá los elementos impares de una lista pasada por parámetro con filter y realizará una suma de todos estos elementos obtenidos mediante reduce.
++ **Resolción**:
+    ```py
+    from functools import reduce
+
+    def impares(lista):
+        return filter(lambda x: x % 2 != 0, lista)
+
+    def sumatoria(lista):
+        return reduce(lambda a, b: a + b, lista)
+
+    lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    print("Elementos impares: ", list(impares(lista)))
+    print("Sumatoria de los elementos impares: ", sumatoria(list(impares(lista))))
+    ```
+
+
+## GUI
+### Vídeo sesión 10
+
+
+
+
+    ```py
+    ≡
+    ≡
+    ```
+
+
+
+
+
+### Ejercicio 1
++ mmmm
++ **Resolción**:
+    ```py
+    ```
+
+### Ejercicio 2
++ mmmm
++ **Resolción**:
+    ```py
+    ```
+
+
+
+## Bases de datos
+### Vídeo sesión 11
+
+
+
+
+    ```py
+    ≡
+    ≡
+    ```
+
+
+
+
+
+### Ejercicio 1
++ mmmm
++ **Resolción**:
+    ```py
+    ```
+
+
+## Introducción a Django
+### Vídeo sesión 12
 
 
 
@@ -1052,30 +1262,7 @@
 
 
 ### Ejercicio 1
-### Ejercicio 2
-
-
-## GUI
-3 lecciones
-1h 31min
-Vídeo sesión 10
-1h 21min
-Ejercicio 1
-5min
-Ejercicio 2
-5min
-11
-Bases de datos
-2 lecciones
-48min
-Vídeo sesión 11
-43min
-Ejercicio 1
-5min
-12
-Introducción a Django
-2 lecciones
-1h6min
-Vídeo sesión 12
-1h1min
-Ejercicio 1
++ mmmm
++ **Resolción**:
+    ```py
+    ```
