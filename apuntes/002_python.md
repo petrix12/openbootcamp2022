@@ -1196,31 +1196,325 @@
 
 ## GUI
 ### Vídeo sesión 10
-
-
-
-
+1. Ejemplo 1 de uso de tkinter con geometría pack:
     ```py
-    ≡
-    ≡
+    import tkinter
+
+    window = tkinter.Tk()
+
+    label_saludo = tkinter.Label(window, text="Soluciones++ Hola", bg="yellow", fg="blue")
+    label_saludo.pack(ipadx=50, ipady=50, fill='x')
+
+    label_m1 = tkinter.Label(window, text="Mensaje 1", bg="grey", fg="blue")
+    label_m1.pack(ipadx=30, ipady=30, expand=True)
+
+    label_m2 = tkinter.Label(window, text="Mensaje 2", bg="green", fg="white")
+    label_m2.pack(ipadx=30, ipady=30, side="left")
+
+    label_m3 = tkinter.Label(window, text="Mensaje 3", bg="green", fg="white")
+    label_m3.pack(ipadx=30, ipady=30, side="right")
+
+    label_adios = tkinter.Label(window, text="Soluciones++ Chao", bg="red", fg="white")
+    label_adios.pack(ipadx=50, ipady=100, fill='both', expand=True)
+
+    window.mainloop()
+    ```
+2.  Ejemplo 2 de uso de tkinter con geometría pack:
+    ```py
+    import tkinter
+
+    window = tkinter.Tk()
+
+    label1 = tkinter.Label(window, text="Label1", bg="yellow", fg="blue")
+    label1.pack(ipadx=45, ipady=15, expand=True)
+
+    label2 = tkinter.Label(window, text="Label2", bg="purple", fg="white")
+    label2.pack(ipadx=45, ipady=15, expand=True)
+
+    label3 = tkinter.Label(window, text="Label3", bg="blue", fg="white")
+    label3.pack(ipadx=45, ipady=15, expand=True)
+
+    label4 = tkinter.Label(window, text="Label4", bg="red", fg="white")
+    label4.pack(ipadx=15, ipady=15, side="left")
+
+    label5 = tkinter.Label(window, text="Label5", bg="yellow", fg="black")
+    label5.pack(ipadx=15, ipady=15, side="left")
+
+    label6 = tkinter.Label(window, text="Label6", bg="green", fg="white")
+    label6.pack(ipadx=15, ipady=15, side="right")
+
+    window.mainloop()
+    ```
+3. Ejemplo de uso de tkinter con geometría grid:
+    ```py
+    import tkinter
+    from tkinter import ttk
+
+    window = tkinter.Tk()
+
+    # Referencia para posicionar elementos
+    # (0, 0)    (1, 0)  (2, 0)
+    # (0, 1)    (1, 1)  (2, 1)
+    # (0, 2)    (1, 2)  (2, 2)
+    # (0, 3)    (1, 3)  (2, 3)
+
+    window.columnconfigure(0, weight=1)
+    window.columnconfigure(1, weight=3)
+
+    # Usuario
+    user_label = ttk.Label(window, text="User:")
+    user_label.grid(column=0, row=0, sticky=tkinter.W, padx=5, pady=5)
+
+    user_entry = ttk.Entry(window)
+    user_entry.grid(column=1, row=0, sticky=tkinter.E, padx=5, pady=5)
+
+    # Password
+    password_label = ttk.Label(window, text="Password:")
+    password_label.grid(column=0, row=1, sticky=tkinter.W, padx=5, pady=5)
+
+    password_entry = ttk.Entry(window, show="*")
+    password_entry.grid(column=1, row=1, sticky=tkinter.E, padx=5, pady=5)
+
+    # Botón Login
+    login_button = ttk.Button(window, text="Login")
+    login_button.grid(column=1, row=2, sticky=tkinter.E, padx=5, pady=5)
+
+    window.mainloop()
+    ```
+4. Ejemplo de uso de tkinter con geometría place:
+    ```py
+    import tkinter
+    import random
+
+    window = tkinter.Tk()
+
+    colors = ['blue', 'green', 'yellow', 'orange', 'purple', 'black']
+
+    for x in range(0, 10):
+        color = random.randint(0, len(colors)-1)
+        color2 = random.randint(0, len(colors)-1)
+        label = tkinter.Label(window, text="etiqueta!", bg=colors[color], fg=colors[color2])
+        label.place(x=random.randint(0, 100), y=random.randint(0, 100))
+
+    label1 = tkinter.Label(window, text="Posicionamiento absoluto", bg="blue", fg="white")
+    label1.place(x=10, y=50)
+
+    label2 = tkinter.Label(window, text="posicionamiento relativo", bg="red", fg="yellow")
+    label2.place(relx=0.1, rely=0.15, relwidth=0.5, anchor="ne")
+    # label2.place(x=25, y=30)
+
+    window.mainloop()
+    ```
+5. Ejemplo de uso de frame de ttk:
+    ```py
+    import sys
+    import tkinter
+    from tkinter import ttk
+
+    window = tkinter.Tk()
+
+    window.columnconfigure(0, weight=1)
+    window.columnconfigure(1, weight=3)
+
+    frame = ttk.Frame(window)
+    label = ttk.Label(frame, text="Label en un Frame")
+    label.grid(column=0, row=0, sticky=tkinter.W, padx=50, pady=50)
+    frame.grid(column=0, row=0, sticky=tkinter.W)
+    frame['relief'] ='sunken'
+
+    window.mainloop()
+
+    sys.exit(0)
+
+    # Usuario
+    user_label = ttk.Label(window, text="User:")
+    user_label.grid(column=0, row=0, sticky=tkinter.W, padx=5, pady=5)
+
+    user_entry = ttk.Entry(window)
+    user_entry.grid(column=1, row=0, sticky=tkinter.E, padx=5, pady=5)
+
+    # Password
+    password_label = ttk.Label(window, text="Password:")
+    password_label.grid(column=0, row=1, sticky=tkinter.W, padx=5, pady=5)
+
+    password_entry = ttk.Entry(window, show="*")
+    password_entry.grid(column=1, row=1, sticky=tkinter.E, padx=5, pady=5)
+
+    # Botón Login
+    login_button = ttk.Button(window, text="Login")
+    login_button.grid(column=1, row=2, sticky=tkinter.E, padx=5, pady=5)
+
+    window.mainloop()
+    ```
+6. Ejemplo de uso de listBox:
+    ```py
+    import tkinter
+
+    window = tkinter.Tk()
+
+    window.columnconfigure(0, weight=1)
+    window.columnconfigure(1, weight=3)
+
+    lista = ['Laravel', 'Vue.js', 'MongoDB', 'Reect.js', 'Node.js', 'Angular']
+    lista_items = tkinter.StringVar(value=lista)
+    listbox = tkinter.Listbox(window, height=10, listvariable=lista_items)
+    listbox.grid(column=0, row=0, sticky=tkinter.W)
+
+    window.mainloop()
+    ```
+7. Ejemplo de uso de radio button
+    ```py
+    import tkinter
+    from tkinter import ttk
+
+    window = tkinter.Tk()
+
+    window.columnconfigure(0, weight=1)
+    window.columnconfigure(1, weight=3)
+
+    selected = tkinter.StringVar()
+    r1 = ttk.Radiobutton(window, text="Radiobutton 1", value="1", variable=selected)
+    r2 = ttk.Radiobutton(window, text="Radiobutton 2", value="2", variable=selected)
+    r3 = ttk.Radiobutton(window, text="Radiobutton 3", value="3", variable=selected)
+
+    r1.grid(column=0, row=1, pady=5, padx=5)
+    r2.grid(column=0, row=2, pady=5, padx=5)
+    r3.grid(column=0, row=3, pady=5, padx=5)
+
+    window.mainloop()
+    ```
+8. Ejemplo de uso de check button
+    ```py
+    import tkinter
+    from tkinter import ttk
+
+    def funcion():
+        print("Clicado")
+
+    window = tkinter.Tk()
+
+    window.columnconfigure(0, weight=1)
+    window.columnconfigure(1, weight=3)
+
+    selected = tkinter.StringVar()
+
+    checkbox = ttk.Checkbutton(window, text="Check", variable=selected, command=funcion)
+
+    checkbox.grid(column=0, row=0, pady=5, padx=5)
+
+    window.mainloop()
+    ```
+9. Ejemplo de eventos
+    ```py
+    import tkinter
+    from tkinter import ttk
+
+    def click(event):
+        print("Ocurrió el evento click")
+
+    def dobleClick(event):
+        print("Ocurrió el evento doble click")
+
+    def salir(event):
+        print("Chao")
+        window.quit()
+
+
+    window = tkinter.Tk()
+
+    boton = tkinter.Button(window, text="Haz click")
+    boton.pack()
+    boton.bind('<Button-1>', click)
+    boton.bind('<Double-1>', dobleClick)
+
+    botonSalir = tkinter.Button(window, text="Salir")
+    botonSalir.pack()
+    botonSalir.bind('<Button-1>', salir)
+
+    window.mainloop()
+    ```
+10. Ejemplo de uso de cuadro de diálogo para abrir archivos:
+    ```py
+    import tkinter
+    from tkinter import filedialog
+
+    window = tkinter.Tk()
+    filename = filedialog.askopenfilename()
+    window.mainloop()
+    ```
+11. Ejemplo de uso de cuadro de diálogo para abrir archivos:
+    ```py
+    import tkinter
+    from tkinter import colorchooser
+
+    window = tkinter.Tk()
+    filename = colorchooser.askcolor(initialcolor='#ffffff')
+    window.mainloop()
     ```
 
-
-
-
-
 ### Ejercicio 1
-+ mmmm
++ En este ejercicio tenéis que crear una lista de RadioButton que muestre la opción que se ha seleccionado y que contenga un botón de reinicio para que deje todo como al principio.
+
+Al principio no tiene que haber una opción seleccionada.
 + **Resolción**:
     ```py
+    import tkinter
+    from tkinter import ttk
+
+    def OpcionSeleccionada():
+        opcion_label = ttk.Label(window, text=seleccion.get())
+        opcion_label.grid(column=0, row=0, sticky=tkinter.W, padx=5, pady=5)
+
+    def Reiniciar():
+        seleccion.set(None)
+        opcion_label = ttk.Label(window, text="Seleccione una opción")
+        opcion_label.grid(column=0, row=0, sticky=tkinter.W, padx=5, pady=5)
+
+    window = tkinter.Tk()
+
+    window.columnconfigure(0, weight=1)
+    window.columnconfigure(1, weight=4)
+
+    opcion_label = ttk.Label(window, text="Seleccione una opción")
+    opcion_label.grid(column=0, row=0, sticky=tkinter.W, padx=5, pady=5)
+
+    seleccion = tkinter.StringVar()
+    r1 = ttk.Radiobutton(window, text="Opción 1", value="Seleccionó la opción 1", variable=seleccion, command=OpcionSeleccionada)
+    r2 = ttk.Radiobutton(window, text="Opción 2", value="Seleccionó la opción 2", variable=seleccion, command=OpcionSeleccionada)
+    r3 = ttk.Radiobutton(window, text="Opción 3", value="Seleccionó la opción 3", variable=seleccion, command=OpcionSeleccionada)
+
+    r1.grid(column=0, row=1, pady=5, padx=5)
+    r2.grid(column=0, row=2, pady=5, padx=5)
+    r3.grid(column=0, row=3, pady=5, padx=5)
+
+    reset_button = ttk.Button(window, text="Reiniciar", command=Reiniciar)
+    reset_button.grid(column=1, row=4, sticky=tkinter.E, padx=5, pady=5)
+
+    window.mainloop()
     ```
 
 ### Ejercicio 2
-+ mmmm
++ En este segundo ejercicio, tendréis que crear una interfaz sencilla la cual debe de contener una lista de elementos seleccionables, también debe de tener un label con el texto que queráis.
 + **Resolción**:
     ```py
-    ```
+    import tkinter
+    from tkinter import ttk
 
+    window = tkinter.Tk()
+
+    window.columnconfigure(0, weight=1)
+    window.columnconfigure(1, weight=10)
+
+    lista = ['Laravel', 'Vue.js', 'MongoDB', 'Reect.js', 'Node.js', 'Angular', 'Python', 'JavaScript', 'MySQL']
+    lista_items = tkinter.StringVar(value=lista)
+    listbox = tkinter.Listbox(window, height=10, listvariable=lista_items)
+    listbox.grid(column=0, row=0, sticky=tkinter.W)
+
+    libre_label = ttk.Label(window, text="El texto que queráis")
+    libre_label.grid(column=1, row=0, sticky=tkinter.W, padx=5, pady=5)
+
+    window.mainloop()
+    ```
 
 
 ## Bases de datos
