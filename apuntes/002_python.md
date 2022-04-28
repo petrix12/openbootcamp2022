@@ -1519,21 +1519,91 @@ Al principio no tiene que haber una opción seleccionada.
 
 ## Bases de datos
 ### Vídeo sesión 11
++ Página SQLite: https://www.sqlite.org
+1. Crear una base de datos SQLite:
+    + $ sqlite3 bdatos.db
+2. Crear tabla demo:
+    + > CREATE TABLE demo(
+    + > int INT
+    + > nombre TEXT
+    + > );
 
-
-
-
+3. Crear tabla users:
+    + > CREATE TABLE users(
+    + > id INTEGER PRIMARY KEY,
+    + > username TEXT NOT NULL,
+    + > password TEXT NOT NULL);
+4. Ver tablas existentes:
+    + > .tables
+5. Insertar registros en la tabla users:
+    + > INSERT INTO users(id, username, password) VALUES (1, 'petrix', '12345678');
+    + > INSERT INTO users(id, username, password) VALUES (2, 'prueba1', '12345678');
+    + > INSERT INTO users(id, username, password) VALUES (3, 'prueba2', '12345678');
+6. Ver estructura de una tabla:
+    + > .schema users
+7. Ver todos los campos de una tabla:
+    + > SELECT * FROM users;
+8. Salir de SQLite:
+    + $ .quit
+9. Ejecutar:
+    + pip install pysqlite3
+10. Ejemplo de prueba de conexión con SQLite:
     ```py
-    ≡
-    ≡
+    import sqlite3
+    #from getpass import getpass
+    import getpass
+
+    def main():
+        crear_usuario(4, 'prueba3', '12345678')
+
+    def main2():
+        username = input("Usuario: ")
+        password = getpass.getpass("Contraseña: ")
+
+        if verifica_credenciales(username, password):
+            print("Longin correcto")
+        else:
+            print("Longin incorrecto")
+
+    def verifica_credenciales(username, password):
+        conn = sqlite3.connect('bdatos.db')
+        cursor = conn.cursor()
+
+        query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
+        print("Query a ejecutar:", query)
+        rows = cursor.execute(query)
+        data = rows.fetchone()
+        print("Data:", type(data))
+
+        cursor.close()
+        conn.close()
+
+        if data == None:
+            return False
+        return True
+
+    def crear_usuario(id, username, password):
+        conn = sqlite3.connect('bdatos.db', isolation_level=None)
+        cursor = conn.cursor()
+
+        # query = f"INSERT INTO users('id', 'username', 'password') VALUES ({id}, '{username}', '{password}')"
+        query = '''INSERT INTO users(id, username, password) VALUES (?, ?, ?)'''
+        print("Query a ejecutar:", query)
+        rows = cursor.execute(query, (id, username, password))
+        print("Data:", type(rows))
+
+        # conn.commit()
+        cursor.close()
+        conn.close()
+
+    if __name__ == '__main':
+        main()
     ```
 
-
-
-
-
 ### Ejercicio 1
-+ mmmm
++ En este ejercicio tendréis que crear una tabla llamada Alumnos que constará de tres columnas: la columna id de tipo entero, la columna nombre que será de tipo texto y la columna apellido que también será de tipo texto.
++ Una vez creada la tabla, tenéis que insertarle datos, como mínimo tenéis que insertar 8 alumnos a la tabla.
++ Por último, tienes que realizar una búsqueda de un alumno por nombre y mostrar los datos por consola.
 + **Resolción**:
     ```py
     ```
