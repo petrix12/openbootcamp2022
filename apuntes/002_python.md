@@ -1606,27 +1606,319 @@ Al principio no tiene que haber una opción seleccionada.
 + Por último, tienes que realizar una búsqueda de un alumno por nombre y mostrar los datos por consola.
 + **Resolción**:
     ```py
+    import sqlite3
+    import getpass
+    from datetime import datetime
+
+    def crearTabla():
+        # Mejora: agregar código que verifique si la tabla existe.
+        conn = sqlite3.connect('ejercicio1.db', isolation_level=None)
+        cursor = conn.cursor()
+
+        query = "CREATE TABLE alumnos(id INTEGER PRIMARY KEY, nombre TEXT NOT NULL, apellido TEXT NOT NULL)"
+        cursor.execute(query)
+
+        cursor.close()
+        conn.close()
+
+    def crearAlumnos(id, nombre, apellido):
+        # Mejora: agregar código que genere id unicos.
+        conn = sqlite3.connect('ejercicio1.db', isolation_level=None)
+        cursor = conn.cursor()
+
+        query = f"INSERT INTO alumnos(id, nombre, apellido) VALUES ({id}, '{nombre}', '{apellido}')"
+        cursor.execute(query)
+
+        cursor.close()
+        conn.close()
+
+    def buscarAlumno(nombre):
+        conn = sqlite3.connect('ejercicio1.db')
+        cursor = conn.cursor()
+
+        query = f"SELECT * FROM alumnos WHERE nombre='{nombre}'"
+        rows = cursor.execute(query)
+
+        for row in rows:
+            print(row)
+
+        cursor.close()
+        conn.close()
+
+    crearTabla()
+    for i in range(0, 9):
+        crearAlumnos(i, f'Nombre{i}', f'Apellido{i}')
+
+    nombre = input("Nombre: ")
+    buscarAlumno(nombre)
     ```
 
 
 ## Introducción a Django
 ### Vídeo sesión 12
-
-
-
-
-
++ Página de PostgreSQL: https://www.postgresql.org
+1. Instalar Django dentro de una carpeta llamada **django**:
+    + $ pip install django
+2. Crear proyecto Django:
+    + $ django-admin startproject miproyecto .
+3. Lenvatar servidor web del proyecto:
+    + $ python manage.py runserver
+4. Modificar configuración en **django\miproyecto\settings.py**:
     ```py
     ≡
+    DATABASES = {
+        # Para SQLite
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+
+        # Para MySQL
+        # 'default': {
+        #     'ENGINE': 'django.db.backends.mysql',
+        #     'NAME': 'libreria',
+        #     'USER': 'root',
+        #     'PASS': '',
+        #     'HOST': 'localhost',
+        #     'PORT': '3306'
+        # }
+
+        # Para PostgreSQL
+        #'default': {
+        #    'ENGINE': 'django.db.backends.postgresql',
+        #    'NAME': 'libreria',
+        #    'USER': 'petrix',
+        #    'PASS': '3355',
+        #    'HOST': 'localhost',
+        #    'PORT': '5432'
+        #}
+        # Crear base de datos en PostgreSQL mediante línea de comandos:
+        # $ createdb libreria
+        
+    }
     ≡
     ```
+5. Crear aplicación:
+    + $ python manage.py startapp catalog
+6. Conectar proyecto **miproyecto** con la apliación **catalog**:
+    1. Modificar nuevamente **django\miproyecto\settings.py**:
+        ```py
+        ≡
+        # Application definition
 
+        INSTALLED_APPS = [
+            ≡
+            'catalog.apps.CatalogConfig'
+        ]
+        ≡
+        ```
+    2. Modificar **django\miproyecto\urls.py**:
+        ```py
+        ≡
+        from django.contrib import admin
+        from django.urls import path
+        from django.urls import include
+        from django.conf.urls.static import static, settings
 
+        urlpatterns = [
+            path('admin/', admin.site.urls),
+            path('catalog/', include('catalog.urls'))
+        ] + static(settings.STATIC_URL, documents_root=settings.STATIC_ROOT)
+        ```
+    3. Crear **django\catalog\urls.py**:
+        ```py
+        # from django.conf.urls import url
+        from django.urls import include, path
+        from . import views
 
+        urlpatterns = [
+            # url(r'^$', views.index, name='index'),
+            path('', views.index, name='index'),
+        ]
+        ```
+7. Preparar base de datos (migraciones):
+    + $ python manage.py makemigrations
+    + $ python manage.py migrate
+8. Crear superusuario:
+    + $ python manage.py createsuperuser
+    + Username (leave blank to use 'bazop'): admin
+    + Email address: bazo.pedro@gmail.com (Se puede dejar en blanco)
+    + Password: admin
+    + Password (again): admin
+    + Bypass password validation and create user anyway? [y/N]: y
+9.  Acceder al panel de administración del proyecto:
+    + Ir a: http://127.0.0.1:8000/admin
+    + Username: admin
+    + Passwrod: admin
+10. Crear modelos asociados a **catalog** en **django\catalog\models.py**:
+    ```py
+    from django.db import models
+    from django.urls import reverse
+    import uuid
 
+    # Create your models here.
+
+    class Genre(models.Model):
+        name = models.CharField(max_length=64, help_text="Indica el género del libro")
+
+        def __str__(self):
+            return self.name
+
+    class Book(models.Model):
+        title = models.CharField(max_length=32, help_text="Indica el título del libro")
+        author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
+        summary = models.TextField(max_length=100, help_text="Indica sobre que trata el libro")
+        isbn = models.CharField('ISBN', max_length=13, help_text="Indica el ISBN de 13 caracteres")
+        gener = models.ManyToManyField(Genre)
+
+        def __str__(self):
+            return self.title
+
+        def get_absolute_url(self):
+            return reverse('book-detail', args=[str(self.id)])
+
+    class BookInstance(models.Model):
+        id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="ID único pare este libro")
+        book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True)
+        imprint = models.CharField(max_length=200)
+        due_back = models.DateField(null=True, blank=True)
+
+        LOAN_STATUS = (
+            ('m', 'Maintenance'),
+            ('o', 'On loan'),
+            ('a', 'Available'),
+            ('r', 'Reserved'),
+        )
+
+        status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='m', help_text='Disponibilidad del libro')
+
+        class Meta:
+            ordering = ["due_back"]
+
+        def __str__(self):
+            return '%s (%s)' % (self.id, self.book.title)
+
+    class Author(models.Model):
+        first_name = models.CharField(max_length=100)
+        last_name = models.CharField(max_length=100)
+        date_of_birth = models.DateField(null=True, blank=True)
+        date_of_death = models.DateField('Died', null=True, blank=True)
+
+        def get_absolute_url(self):
+            return reverse('author-detail', args=[str(self.id)])
+
+        def __str__(self):
+            return '%s (%s)' % (self.last_name, self.first_name)
+    ```
+11. Ejecutar cambios en la base de datos:
+    + $ python manage.py makemigrations     (etablece la migraciones)
+    + $ python manage.py migrate            (ejecuta las migraciones)
+12. Registrar modelos en **django\catalog\admin.py**:
+    ```py
+    from django.contrib import admin
+
+    from . models import Author, Genre, Book, BookInstance
+
+    # Registrar modelos en el panle de administración
+    admin.site.register(Author)
+    admin.site.register(Genre)
+    admin.site.register(Book)
+    admin.site.register(BookInstance)
+    ```
+13. Diseñar vista **django\catalog\views.py**:
+    ```py
+    from django.shortcuts import render
+    from . models import Author, Genre, Book, BookInstance
+
+    def index(request):
+        # num_books = Book.objects.all.count()
+        num_books = Book.objects.count()
+        # num_instances = BookInstance.objects.all.count()
+        num_instances = BookInstance.objects.count()
+        num_authors = Author.objects.all().count()
+
+        disponibles = BookInstance.objects.filter(status__exact='a').count()
+
+        return render(request, 'index.html', context={
+            'num_books': num_books,
+            'num_instances': num_instances,
+            'num_authors': num_authors,
+            'disponibles': disponibles,
+            'demo': 'Soluciones++'
+        })
+    ```
+14. Crear plantilla **django\catalog\templates\base_generic.html**:
+    ```html
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        {% block title %}<title>Local Library</title>{% endblock %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"> />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    {% block sidebar %}
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="">All books</a></li>
+                        <li><a href="">All authors</a></li>
+                    </ul>
+                    {% endblock %}
+                </div>
+                <div class="col-sm-10">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    ```
+15. Crear vista **django\catalog\templates\index.html**:
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        {% extends "base_generic.html" %}
+
+        {% block content %}
+
+        <h1>Local Library Home</h1>
+        <p>Welcome to LocalLibrary, .....</p>
+        <h2>Dynamic content</h2>
+        <p>The Library ..... counts: {{ demo }}</p>
+        <ul>
+            <li><strong>Books:</strong> {{ num_books }}</li>
+            <li><strong>Copies:</strong> {{ num_instances }}</li>
+            <li><strong>Copies available:</strong> {{ disponibles }}</li>
+            <li><strong>Authors:</strong> {{ num_authors }}</li>
+        </ul>
+
+        {% endblock %}
+    </body>
+    </html>
+    ```
+16. Crear archivo de estilos **django\catalog\static\css\styles.css**:
+    ```css
+    /* Aquí van los estilos */
+    ```
 
 ### Ejercicio 1
-+ mmmm
++ En este ejercicio tendrás que crear una aplicación en Django que almacene datos de directores de cine y luego se puedan ver sus películas, así como una descripción de las mismas.
+
+Tienes que personalizar el admin de la aplicación y a su vez crear las vistas de cada una de las partes de la aplicación.
 + **Resolción**:
-    ```py
-    ```
+    + proyectos\002\ejercicios12\proyecto
