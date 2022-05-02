@@ -70,38 +70,201 @@
     ```
 
 ### Entrega ejercicio 1
-+ aaaa
-+ **Resolción**:
-    ```html
-    ≡
-    ≡
-    ```
++ https://github.com/petrix12/openbootcamp2022/blob/main/proyectos/003/ejercicios1/ejercicio1.html
 
 ### Repositorio del curso
++ https://github.com/Open-Bootcamp/HTML-CSS
 
 
 ## Formularios y tablas
 ### Vídeo de la sesión 2
-
-
-
-
-
-
++ https://codepen.io/pen
++ https://stackblitz.com
+1. Ejemplo de documento html5 con formulario y tabla:
     ```html
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Pruebas 2</h1>
+
+        <h2>Pruebas con formulario</h2>
+        <form id="form1" action="recibeform.html" method="POST" style="border: 1px #000 solid; margin: 30px; padding: 30px; background-color: #f2f2f2">
+            <fieldset>
+                <legend>Aquí van tus datos de contacto:</legend>
+                <div>
+                    <input type="text" name="nombre" id="nombre" value="Petrix" placeholder="Nombre" required pattern="[A-Za-z0-9]+">
+                    <p></p>
+                    <input type="tel" name="telefono" id="telefono" placeholder="Teléfono">
+                    <p></p>
+                    <input type="password" name="password" id="password" placeholder="Password">
+                    <p></p>
+                    <input type="date" name="date" id="date" title="Fecha">
+                    <input type="time" name="time" id="time" title="Hora">
+                    <p></p>
+                    <input type="number" name="number" id="number" placeholder="Número" value="12" min="3" max="24">
+                    <p></p>
+                    <input type="range" name="range" id="range" placeholder="Rango" value="12" min="3" max="24">
+                    <p></p>
+                    <input type="radio" name="radio1" id="radio1" value="H"> Radio 1
+                    <input type="radio" name="radio2" id="radio2" value="M"> Radio 2
+                    <p></p>
+                    <input type="checkbox" name="checkbox1" id="checkbox1"> Checkbox 1
+                    <input type="checkbox" name="checkbox2" id="checkbox2"> Checkbox 2
+                    <input type="checkbox" name="checkbox3" id="checkbox3"> Checkbox 3
+                    <p></p>
+                    <select name="lista" id="lista" multiple>
+                        <optgroup label="Lista básica">
+                            <option value="1" label="Opción 1"></option>
+                        </optgroup>
+                        <optgroup label="Lista avanzada">
+                            <option value="2" label="Opción 2"></option>
+                            <option value="3" label="Opción 3"></option>
+                        </optgroup>
+                    </select>
+                    <p></p>
+                    <textarea name="textarea" id="textarea" cols="30" rows="10" spellcheck="true">Soluciones++</textarea>
+                    <input type="hidden" name="hidden" id="hidden">
+                </div>
+                <p></p>
+
+                <div>
+                    <input type="submit" value="Enviar formulario">
+                </div>
+            </fieldset>
+        </form>
+
+        <h2>Pruebas con tabla</h2>
+        <table class="default" border="1">
+            <caption>Título de la tabla</caption>
+
+            <thead>
+                <tr>
+                    <th scope="row">Fila</th>
+                    <th>Hoy</th>
+                    <th>Mañana</th>
+                    <th>Martes</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th>Condición</th>
+                    <td colspan="2">Soleado</td>
+                    <td>Mayormente soleado</td>
+                </tr>
+                <tr>
+                    <th>Temperatura</th>
+                    <td rowspan="2">19ºC</td>
+                    <td>17ºC</td>
+                    <td>12ºC</td>
+                </tr>
+                <tr>
+                    <th>Vientos</th>
+                    <td>E 11 Km/h</td>
+                    <td>S 16 Km/h</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="3">Pie 1</td>
+                    <td>Pie 2</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+    </html>
     ```
-
-
 
 ### Ejercicio sesión 2
-+ aaaa
++ Crea un formulario en el que haya que introducir los siguientes datos:
+    + Nombre
+    + Apellido
+    + e-mail
+    + teléfono
+    + dirección.
++ Como segunda parte del ejercicio deberás crear una tabla, esta tabla tendrá 4 columnas y 4 filas, en esta tabla deberás hacer que:
+    + Una de las celdas ocupe dos columnas.
+    + Una de las celdas ocupe dos filas.
 + **Resolción**:
     ```html
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formularios y tablas</title>
+    </head>
+    <body>
+        <h1>Ejercicio sesion 2</h1>
+
+        <h2>Parte I: formulario</h2>
+        <form id="form1" action="recibeform.html" method="POST" style="border: 1px #000 solid; margin: 30px; padding: 30px; background-color: #f2f2f2">
+            <fieldset>
+                <legend>Datos de contacto:</legend>
+                <div>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    <p></p>
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+                    <p></p>
+                    <input type="email" name="email" id="email" placeholder="e-mail">
+                    <p></p>
+                    <input type="tel" name="telefono" id="telefono" placeholder="Teléfono">
+                    <p></p>
+                    Dirección: <br>
+                    <textarea name="dirección" id="dirección" cols="30" rows="10" spellcheck="true"></textarea>
+                </div>
+                <p></p>
+
+                <div>
+                    <input type="submit" value="Enviar formulario">
+                </div>
+            </fieldset>
+        </form>
+
+        <h2>Parte II: tabla</h2>
+        <table class="default" border="1">
+            <caption>Tabla de cuatro columnas y cuatro filas</caption>
+
+            <thead>
+                <tr>
+                    <th>Encabezado 1</th>
+                    <th>Encabezado 2</th>
+                    <th>Encabezado 3</th>
+                    <th>Encabezado 4</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td colspan="2">A y B</td>
+                    <td>C</td>
+                    <td>D</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">E e I</td>
+                    <td>F</td>
+                    <td>G</td>
+                    <td>H</td>
+                </tr>
+                <tr>
+                    <td>J</td>
+                    <td>K</td>
+                    <td>L</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+    </html>
     ```
+    
 ### Entrega ejercicio 2
 + aaaa
 + **Resolción**:
@@ -113,6 +276,17 @@
 
 ## Multimedia
 ### Vídeo de la sesión 3
+
+
+
+
+    ```html
+    ≡
+    ≡
+    ```
+
+
+
 ### Dudas sesiones 1, 2 y 3
 ### Ejercicio sesión 3
 ### Entrega ejercicio 3

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios y tablas</title>
+</head>
+<body>
+    <h1>Ejercicio sesion 2</h1>
+
+    <h2>Parte I: formulario</h2>
+    <form id="form1" action="recibeform.html" method="POST" style="border: 1px #000 solid; margin: 30px; padding: 30px; background-color: #f2f2f2">
+        <fieldset>
+            <legend>Datos de contacto:</legend>
+            <div>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                <p></p>
+                <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+                <p></p>
+                <input type="email" name="email" id="email" placeholder="e-mail">
+                <p></p>
+                <input type="tel" name="telefono" id="telefono" placeholder="Teléfono">
+                <p></p>
+                Dirección: <br>
+                <textarea name="dirección" id="dirección" cols="30" rows="10" spellcheck="true"></textarea>
+            </div>
+            <p></p>
+
+            <div>
+                <input type="submit" value="Enviar formulario">
+            </div>
+        </fieldset>
+    </form>
+
+    <h2>Parte II: tabla</h2>
+    <table class="default" border="1">
+        <caption>Tabla de cuatro columnas y cuatro filas</caption>
+
+        <thead>
+            <tr>
+                <th>Encabezado 1</th>
+                <th>Encabezado 2</th>
+                <th>Encabezado 3</th>
+                <th>Encabezado 4</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td colspan="2">A y B</td>
+                <td>C</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td rowspan="2">E e I</td>
+                <td>F</td>
+                <td>G</td>
+                <td>H</td>
+            </tr>
+            <tr>
+                <td>J</td>
+                <td>K</td>
+                <td>L</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
