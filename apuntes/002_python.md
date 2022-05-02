@@ -165,7 +165,7 @@
     + conjunto = { 1, 2, 3 }
 + Ejemplo de métodos en string:
     ```
-    >>> texto = "Hola, est es un texto"
+    >>> texto = "Hola, esto es un texto"
     >>> texto.capitalize()
     'Hola, est es un texto'
     >>> texto = "hola, esto es un texto"
