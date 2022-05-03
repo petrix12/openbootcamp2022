@@ -264,86 +264,251 @@
     </body>
     </html>
     ```
-    
+
 ### Entrega ejercicio 2
-+ aaaa
++ Repositorio GitHub del ejercicio: https://github.com/petrix12/openbootcamp2022/blob/main/proyectos/003/ejercicios2/ejercicio1.html
+
+
+## Multimedia
+### Vídeo de la sesión 3
++ https://fonts.google.com/icons
+1. Ejemplo documento html con imagen:
+    ```html
+    ≡
+    <body>
+        <h2>Picture</h2>
+        <picture>
+            <img src="binary-4791836_640.jpg" alt="Es una imagen de un perrito" width="400" height="453" />
+        </picture>
+
+        <h2>Imágenes responsive</h2>
+        <picture>
+            <source media="(min-width: 300px) and (max-width: 600px)" srcset="dog-gc4b1be3a9_1920.webp" />
+            <img src="dog-gc4b1be3a9_1920.jpg" alt="HTML5 logo" />
+        </picture>
+    </body>
+    ≡
+    ```
+2. Ejemplo documento html con video:
+    ```html
+    ≡
+    <body>
+        <video autoplay muted src="elephants-dream.webm" poster="dog-gc4b1be3a9_1920.webp" controls></video>
+        <video src="Matrix - 47802.mp4" autoplay muted loop controls></video>
+
+        <video width="640" height="480">
+            <source src="Matrix - 47802.mp4" type="video/mp4" />
+            <source src="elephants-dream.webm" type="video/webm" />
+            <source src="video.ogv" type="video/ogg" />
+            <img src="imagen.png" alt="Video no soportado" />
+            Su navegador no soporta contenido multimedia.
+        </video>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/DUjCfXPs2gw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </body>
+    ≡
+    ```
+3. Ejemplo de documento html con audio:
+    ```html
+    ≡
+    <body>
+        <!-- 
+            src	            Dirección URL	Audio a reproducir. Obligatoria si actua como etiqueta contenedora.
+            preload	        auto | metadata | none	Indica como realizar la precarga del audio.
+            mediagroup	    nombre	Establece un nombre para un grupo de contenidos multimedia.
+            autoplay		Comienza a reproducir el audio automáticamente.
+            loop		    Vuelve a iniciar el audio cuando finaliza su reproducción (bucle).
+            muted		    Establece el audio sin sonido (silenciado).
+            controls		Muestra los controles de reproducción. Por defecto no se muestran.
+        -->
+        <h1>Audio</h1>
+        <audio src="cinematic-fairy-tale-story-main-8697.mp3" autoplay loop controls preload="none"></audio>
+
+            <!-- 
+            Formato	Codec utilizado	Características	¿Recomendado?
+            MP3	MPEG Layer-3	Buena calidad.	Sí, buen soporte
+            AAC	Advanced Audio Coding	Mejora el MP3. Usado como audio en MP4.	Sí, buen soporte
+            OGG	Ogg Vorbis	Buena calidad. Alternativa libre a MP3.	Sí, soporte medio
+            Opus	Opus	Buena calidad. Alternativa libre a MP3.	Sí, soporte medio
+            FLAC	FLAC Audio Lossless	Compresión sin pérdidas. Alto tamaño.	Sí, buen soporte.
+            WAV	Wave sound	Formato de Microsoft. Está soportado.	No, muy pesado
+        -->
+
+        <audio>
+            <source src="audio.opus" />
+            <source src="audio.ogg" />
+            <source src="audio.mp3" />
+        </audio>
+    </body>
+    ≡
+    ```
+
+### Dudas sesiones 1, 2 y 3
++ **Descripción**: Dudas planteadas por los alumnos de las sesiones 1, 2 y 3 respondidas por el profesor.
+
+### Ejercicio sesión 3
++ Para este ejercicio deberéis introducir una imagen y darle además de un texto alternativo.
++ Aparte, añadiréis un audio y un vídeo a vuestra elección, deben tener algunos de los atributos vistos en las sesiones u otros que os parezcan interesantes.
++ **Resolción**:
+    ```html
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercico de la sesión 3</title>
+    </head>
+    <body>
+        <h2>Imagen</h2>
+        <picture>
+            <img src="hamburguesa.jpg" alt="Es una imagen de una hamburguesa" width="600" height="400" />
+        </picture>
+
+        <h2>Audio</h2>
+        <audio src="audio.mp3" autoplay loop controls preload="none" title="mi audio"></audio>
+
+        <h2>Video</h2>
+        <iframe width="853" height="480" src="https://www.youtube.com/embed/lWFl-rM9R9M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </body>
+    </html>
+    ```
+
+### Entrega ejercicio 3
++ **Repositorio GiHub**: 
+
+
+## Introducción al CSS
+### Vídeo de la sesión 4
+
+
+
+
+
+    ```html
+    ≡
+    ≡
+    ```
+
+
+
+### Ejercicios sesión 4
++ mmmm
 + **Resolción**:
     ```html
     ≡
     ≡
     ```
-
-
-## Multimedia
-### Vídeo de la sesión 3
-
-
-
-
-    ```html
-    ≡
-    ≡
-    ```
-
-
-
-### Dudas sesiones 1, 2 y 3
-### Ejercicio sesión 3
-### Entrega ejercicio 3
-
-
-## Introducción al CSS
-### Vídeo de la sesión 4
-### Ejercicios sesión 4
 ### Entrega ejercicio 4
 
 
 ## Disposición de elementos y para multimedia
 ### Vídeo de la sesión 5
 ### Ejercicio sesión 5
++ mmm
++ **Resolción**:
+    ```html
+    ≡
+    ≡
+    ```
+
 ### Entrega ejercicio 5
++ **Repositorio GiHub**: 
 
 
 ## Anidación de selectores
 ### Vídeo de la sesión 6
 ### Ejercicio sesión 6
++ mmm
++ **Resolción**:
+    ```html
+    ≡
+    ≡
+    ```
+
 ### Entrega ejercicio 6
++ **Repositorio GiHub**: 
 
 
 ## Creación de estilos para formularios
 ### Vídeo de la sesión 7
 ### Ejercicio sesión 7
++ mmm
++ **Resolción**:
+    ```html
+    ≡
+    ≡
+    ```
+
 ### Entrega ejercicio 7
++ **Repositorio GiHub**: 
 
 
 ## Bootstrap
 ### Vídeo de la sesión 8
 ### Ejercicio sesión 8
++ mmm
++ **Resolción**:
+    ```html
+    ≡
+    ≡
+    ```
+
 ### Entrega ejercicio 8
++ **Repositorio GiHub**: 
 
 
 ## Animaciones y transiciones
 ### Vídeo de la sesión 9
 ### Ejercicio sesión 9
++ mmm
++ **Resolción**:
+    ```html
+    ≡
+    ≡
+    ```
 ### Entrega ejercicio 9
 
 
 ## Introducción al diseño responsive
 ### Vídeo de la sesión 10
 ### Ejercicio sesión 10
++ mmm
++ **Resolción**:
+    ```html
+    ≡
+    ≡
+    ```
+
 ### Entrega ejercicio 10
 
 
 ## El sistema grid de Bootstrap
 ### Vídeo de la sesión 11
 ### Ejercicios sesión 11
++ mmm
++ **Resolción**:
+    ```html
+    ≡
+    ≡
+    ```
+
 ### Entrega ejercicio 11
++ **Repositorio GiHub**: 
 
 
 ## Otros aspectos de interés de Boostrap
 ### Vídeo de la sesión 12
 ### Ejercicios sesión 12
++ mmm
++ **Resolción**:
+    ```html
+    ≡
+    ≡
+    ```
+
 ### Entrega ejercicios 12
++ **Repositorio GiHub**: 
 
 
 ## Usando pre-procesadores CSS
