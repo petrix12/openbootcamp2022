@@ -380,30 +380,187 @@
 
 ## Introducción al CSS
 ### Vídeo de la sesión 4
-
-
-
-
-
+1. Ejemplo de documento html enlazado con una hoja de estilo:
+    + Documento html5:
     ```html
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="css/estilos.css" type="text/css" rel="stylesheet" >
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap" rel="stylesheet">
+        <style>
+            h1 {
+                color: greenyellow;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Encabezado</h1>
+        <h2 atributo="hola">Segundo Encabezado</h2>
+
+        <div class="div1"><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, suscipit provident maiores id dolor ut exercitationem quaerat molestiae soluta, nam placeat commodi accusantium inventore amet architecto earum sunt vero eius!</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, suscipit provident maiores id dolor ut exercitationem quaerat molestiae soluta, nam placeat commodi accusantium inventore amet architecto earum sunt vero eius!</p>
+        </div>
+
+        <div class="div2">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, suscipit provident maiores id dolor ut exercitationem quaerat molestiae soluta, nam placeat commodi accusantium inventore amet architecto earum sunt vero eius!</p>
+        </div>
+
+        <input type="text">
+
+        <div class="rosa">
+            <p>Hola!</p>
+        </div>
+        
+        <div id="midiv" class="verde">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores voluptate nemo necessitatibus voluptatem expedita et reiciendis dolor quos hic, ullam tenetur provident, corrupti exercitationem eius iusto? Dolore error dolorum iure!</p>
+        </div>
+
+        <div id="midiv2" class="midiv2">
+            <p class="verde">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores voluptate nemo necessitatibus voluptatem expedita et reiciendis dolor quos hic, ullam tenetur provident, corrupti exercitationem eius iusto? Dolore error dolorum iure!</p>
+        </div>
+    </body>
+    </html>
     ```
+    + Hoja de estilo:
+    ```css
+    /* estilo universal*/
+    * {color: brown;}
 
+    /*selector de elemento*/
+    body {
+        font-family: 'Oswald', sans-serif;
+        font-size: 16px;
+        list-style: 20px;
+        font-weight:500;
+    }
 
+    /*
+    p {
+        background-color: rgb(36, 14, 114);
+        padding: 10px;
+    }
+    div {
+        color: white;
+        padding: 20px;
+        background-color: chocolate;
+        margin-bottom: 20px;
+    }
+    */
+
+    /* selectores por id*/
+    #midiv p {
+        color:gray;
+        font-style: italic;
+    }
+
+    /* selectores de clase*/
+    .verde {
+        color: green;
+    }
+
+    /* Agrupamiento de selectores */
+    h2, h1, p {
+        color: #741a297c;
+    }
+
+    /* Selector por atributo */
+    [atributo="hola"] {
+        color: #1616cf;    
+    }
+
+    input[type="text"] {
+        border: 3px solid #000;
+    }
+
+    /* selección descendiente */
+    .div1 p {
+        color: crimson;
+        background-color: darkkhaki;
+        padding: 20px;
+        margin: 30px;
+        border: 2px dotted #000;
+    }
+
+    /* pseudoclases */
+    div p:hover {
+        color:blue;
+        background-color: cornflowerblue;
+        cursor: pointer;
+    }
+
+    /*
+        selector {
+            propiedad:valor;
+        }
+        selector {
+            propiedad:valor;
+        }
+    */
+    ```
 
 ### Ejercicios sesión 4
-+ mmmm
++ Para comenzar a trabajar con CSS, crearéis un documento HTML y otro CSS, en el primero habrá:
+    + Un párrafo.
+    + Otro párrafo con una class miparrafo.
++ Con CSS deberás hacer que:
+    + De manera universal se aplique un color a vuestra elección para el texto.
+    + Los elementos que tengan la class miparrafo deberán presentar su texto en cursiva.
 + **Resolción**:
+    + Documento html5:
     ```html
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Introducción al CSS</title>
+        <link href="estilos.css" type="text/css" rel="stylesheet" >
+    </head>
+    <body>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga minima quod debitis optio soluta recusandae inventore voluptate consequuntur ullam, ipsum quis similique error id temporibus voluptatum, quas sunt. Voluptas, dolorem!
+        </p>
+
+        <p class="miparrafo">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam alias minima quam rerum sit non asperiores ab sapiente soluta vero, perferendis excepturi ipsam adipisci in veritatis officia saepe velit? Quia.
+        </p>
+    </body>
+    </html>
     ```
+    + Hoja de estilo:
+    ```css
+    * {
+        color: purple;
+    }
+
+    .miparrafo {
+        font-style: italic;
+    }
+    ```
+
 ### Entrega ejercicio 4
++ **Repositorio GiHub**: 
 
 
 ## Disposición de elementos y para multimedia
 ### Vídeo de la sesión 5
+
+
+
+
+    ```html
+    ≡
+    ≡
+    ```
+
+
+
 ### Ejercicio sesión 5
 + mmm
 + **Resolción**:
