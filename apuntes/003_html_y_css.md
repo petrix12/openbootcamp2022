@@ -513,35 +513,35 @@
     + Los elementos que tengan la class miparrafo deberán presentar su texto en cursiva.
 + **Resolción**:
     + Documento html5:
-    ```html
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Introducción al CSS</title>
-        <link href="estilos.css" type="text/css" rel="stylesheet" >
-    </head>
-    <body>
-        <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga minima quod debitis optio soluta recusandae inventore voluptate consequuntur ullam, ipsum quis similique error id temporibus voluptatum, quas sunt. Voluptas, dolorem!
-        </p>
+        ```html
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Introducción al CSS</title>
+            <link href="estilos.css" type="text/css" rel="stylesheet" >
+        </head>
+        <body>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga minima quod debitis optio soluta recusandae inventore voluptate consequuntur ullam, ipsum quis similique error id temporibus voluptatum, quas sunt. Voluptas, dolorem!
+            </p>
 
-        <p class="miparrafo">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam alias minima quam rerum sit non asperiores ab sapiente soluta vero, perferendis excepturi ipsam adipisci in veritatis officia saepe velit? Quia.
-        </p>
-    </body>
-    </html>
-    ```
+            <p class="miparrafo">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam alias minima quam rerum sit non asperiores ab sapiente soluta vero, perferendis excepturi ipsam adipisci in veritatis officia saepe velit? Quia.
+            </p>
+        </body>
+        </html>
+        ```
     + Hoja de estilo:
-    ```css
-    * {
-        color: purple;
-    }
+        ```css
+        * {
+            color: purple;
+        }
 
-    .miparrafo {
-        font-style: italic;
-    }
+        .miparrafo {
+            font-style: italic;
+        }
     ```
 
 ### Entrega ejercicio 4
@@ -550,23 +550,76 @@
 
 ## Disposición de elementos y para multimedia
 ### Vídeo de la sesión 5
-
-
-
-
-    ```html
-    ≡
-    ≡
-    ```
-
-
+1. Ver ejemplos de código html y css en: proyectos\003\ejercicios5\sesion5
 
 ### Ejercicio sesión 5
-+ mmm
++ Deberéis crear una galería de imágenes, esta galería estará en un contenedor con el borde sólido, en la galería podrás seleccionar la imagen que quieras visualizar entre cuatro, para seleccionar qué imagen ver se hará mediante un input de type radio.
 + **Resolción**:
-    ```html
-    ≡
-    ≡
+    + Documento html5:
+        ```html
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Sesión 5: Dispositivos de elementos y para multimedia</title>
+            <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+        </head>
+        <body>
+            <div class="galeria">
+                <input type="radio" name="galeria">
+                <input type="radio" name="galeria">
+                <input type="radio" name="galeria">
+                <input type="radio" name="galeria">
+
+                <img src="img/img1.jpg" alt="Imagen 1" width="314" height="209">
+                <img src="img/img2.jpg" alt="Imagen 2" width="314" height="209">
+                <img src="img/img3.jpg" alt="Imagen 3" width="314" height="209">
+                <img src="img/img4.jpg" alt="Imagen 4" width="314" height="209">
+            </div>
+        </body>
+        </html>
+        ```
+    + Hoja de estilo:
+        ```css
+        .galeria {
+            width: 314px;
+            height: 209px;
+            margin:1em auto;
+            border: 1px solid blue;
+            position: relative;
+        }
+
+        .galeria img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity .9s;
+        }
+
+        .galeria input[type=radio] {
+            position: relative;
+            top: 220px;
+            margin-left: 50px;
+        }
+
+        .galeria input[type=radio]:nth-of-type(1):checked ~ img:nth-of-type(1) {
+            opacity: 1;
+        }
+
+        .galeria input[type=radio]:nth-of-type(2):checked ~ img:nth-of-type(2) {
+            opacity: 1;
+        }
+
+        .galeria input[type=radio]:nth-of-type(3):checked ~ img:nth-of-type(3) {
+            opacity: 1;
+        }
+
+        .galeria input[type=radio]:nth-of-type(4):checked ~ img:nth-of-type(4) {
+            opacity: 1;
+        }
     ```
 
 ### Entrega ejercicio 5
@@ -575,6 +628,16 @@
 
 ## Anidación de selectores
 ### Vídeo de la sesión 6
+
+
+
+    ```html
+    ≡
+    ≡
+    ```
+
+
+
 ### Ejercicio sesión 6
 + mmm
 + **Resolción**:
