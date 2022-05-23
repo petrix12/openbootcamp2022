@@ -1,9 +1,12 @@
-# Python
+# HTML y CSS
++ **Instructor**: Gorka Villar
 + [Resolución de ejercios](https://github.com/Open-Bootcamp/ResolucionEjercicios/tree/main/HTML%20y%20CSS)
++ [Repositorio del curso](https://github.com/Open-Bootcamp/HTML-CSS)
 
 
 ## Introducción a HTML, etiquetas y atributos
-### Vídeo de la sesión 1
+### Vídeo de la sesión 1 (Introducción a HTML)
++ **Test HTML5 para el navegador**: https://html5test.com
 + **Contenido**: sobre etiquetas, atributos y un poco de historia.
 1. Validador html5: https://validator.w3.org
 2. Editor html5: https://html5-editor.net
@@ -29,6 +32,38 @@
     </body>
     </html>
     ```
+
+### IDE y extensiones
+1. Extensiones VSC recomendadas:
+    + open in browser
+        + TechER
+    + HTML End Tag Labels
+        + Ante Primorac
+    + Auto Rename Tag
+        + Jun Han
+    + indent-rainbow
+        + oderwat
+    + Live Server
+        + Ritwick Dey
+    + Prettier - Code formatter
+        + Prettier
+
+### Mi primera páginga web
++ **Contenido**: codificación de una página web simple.
+
+### Etiquetas más utilizadas
++ **Contenido**: sobre las etiquetas más utilizadas:
+    + div
+    + h1, h2, h3
+    + p
+    + span
+    + a (href)
+    + ol, li
+    + ul, li
+    + img (src, alt)
+
+### Repositorio del curso
++ https://github.com/Open-Bootcamp/HTML-CSS
 
 ### Ejercicio sesión 1
 + Genera un documento HTML en el que haya dos niveles de encabezados.
@@ -65,6 +100,38 @@
                 <li>Elemento C</li>
             </ul>
         </div>
+    </body>
+    </html>
+    ```
+
+### Ejercicio 
++ Crea un nuevo documento HTML e implementa lo siguiente:
+    + Utiliza la etiqueta de título para poner en el título "Ejercicio de Introducción a HTML en OpenBootcamp"
+    + Dentro de la etiqueta body pon un comentario de dos líneas
+        + Este es mi primer comentario de dos líneas
+        + Aprendiendo a documentar mi código con OpenBootcamp
+    + Crea una lista desordenada de tus tres vídeos de Youtube favoritos, siguiendo las siguientes pautas:
+        + Cada elemento de la lista tiene que ser un enlace
+        + El texto del enlace debe ser el título del vídeo
++ **Resolción**:
+    ```html
+    <!DOCTYPE html>
+    <head>
+        <title>Ejercicio HTML</title>
+    </head>
+    <body>
+        <h1>Ejercicio de Introducción a HTML en OpenBootcamp</h1>
+
+        <!-- 
+            + Este es mi primer comentario de dos líneas
+            + Aprendiendo a documentar mi código con OpenBootcamp 
+        -->
+
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=ggeQyeyy1Ec">Papillón 3</a></li>
+            <li><a href="https://www.youtube.com/watch?v=fetKK8Lr1Pc">Módulo FID en FileMaker</a></li>
+            <li><a href="https://www.youtube.com/watch?v=lWFl-rM9R9M">Uso de la App Árbol Genealógico</a></li>
+        </ul>
     </body>
     </html>
     ```
