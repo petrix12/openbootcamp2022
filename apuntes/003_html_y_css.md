@@ -335,6 +335,104 @@
 ### Entrega ejercicio 2
 + Repositorio GitHub del ejercicio: https://github.com/petrix12/openbootcamp2022/blob/main/proyectos/003/ejercicios2/ejercicio1.html
 
+### Etiquetas para formularios
+1. Código de ejemplos: proyectos\003\formularios
+
+### Botones
+1. Código de ejemplos: proyectos\003\botones
+
+### Tablas en HTML
+1. Código de ejemplos: proyectos\003\tablas
+
+### Ejercicio 1
++ Crea un nuevo documento HTML que cumpla los siguientes parámetros:
+    + El título debe ser "Ejercicio 02 - Formularios en HTML"
+    + El body debe contener un formulario que cumpla las siguientes características:
+        + El atributo action será "/"
+        + Debe contener los siguientes campos:
+            + Un campo de texto llamado "nombre"
+            + Un campo numérico llamado "edad"
+            + Un campo de área de texto llamado "frase-favorita"
+            + Un botón de envío
+            + Un botón de reset
++ **Resolción**:
+    ```html
+    <!DOCTYPE html>
+    <head>
+        <title>Ejercicio 02 - Formularios en HTML</title>
+    </head>
+    <body>
+        <h1>Ejercicio 02 - Formularios en HTML</h1>
+        <form action="/">
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre">
+            </div>
+            <br>
+
+            <div>
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" name="edad" min="0" max="150">
+            </div>
+            <br>
+
+            <div>
+                <label for="frase-favorita">Frase favorita</label>
+                <textarea name="frase-favorita" id="frase-favorita"></textarea>
+            </div>
+            <br>
+            
+            <button type="submit">Enviar</button>
+            <button type="reset">Reset</button>
+        </form>
+    </body>
+    </html>
+    ```
+
+## Ejercicio 2
++ Crea un nuevo documento HTML que cumpla los siguientes parámetros:
+    + El título debe ser "Ejercicio 02/2 - Tablas en HTML"
+    + El body debe contener una tabla que cumpla las siguientes características
+        + Las columnas serán las siguientes: "Título", "Autor", "Año de publicación", "Enlace a Amazon"
+        + Debe tener tres entradas, que corresponderán a tus tres libros favoritos
++ **Resolción**:
+    ```html
+    <!DOCTYPE html>
+    <head>
+        <title>Ejercicio 02/2 - Tablas en HTML</title>
+    </head>
+    <body>
+        <h1>Ejercicio 02/2 - Tablas en HTML</h1>
+        <table>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Año de publicación</th>
+                <th>Enlace a Amazon</th>
+            </tr>
+            <tr>
+                <td>Los 7 hábitos de la gente altamente efectiva</td>
+                <td>Stephen Covey</td>
+                <td>1989</td>
+                <td><a href="https://www.amazon.com/-/es/Stephen-R-Covey-ebook/dp/B00T9HU5KK/ref=sr_1_2?crid=12XSS6QZHJ9CU&keywords=los+7+habitos+de+la+gente+altamente+efectiva&qid=1653357491&sprefix=los+7+%2Caps%2C1552&sr=8-2">Ir al libro</a></td>
+            </tr>
+            <tr>
+                <td>Para Salvarte</td>
+                <td>Jorge Loring</td>
+                <td>1977</td>
+                <td><a href="https://www.amazon.com/-/es/Jorge-Loring-Miro/dp/8485662962/ref=sr_1_1?crid=162EWIHGJORWE&keywords=jorge+loring+para+salvarte&qid=1653357690&sprefix=para+salvarte%2Caps%2C186&sr=8-1">Ir al libro</a></td>
+            </tr>
+            <tr>
+                <td>Cómo ganar amigos e influir sobre las personas</td>
+                <td>Dale Carnegie</td>
+                <td>1936</td>
+                <td><a href="https://www.amazon.com/-/es/Dale-Carnegie/dp/164473009X/ref=sr_1_1?crid=3BTEVAZ6NDJVW&keywords=como+ganar+amigos+e+influir+sobre+las+personas&qid=1653357786&sprefix=como+g%2Caps%2C245&sr=8-1">Ir al libro</a></td>
+            </tr>
+        </table>
+    </body>
+    </html>
+    ```
+
 
 ## Multimedia
 ### Vídeo de la sesión 3
