@@ -542,6 +542,60 @@
 ### Entrega ejercicio 3
 + **Repositorio GiHub**: 
 
+### Imágenes
+1. Código de ejemplos: proyectos\003\03multimedia
+
+### Videos y audio
+1. Código de ejemplos: proyectos\003\03multimedia
+
+### Ejercicio 1
++ Crea un nuevo documento HTML que cumpla los siguientes parámetros:
+    + Debe estar dividido en tres secciones (etiqueta).
+    + Condiciones para la primera sección:
+        + Debe tener un título (h1) indicando "Aprendiendo a utilizar imágenes".
+        + Debes incluir una imagen de tu videojuego favorito.
+    + Condiciones para la segunda sección:
+        + Debe tener un título (h1) indicando "Aprendiendo a utilizar los vídeos".
+        + Descárgate cualquier vídeo de youtube.
+        + Debes incluir una etiqueta de vídeo que reproduzca el vídeo que acabas de descargar.
+        + El vídeo debe mostrar los controles, reproducirse automáticamente y en bucle, PERO inicialmente debe estar sin sonido.
+    + Condiciones para la tercera sección:
+        + Debe tener un título (h1) indicando "Aprendiendo a utilizar los audios".
+        + Descárgate cualquier audio de una canción de youtube.
+        + Debes incluir una etiqueta de audio que reproduzca el audio que acabas de descargar.
+        + El audio debe mostrar los controles, reproducirse automáticamente y en bucle.
++ **Resolción**:
+    ```html
+    <!DOCTYPE html>
+    <head>
+        <title>Multimedia</title>
+    </head>
+    <body>
+        <!-- sección I -->
+        <div>
+            <h1>Aprendiendo a utilizar imágenes</h1>
+            <img src="videojuego.webp" alt="Imagen de mi video juego favorito" width="300" height="200">
+        </div>
+
+        <!-- sección II -->
+        <div>
+            <h1>Aprendiendo a utilizar los vídeos</h1>
+            <video width="300" height="300" controls autoplay muted loop>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- sección III -->
+        <div>
+            <h1>Aprendiendo a utilizar los audios</h1>
+            <audio controls autoplay muted loop>
+                <source src="audio.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </body>
+    </html>
+    ```
+
 
 ## Introducción al CSS
 ### Vídeo de la sesión 4
