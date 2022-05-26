@@ -1,0 +1,33 @@
+h1 {
+    color: blue;
+}
+
+/* Esto es un comentario */
+p {
+    color: purple;
+    font-size: 16pt;
+}
+
+#parrafo1 {
+    color: green;
+    font-size: 12pt;
+}
+
+#parrafo2 {
+    color: darkmagenta;
+    font-size: 14pt;
+}
+
+.encabezado {
+    font-size: 24pt;
+    text-transform: uppercase;
+}
+
+/* Selector universal */
+* {
+    color: grey;
+}
+
+.autor, .fecha, .lugar, h2 {
+    text-decoration: underline;
+}

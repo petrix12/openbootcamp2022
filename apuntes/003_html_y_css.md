@@ -766,6 +766,86 @@
 ### Entrega ejercicio 4
 + **Repositorio GiHub**: 
 
+### Introduccion a las hojas de estilo
+1. Código de ejemplos: proyectos\003\04introcss
+
+### Selectores en CSS
+1. Código de ejemplos: proyectos\003\04introcss
+
+### Las tres formas de insertar estilos
+1. Código de ejemplos: proyectos\003\04introcss
+
+### Colores
+1. Código de ejemplos: proyectos\003\04introcss
+
+### Fondos de colores e imágenes
+1. Código de ejemplos: proyectos\003\04introcss
+
+### Estilos de altura anchura padding y margin
+1. Código de ejemplos: proyectos\003\04introcss
+
+### Fuentes en CSS
+1. Código de ejemplos: proyectos\003\04introcss
+
+### Ejercicio
++ Crea un nuevo documento HTML con el título "Ganando precisión con los selectores en CSS".
+    + Crea un nuevo fichero CSS e impórtalo en el documento HTML principal
+    + Dentro del body crea una sección con los siguientes elementos:
+        + Encabezado que contenga el texto "Lista de la compra".
+        + Añade en el encabezado un atributo id con el valor "titulo".
+        + Añade también un atributo class con el valor "encabezado".
+    + Una lista desordenada con cinco elementos que representen artículos de la compra:
+        + Cada uno de los elementos debe tener un id como sigue: primer elemento "elemento-1", segundo elemento "elemento-2", etc.
+    + Una lista ordenada con cinco elementos que representan los supermercados más cercanos a tu casa:
+        + Al igual que en la lista anterior, cada uno de los elementos debe tener un id como sigue: primer elemento "elemento-1", segundo elemento "elemento-2", etc.
+    + Modifica el CSS para que el primer elemento de cada lista se muestre de color rojo.
+    + A través del encadenamiento de selectores, haz que el primer elemento de la primera lista tenga un tamaño de letra de 2rem.
++ **Resolción**:
+    + Documento HTML:
+        ```html
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Ganando precisión con los selectores en CSS</title>
+            <link rel="stylesheet" href="estilos.css">
+        </head>
+        <body>
+            <div>
+                <h1 id="titulo" class="encabezado">Lista de la compra</h1>
+
+                <ul>
+                    <li id="elemento-1">Primer Elemento</li>
+                    <li id="elemento-2">Segundo Elemento</li>
+                    <li id="elemento-3">Tercero Elemento</li>
+                    <li id="elemento-4">Cuarto Elemento</li>
+                    <li id="elemento-5">Quinto Elemento</li>
+                </ul>
+
+                <ol>
+                    <li id="elemento-1">Excelsior Gamma</li>
+                    <li id="elemento-2">Automercados Plaza</li>
+                    <li id="elemento-3">Centralmadeirence</li>
+                    <li id="elemento-4">CADA</li>
+                    <li id="elemento-5">Unicasa</li>
+                </ol>
+            </div>
+        </body>
+        </html>
+        ```
+    + Hoja de estilos CSS:
+        ```css
+        #elemento-1 {
+            color: red;
+        }
+
+        ul #elemento-1 {
+            font-size: 2rem;
+        }
+        ```
+
 
 ## Disposición de elementos y para multimedia
 ### Vídeo de la sesión 5

@@ -1,0 +1,49 @@
+.colores {
+    color: purple;
+}
+
+.color-hexadecimal {
+    color: #134074;
+}
+
+.color-rgb {
+    /* color: rgb(red,green, blue); */
+    color: rgb(100,7, 12);
+}
+
+.color-rgba {
+    color: rgba(100,7, 12, 0.7);
+}
+
+.fondo {
+    background-color: cornflowerblue;
+    background-image: url(imagen.jpg);
+    background-repeat: center center;
+}
+
+.ancho {
+    background-color: green;
+    width: 100px;
+}
+
+.alto {
+    background-color: green;
+    height: 100px;
+}
+
+.tarjeta {
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    /* border-top: none; */
+    padding: 10px;
+    margin: 20px;
+}
+
+.encabezado {
+
+}
+
+.descripcion {
+    
+}
