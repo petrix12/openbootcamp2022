@@ -1,6 +1,6 @@
 # HTML y CSS
 + **Instructor**: Gorka Villar
-+ [Resolución de ejercios](https://github.com/Open-Bootcamp/ResolucionEjercicios/tree/main/HTML%20y%20CSS)
++ [Resolución de ejercios](https://github.com/Open-Bootcamp/ResolucionEjercicios/tree/main/HTMLyCSS)
 + [Repositorio del curso](https://github.com/Open-Bootcamp/HTML-CSS)
 
 
@@ -919,10 +919,70 @@
         .galeria input[type=radio]:nth-of-type(4):checked ~ img:nth-of-type(4) {
             opacity: 1;
         }
-    ```
+        ```
 
 ### Entrega ejercicio 5
-+ **Repositorio GiHub**: 
++ **Repositorio GiHub**: https://github.com/petrix12/openbootcamp2022/tree/main/proyectos/003/ejercicios5
+
+### Disposiciones y alineaciones
++ proyectos\003\05disposiciones\disposiciones.html
+
+### Posicionamiento
++ proyectos\003\05disposiciones\posicionamiento.html
+
+### FlexBox
++ proyectos\003\05disposiciones\flex.html
+
+### Overflow
++ proyectos\003\05disposiciones\overflow.html
+
+### Trabajando la opacidad y galerías de imágenes
++ proyectos\003\05disposiciones\multimedia.html
+
+### Reproductores de vídeo
++ proyectos\003\05disposiciones\video.html
+
+### Ejercicio
++ Crea un nuevo documento HTML con el título "Disposición de elementos en CSS":
+    + Crea un nuevo fichero CSS e impórtalo en el documento HTML principal
+    + Utiliza la disposición flex-box para crear una galería de 6 imágenes con los siguientes parámetros:
+        + Las imágenes deben tener 300 píxeles de ancho.
+        + Deben reagruparse (wrap) cuando el ancho del viewport cambia.
++ **Resolción**:
+    + Documento HTML:
+        ```html
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Disposición de elementos en CSS</title>
+            <link rel="stylesheet" href="ejercicio.css">
+        </head>
+        <body>
+            <div class="galeria">
+                <img class="img-galeria" src="../img/imagen1.jpg" alt="imagen1">
+                <img class="img-galeria" src="../img/imagen2.jpg" alt="imagen2">
+                <img class="img-galeria" src="../img/imagen3.jpg" alt="imagen3">
+                <img class="img-galeria" src="../img/imagen4.jpg" alt="imagen4">
+                <img class="img-galeria" src="../img/imagen5.jpg" alt="imagen5">
+                <img class="img-galeria" src="../img/imagen6.jpg" alt="imagen6">
+            </div>  
+        </body>
+        </html>
+        ```
+    + Hoja de estilos CSS:
+        ```css
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .img-galeria {
+            width: 300px;
+        }
+        ```
 
 
 ## Anidación de selectores

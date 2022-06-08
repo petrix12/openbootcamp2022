@@ -31,6 +31,20 @@
     ≡
     ```
 
+### Historia de la programación
+**Contenido**: breve historia de la programación.
+
+### Tipos de lenguajes de programación
+**Contenido**: sobre los tipos de lenguajes de programación:
++ Compilados e interpretados.
++ Tipados y no tipados.
+
+### Aplicaciones cliente-servidor
+**Contenido**: sobre aplicaciones cliente - servidor.
+
+### Memoria y variables
+**Contenido**: sobre memoria y variables.
+
 
 ## 2.Tipos de datos: primitivos y complejos
 
