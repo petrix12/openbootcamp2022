@@ -984,7 +984,7 @@
         }
         ```
 
-## 6.Anidación de selectores
+## 6. Anidación de selectores
 ### Anidación de selectores
 + proyectos\003\06selectores\html\selectores.html
 
@@ -1006,33 +1006,292 @@
 + **Resolción**:
     + Documento HTML:
     ```html
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Selectores, pseudo-clases y pseudo-elementos en CSS</title>
+        <link rel="stylesheet" href="entrega.css">
+    </head>
+    <body>
+        <button class="texto-boton"></button>
+    </body>
+    </html>
     ```
     + Hoja de estilos CSS:
     ```css
-    ≡
-    ≡
-    ```
+    .texto-boton::before {
+        content: "Pasa por encima";
+    }
 
+    .texto-boton:hover {
+        color: white;
+        background-color: green;
+    }
+
+    .texto-boton:hover::before {
+        content: "¡Hecho!";
+    }
+    ```
 
 
 ## 7.Creación de estilos para formularios
 ### Estilando formularios
++ proyectos\003\07formularios\html\estilosformularios.html
+
 ### Creando un formulario moderno - Parte 1
++ proyectos\003\07formularios\html\login.html
+
 ### Creando un formulario moderno - Parte 2
++ proyectos\003\07formularios\html\login.html
+
 ### Ejercicio
-+ mmmm
++ Replica el ejercicio del vídeo 3 de esta sesión y realiza el siguiente cambio:
+    + Replícalo exactamente igual, pero realiza una nueva versión en modo oscuro.
+    + Los colores serán los siguientes:
+        + El rosa se queda igual.
+        + El fondo blanco será sustituido por el color #161717.
+        + El fondo de los inputs tendrá un color #212121.
+        + El fondo de los inputs cuando se hace hover será del color #454045.
+        + Los textos tendrán un color blanco.
 + **Resolción**:
-    + Documento HTML:
+    + Documento HTML (proyectos\003\07formularios\entrega\entrega.html):
     ```html
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Form</title>
+        <link rel="stylesheet" href="entrega.css">
+    </head>
+    <body>
+        <div class="container">
+            <h3>Regístrate en los formularios</h3>
+            <div class="buttons">
+                <button class="google-btn">
+                    <picture>
+                        <img src="https://entredichos.trabajosocial.unlp.edu.ar/wp-content/uploads/sites/6/2016/12/Google_-G-_Logo.svg_.png" alt="logo-google" />
+                    </picture>
+                    <span>Registrarse con Google</span>
+                </button>
+                <button class="twitter-btn">
+                    <picture>T</picture>
+                </button>
+            </div>
+            <div class="separator">
+                <hr>
+                <span>O...</span>
+                <hr>
+            </div>
+            <form action="" method="">
+                <div class="section-inputs">
+                    <label for="name">
+                        <span>Name</span>
+                        <input id="name" name="name" />
+                    </label>
+                    <label for="username">
+                        <span>Username</span>
+                        <input id="username" name="username" />
+                    </label>
+                </div>
+                <label for="email">
+                    <span>Email</span>
+                    <input id="email" name="email" />
+                </label>
+                <label for="password">
+                    <span>Password</span>
+                    <input id="password" name="password" placeholder="6+ caracteres" />
+                </label>
+                <label for="checkbox" class="checkbox-label">
+                    <input type="checkbox" id="checkbox">
+                    <span>Acepto las condiciones y el aviso legal</span>
+                </label>
+                <button type="submit" class="submit-btn">Crear Cuenta</button>
+            </form>
+        </div>
+    </body>
+    </html>
     ```
-    + Hoja de estilos CSS:
+    + Hoja de estilos CSS (proyectos\003\07formularios\entrega\entrega.css):
     ```css
-    ≡
-    ≡
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+    * {
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    body {
+        background-color: #161717;
+    }
+
+    .container {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        width: 450px;
+    }
+
+    .buttons {
+        align-self: flex-start;
+        display: flex;
+        gap: 20px;
+    }
+
+    .google-btn {
+        background-color: #1A73E8;
+        border: none;
+        border-radius: 5px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding: 2px;
+        cursor: pointer;
+    }
+
+    .google-btn:hover {
+        opacity: 0.75;
+    }
+
+    .google-btn picture {
+        width: 35px;
+        height: 35px;
+        background-color: white;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .google-btn picture img {
+        width: 75%;
+    }
+
+    .google-btn span {
+        color: white;
+        font-weight: 500;
+        padding: 15px;
+    }
+
+    .twitter-btn {
+        color: #bbb;
+        background-color: #eee;
+        border: none;
+        width: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .twitter-btn:hover {
+        background-color: #ddd;
+    }
+
+    .separator {
+        display: flex;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .separator hr {
+        flex-grow: 1;
+        border: none;
+        border-top: 1px solid #ccc;
+    }
+
+    .separator span {
+        color: #8b8b8b;
+    }
+
+    .section-inputs {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    label span {
+        font-weight: 700;
+        color: white;
+    }
+
+    .section-inputs label input {
+        width: 80%;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        outline: none;
+        font-size: 14pt;
+    }
+
+    label input {
+        width: 90%;
+        background-color: #212121;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        outline: none;
+        font-size: 14pt;
+        transition: background-color 0.2s, border 0.2s, box-shadow 0.2s;
+    }
+
+    label input:hover {
+        background-color: #454045;
+        border: solid 1px #f3f3f4;
+        box-shadow: 0 0 4px #eb50ff4f;
+    }
+    label input:focus {
+        background-color: #454045;
+        border: solid 1px #f3f3f4;
+        box-shadow: 0 0 4px #eb50ff4f;
+    }
+
+    .checkbox-label {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        width: 20px;
+    }
+
+    .checkbox-label span {
+        font-weight: 400;
+    }
+
+    .submit-btn {
+        background-color: #EA4C89;
+        color: white;
+        font-weight: 500;
+        font-size: 14pt;
+        text-align: center;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        opacity: 0.75;
+    }
     ```
 
 
