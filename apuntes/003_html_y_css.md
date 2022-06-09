@@ -984,120 +984,198 @@
         }
         ```
 
+## 6.Anidación de selectores
+### Anidación de selectores
++ proyectos\003\06selectores\html\selectores.html
 
-## Anidación de selectores
-### Vídeo de la sesión 6
+### Pseudoclases
++ proyectos\003\06selectores\html\pseudoclases.html
 
+### Pseudoelementos
++ proyectos\003\06selectores\html\pseudoelementos.html
 
+### Especificidad
++ proyectos\003\06selectores\html\especificidad.html
 
-    ```html
-    ≡
-    ≡
-    ```
-
-
-
-### Ejercicio sesión 6
-+ mmm
+### Ejercicio
++ Crea un nuevo documento HTML con el título "Selectores, pseudo-clases y pseudo-elementos en CSS":
+    + Crea un nuevo fichero CSS e impórtalo en el documento HTML principal.
+    + Crea un botón con el texto "Pasa por encima" (TIP: Este texto debes agregarlo a través de un pseudo-elemento)
+    + Utiliza las pseudo-clases para que cuando se pase el ratón por encima de este botón, el texto se vuelva blanco y el fondo de color verde
+    + Utiliza los pseudo-elementos para cambiar el texto del botón a "¡Hecho!"
 + **Resolción**:
+    + Documento HTML:
     ```html
     ≡
     ≡
     ```
+    + Hoja de estilos CSS:
+    ```css
+    ≡
+    ≡
+    ```
 
-### Entrega ejercicio 6
-+ **Repositorio GiHub**: 
 
 
-## Creación de estilos para formularios
-### Vídeo de la sesión 7
-### Ejercicio sesión 7
-+ mmm
+## 7.Creación de estilos para formularios
+### Estilando formularios
+### Creando un formulario moderno - Parte 1
+### Creando un formulario moderno - Parte 2
+### Ejercicio
++ mmmm
 + **Resolción**:
+    + Documento HTML:
     ```html
     ≡
     ≡
     ```
+    + Hoja de estilos CSS:
+    ```css
+    ≡
+    ≡
+    ```
 
-### Entrega ejercicio 7
-+ **Repositorio GiHub**: 
 
-
-## Bootstrap
-### Vídeo de la sesión 8
-### Ejercicio sesión 8
-+ mmm
+## 8.Bootstrap
+### Incluyendo Bootstrap en nuestro proyecto
+### Estilos y animaciones de Bootstrap
+### Ejercicio
++ mmmm
 + **Resolción**:
+    + Documento HTML:
     ```html
     ≡
     ≡
     ```
+    + Hoja de estilos CSS:
+    ```css
+    ≡
+    ≡
+    ```
 
-### Entrega ejercicio 8
-+ **Repositorio GiHub**: 
 
-
-## Animaciones y transiciones
-### Vídeo de la sesión 9
-### Ejercicio sesión 9
-+ mmm
+## 9.Animaciones y transiciones
+### Animaciones y Transiciones
+### Tooltips
+### Ejercicio
++ mmmm
 + **Resolción**:
+    + Documento HTML:
     ```html
     ≡
     ≡
     ```
-### Entrega ejercicio 9
+    + Hoja de estilos CSS:
+    ```css
+    ≡
+    ≡
+    ```
 
 
-## Introducción al diseño responsive
-### Vídeo de la sesión 10
-### Ejercicio sesión 10
-+ mmm
+## 10.Introducción al diseño responsive
+### Unidades fijas y relativas
+### Responsive y unidades em y rem
+### Media Queries
+### Uso Avanzado de Flex Box
+### Viewport, Grid y templates
+### Variables reutilizables en CSS
+### Ejercicio
++ mmmm
 + **Resolción**:
+    + Documento HTML:
     ```html
     ≡
     ≡
     ```
+    + Hoja de estilos CSS:
+    ```css
+    ≡
+    ≡
+    ```
 
-### Entrega ejercicio 10
 
-
-## El sistema grid de Bootstrap
-### Vídeo de la sesión 11
-### Ejercicios sesión 11
-+ mmm
+## 11.El sistema grid de Bootstrap
+### Sistema grid de Bootstrap
+### Ejercicio
++ mmmm
 + **Resolción**:
+    + Documento HTML:
     ```html
     ≡
     ≡
     ```
+    + Hoja de estilos CSS:
+    ```css
+    ≡
+    ≡
+    ```
 
-### Entrega ejercicio 11
-+ **Repositorio GiHub**: 
 
-
-## Otros aspectos de interés de Boostrap
-### Vídeo de la sesión 12
-### Ejercicios sesión 12
-+ mmm
+## 12.Otros aspectos de interés de Boostrap
+### Tablas
+### Imágenes
+### Jumbotron
+### Alertas
+### Spinners
+### Tarjetas
+### Listas - Parte 1
+### Listas - Parte 2
+### Formularios - Parte 1
+### Formularios - Parte 2
+### Formularios - Parte 3
+### Modales, popovers y tooltips
+### Iconos
+### Toasts
+### Badges
+### Progress
+### Tipografia en Bootstrap
+### Ejercicio
++ mmmm
 + **Resolción**:
+    + Documento HTML:
     ```html
     ≡
     ≡
     ```
-
-### Entrega ejercicios 12
-+ **Repositorio GiHub**: 
-
-
-## Usando pre-procesadores CSS
-### Vídeo de la sesión 13
+    + Hoja de estilos CSS:
+    ```css
+    ≡
+    ≡
+    ```
 
 
-## Presentación proyecto final
-### Vídeo de la sesión 14
+## 13.Usando pre-procesadores CSS
+### Introducción a SASS
+### Variables y mixins
+### Importación de extensiones
+### Instalación global SASS y use vs import
+### Funciones SASS
+
+## 14.Presentación proyecto final
+### Presentación del proyecto final e instalación
+
+## 15.Finalización proyecto final
+### Terminando de crear los componentes
+### Menú de navegación
+### Sección Home
+### Sección Features
+### Sección Benefits
+### Sección KPIs
+### Sección OnBoarding
+### Sección Footer
+### Responsivizando nuestro proyecto
 
 
-## Finalización proyecto final
-### Vídeo de la sesión 15
 
++ mmmm
++ **Resolción**:
+    + Documento HTML:
+    ```html
+    ≡
+    ≡
+    ```
+    + Hoja de estilos CSS:
+    ```css
+    ≡
+    ≡
+    ```
