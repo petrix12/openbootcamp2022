@@ -1308,31 +1308,69 @@
 + **Resolción**:
     + Documento HTML:
     ```html
-    ≡
-    ≡
-    ```
-    + Hoja de estilos CSS:
-    ```css
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Introducción a Bootstrap</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Documento HTML con la última versión de Bootstrap al 10-06-2022</h1>
+        </div>
+    </body>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </html>
     ```
 
 
 ## 9.Animaciones y transiciones
 ### Animaciones y Transiciones
++ proyectos\003\09animaciones\animaciones.html
+
 ### Tooltips
++ proyectos\003\09animaciones\tooltip.html
+
 ### Ejercicio
-+ mmmm
++ Crea un nuevo documento HTML con el título "Animaciones y transiciones en CSS":
+    + Crea un nuevo fichero CSS e impórtalo en el documento HTML principal.
+    + En el body crea un botón con el atributo class "btn-modern".
+    + Implementa las líneas necesarias en el CSS para que cuando el ratón pase por encima del botón ocurra lo siguiente (hover):
+        + El botón se traslade -5px en el eje de las Y.
+        + Se añada una sombra.
+        + El color de fondo del botón cambie.
+        + El color del texto cambie.
+        + Todo esto con una transición de 0.4s.
 + **Resolción**:
     + Documento HTML:
     ```html
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animaciones y transiciones en CSS</title>
+        <link rel="stylesheet" href="entrega.css">
+    </head>
+    <body>
+        <button class="btn-modern">Botón</button>
+    </body>
     ```
     + Hoja de estilos CSS:
     ```css
-    ≡
-    ≡
+    .btn-modern:hover {
+        transform: translateX(-5px);
+        box-shadow: 0 0 10px gray;
+        background-color: purple;
+        color: aquamarine;
+        transition: all 0.4s
+    }
     ```
 
 
