@@ -1376,23 +1376,94 @@
 
 ## 10.Introducción al diseño responsive
 ### Unidades fijas y relativas
++ proyectos\003\10responsive\unidades.html
+
 ### Responsive y unidades em y rem
++ proyectos\003\10responsive\unidades-em.html
+
 ### Media Queries
++ proyectos\003\10responsive\mediaqueries.html
+
 ### Uso Avanzado de Flex Box
++ proyectos\003\10responsive\flexbox.html
+
 ### Viewport, Grid y templates
++ proyectos\003\10responsive\grid.html
+
 ### Variables reutilizables en CSS
++ proyectos\003\10responsive\variables.html
+
 ### Ejercicio
-+ mmmm
++ Crea un nuevo documento HTML con el título "Diseño Responsive con CSS":
+    + Crea un nuevo fichero CSS e impórtalo en el documento HTML principal
+    + Crea las siguientes dos secciones:
+        + Una barra lateral izquierda con tres elementos en vertical.
+        + Una sección principal a la derecha.
+        + (Tip: Utiliza la disposición flex donde la sección principal utilizará flex-grow).
+    + Utiliza las media queries para que cuando el ancho del viewport sea menor de 640px ocurra lo siguiente:
+        + La barra lateral izquierda se muestre como una navegación en la parte inferior.
+        + La disposición de los elementos de la barra lateral se vuelva horizontal.
+        + (Tip: Trabaja con la propiedad flex-direction)
 + **Resolción**:
     + Documento HTML:
     ```html
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diseño Responsive con CSS</title>
+        <link rel="stylesheet" href="entrega.css">
+    </head>
+    <body>
+        <div class="contenedor">
+            <div class="seccion-1">
+                <div class="elemento-1">Elemento 1</div>
+                <div class="elemento-2">Elemento 2</div>
+                <div class="elemento-3">Elemento 3</div>
+            </div>
+            <div class="seccion-2">
+                <span>CONTENIDO PRINCIPAL</span>
+            </div>
+        </div>
+    </body>
+    </html>
     ```
     + Hoja de estilos CSS:
     ```css
-    ≡
-    ≡
+    .contenedor {
+        display: flex;
+        margin: 1rem;
+        padding: 1rem;
+        background-color: yellow;
+    }
+
+    .seccion-1 {
+        margin: 1rem;
+        padding: 1rem;
+        background-color: green;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .seccion-2 {
+        margin: 1rem;
+        padding: 1rem;
+        background-color: blue;
+        flex-grow: 1;
+    }
+
+    @media (max-width: 640px) {
+        .contenedor {
+            flex-direction: column-reverse;
+        }
+        .seccion-1 {
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    }
     ```
 
 

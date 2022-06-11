@@ -1,0 +1,32 @@
+.contenedor {
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: yellow;
+}
+
+.seccion-1 {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.seccion-2 {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: blue;
+    flex-grow: 1;
+}
+
+@media (max-width: 640px) {
+    .contenedor {
+        flex-direction: column-reverse;
+    }
+    .seccion-1 {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
