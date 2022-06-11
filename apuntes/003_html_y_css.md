@@ -1469,18 +1469,44 @@
 
 ## 11.El sistema grid de Bootstrap
 ### Sistema grid de Bootstrap
++ proyectos\003\11bootstrap-grid\grid.html
+
 ### Ejercicio
-+ mmmm
++ Crea un nuevo documento HTML con el título "Sistema grid de Bootstrap":
+    + Utilizando la página oficial getboostrap.com, añade la última versión de Bootstrap a este documento HTML.
+    + Crea 6 div con un texto en su interior
+    + Utilizando únicamente el atributo class de cada uno de los div haz lo siguiente:
+        + Por defecto, cada elemento ocupará el ancho máximo.
+        + Para viewports SM - cada fila contendrá 2 elementos.
+        + Para viewports MD - cada fila contendrá 3 elementos.
+        + Para viewports LG - cada fila contendrá 4 elementos.
+        + Para viewports XL - cada fila contendrá 6 elementos.
 + **Resolción**:
     + Documento HTML:
     ```html
-    ≡
-    ≡
-    ```
-    + Hoja de estilos CSS:
-    ```css
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema grid de Bootstrap</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">División 2</div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">División 1</div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">División 3</div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">División 4</div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">División 5</div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">División 6</div>
+        </div>
+    </body>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </html>
     ```
 
 
