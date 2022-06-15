@@ -1512,34 +1512,164 @@
 
 ## 12.Otros aspectos de interés de Boostrap
 ### Tablas
++ proyectos\003\12bootstrap-elementos\tablas.html
+
 ### Imágenes
++ proyectos\003\12bootstrap-elementos\imagenes.html
+
 ### Jumbotron
++ proyectos\003\12bootstrap-elementos\jumbotron.html
+
 ### Alertas
++ proyectos\003\12bootstrap-elementos\alertas.html
+
 ### Spinners
++ proyectos\003\12bootstrap-elementos\spinners.html
+
 ### Tarjetas
++ proyectos\003\12bootstrap-elementos\tarjetas.html
+
 ### Listas - Parte 1
++ proyectos\003\12bootstrap-elementos\listas.html
+
 ### Listas - Parte 2
++ proyectos\003\12bootstrap-elementos\listas-2.html
+
 ### Formularios - Parte 1
++ proyectos\003\12bootstrap-elementos\forms.html
+
 ### Formularios - Parte 2
++ proyectos\003\12bootstrap-elementos\forms-2.html
+
 ### Formularios - Parte 3
++ proyectos\003\12bootstrap-elementos\forms-3.html
+
 ### Modales, popovers y tooltips
++ proyectos\003\12bootstrap-elementos\modales.html
+
 ### Iconos
++ proyectos\003\12bootstrap-elementos\iconos.html
+
 ### Toasts
++ proyectos\003\12bootstrap-elementos\toasts.html
+
 ### Badges
++ proyectos\003\12bootstrap-elementos\badges.html
+
 ### Progress
++ proyectos\003\12bootstrap-elementos\progress.html
+
 ### Tipografia en Bootstrap
++ proyectos\003\12bootstrap-elementos\tipografias.html
+
 ### Ejercicio
-+ mmmm
++ Crea un nuevo documento HTML con el título "Elementos de Interés en Bootstrap":
+    + Utilizando la página oficial getboostrap.com, añade la última versión de Bootstrap a este documento HTML.
+    + Crea tres secciones.
+    + En la primera sección crea un Jumbotron replicando el que realizamos en el vídeo:
+        + El botón de llamada a la acción debe abrir una ventana modal.
+    + En la segunda sección crea un formulario de contacto con los campos "nombre" (text), "teléfono" (number) y mensaje (textarea)
+    + En la tercera sección crea una tarjeta con tu perfil de desarrollador/a que contenga lo siguiente:
+        + Tu nombre en el título.
+        + Una breve descripción.
+        + Tu email en el footer.
 + **Resolción**:
     + Documento HTML:
     ```html
-    ≡
-    ≡
-    ```
-    + Hoja de estilos CSS:
-    ```css
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Elementos de Interés en Bootstrap</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container my-5">
+            <section>
+                <div class="bg-light p-3 rounded-3">
+                    <div class="container-fluid py-3">
+                        <h1 class="display-5 fw-bold">Jumbotron personalizado</h1>
+                        <p class="col-md-8 fs-4">
+                            Texto de llamado a la acción del Jumbotron personalizado, el cual abre una ventana modal.
+                        </p>
+                        <button 
+                            class="btn btn-primary btn-lg"
+                            type="button"
+                            data-bs-toggle="modal" 
+                            data-bs-target="#exampleModal"
+                        >Abrir ventana modal</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Header de la ventana modal</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Body de la ventana modal
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cacelar</button>
+                                    <button type="button" class="btn btn-primary">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr />
+            <section>
+                <form action="#">
+                    <div class="row">
+                        <div class="mb-3 col-sm-12 col-md-6">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre">
+                        </div>
+                        <div class="mb-3 col-sm-12 col-md-6">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="number" class="form-control" id="telefono" placeholder="Escribe tu número de teléfono">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="mensaje" rows="3" placeholder="Escribe aquí tu mensaje"></textarea>
+                    </div>
+                    <button class="btn btn-primary">Enviar</button>
+                </form>
+            </section>
+            <hr />
+            <section>
+                <div class="card w-50">
+                    <div class="card-header text-center">
+                        <h4 class="card-title">Pedro Bazó</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Hola, mi nombre es P. J. Bazó, soy escritor y desarrollador de aplicaciones web, 
+                            también soy ingeniero químico.
+                            Me apasiona tanto escribir, como crear aplicaciones web, en cuanto a mis escritos, 
+                            tengo dos obras: La furia de San Julián, y El tiempo de César Augusto Pérez Soles, 
+                            la primera es un relato corto de más de 9 mil palabras, ya concluido, 
+                            y la segunda es una novela del género fantástico en progreso.
+                            También si quieres conocer acerca de mis proyectos web, puedes visitar mi 
+                            página: <a href="https://petrix12.github.io/cvpetrix2022">Soluciones++</a>
+                        </p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <h5>bazo.pedro@gmail.com</h5>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </html>
     ```
 
 
@@ -1578,3 +1708,8 @@
     ≡
     ≡
     ```
+
+
+
+git config --global user.name "Pedro Bazó"
+git config --global user.email bazo.pedro@gmail.com
