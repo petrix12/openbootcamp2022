@@ -51,10 +51,40 @@
 ### Vídeo sesión 2
 + **Contenido**: sobre tipos de datos.
 
-## 3.Funciones
+### Introducción a los tipos de datos primitivos
++ **Contenido**: sobre los tipos de datos primitivos.
 
+### Tipos de datos primitivos - Datos Numéricos
++ **Contenido**: sobre los tipos de datos primitivos.
+
+### Tipos de datos primitivos - Boolean
++ **Contenido**: sobre boolean.
+
+### Tipos de datos complejos - Arrays
++ **Contenido**: sobre tipo de datos complejos.
+
+### Tipos de datos complejos - Tuplas
++ **Contenido**: sobre tuplas.
+
+### Tipos de datos complejos - Objetos
++ **Contenido**: sobre objetos.
+
+### Consejos y curiosidades sobre los tipos de datos
++ **Contenido**: sobre la finalización de una cádena de texto.
+
+
+## 3.Funciones
 ### Vídeo sesión 3 parte 1
 + **Contenido**: sobre funciones, ambitos de variables y punteros.
+
+### Definicion y conceptos
++ **Contenido**: sobre funciones.
+
+### Usos
++ **Contenido**: sobre alcance de variables.
+
+### Funciones avanzadas
++ **Contenido**: sobre parámetros por valor y por referencia, y también sobre recursividad.
 
 ### Vídeo sesión 3 parte 2
 + **Contenido**: sobre variables principalmente.
@@ -105,7 +135,6 @@
 
 
 ## 4.Sentencias de control
-
 ### Vídeo sesión 4
 + Operadores lógicos.
 + Operadores de comparación.
@@ -113,6 +142,19 @@
 + Tabla de la verdad.
 + Bucles.
 + Interruptores (select case).
+
+
+### Condicionales
++ **Contenido**: sobre la lógica de los condicionales.
+
+### Bucles While y Do while
++ **Contenido**: sobre blucles.
+
+### Bucles For
++ **Contenido**: sobre el bucle for.
+
+### Switch Case
++ **Contenido**: sobre switch case.
 
 ### Ejercicios tema 4
 + En este ejercicio practicarás las estructuras de control, para ello deberás crear:
@@ -204,7 +246,6 @@
         ```
 
 ## 5.Errores
-
 ### Vídeo sesión 5
 + **Contenido**: sobre los errores comunes de los programadores.
     + Como nombrar las variables.
@@ -212,6 +253,16 @@
     + Construcción de funciones.
     + Uso adecuado en la definición del tipo de variables.
     + Optimización de la memoria.
+
+### Gestión de errores
++ **Contenido**: sobre como nombrar a las variables.
+
+### Errores del programador
++ **Contenido**: errores típicos al escribir código.
+
+### Repercusión de los errores
++ **Contenido**: errores típicos al escribir código.
+
 
 ## 6.Depuración de código
 

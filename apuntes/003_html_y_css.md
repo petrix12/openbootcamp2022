@@ -1675,20 +1675,52 @@
 
 ## 13.Usando pre-procesadores CSS
 ### Introducción a SASS
++ Instalar extensión:
+    + Live Sass Compiler
+        + Glenn Marks
+        + Compile Sass or Scss to CSS at realtime.
++ proyectos\003\13sass\introsass.html
+
 ### Variables y mixins
++ https://github.com/Open-Bootcamp/HTML-CSS/tree/main/13-Sass
+
 ### Importación de extensiones
++ https://github.com/Open-Bootcamp/HTML-CSS/tree/main/13-Sass
+
 ### Instalación global SASS y use vs import
++ Instalar SASS de forma global:
+    + $ npm install -g sass
++ Para ir compilando SASS:
+    + $ sass --watch sass/styles.scss css/styles.css
+
 ### Funciones SASS
++ https://sass-lang.com/documentation/modules
++ https://github.com/Open-Bootcamp/HTML-CSS/blob/main/13-Sass/sass/_builtin.scss
+
 
 ## 14.Presentación proyecto final
 ### Presentación del proyecto final e instalación
++ proyectos\003\14proyecto
++ Para compilar el css:
+    + $ sass --watch sass/index.scss css/styles.css
+
 
 ## 15.Finalización proyecto final
 ### Terminando de crear los componentes
++ proyectos\003\14proyecto\html\proyecto.html
+
 ### Menú de navegación
++ proyectos\003\14proyecto\html\proyecto.html
+
 ### Sección Home
++ proyectos\003\14proyecto\html\proyecto.html
+
 ### Sección Features
++ proyectos\003\14proyecto\html\proyecto.html
+
 ### Sección Benefits
++ proyectos\003\14proyecto\html\proyecto.html
+
 ### Sección KPIs
 ### Sección OnBoarding
 ### Sección Footer
