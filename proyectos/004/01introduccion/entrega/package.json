@@ -1,0 +1,12 @@
+{
+  "name": "nuevo-proyecto",
+  "version": "1.0.0",
+  "description": "Nuevo proyecto.",
+  "main": "index.js",
+  "scripts": {
+    "saludar": "Hola, este es mi primer ejercicio con Node en el mejor Bootcamp de programación del mundo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pedro Bazó",
+  "license": "ISC"
+}
