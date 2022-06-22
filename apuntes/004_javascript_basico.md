@@ -116,9 +116,193 @@
 
 
 ## 2.Sintaxis, variables y palabras reservadas de JS
-
 ### Tipado en JS y tipos primitivos
+1. iniciacion-tipos.js:
+    ```js
+    // Tipos primitivos
 
+    // number
+    4;
+    0;
+
+    // string
+    "Hola mundo";
+    'Hola mundo';
+    `Hola mundo`;
+
+    // booleanos
+    true;
+    false;
+
+    // nulo y undefined
+    null;
+    undefined;
+
+    // null, undefined, false, 0 ==> Todas son False
+    console.log(null === undefined)
+
+    if (true) {
+        console.log("cumple")
+    } else {
+        console.log("no cumple")
+    }
+    ```
+
+### Declaración de variables y escritura dinámica
+1. iniciacion-variables.js:
+    ```js
+    var variable;
+    let variableLet_;
+
+    // const constante;
+    const constante = "Hola soy una constante";
+    console.log(constante)
+    // constante = "Adiós" // Nos da un error
+
+    var a = 1;
+    console.log(a);
+
+    a = 4;
+    console.log(a);
+
+    let b = 3;
+    console.log(b);
+
+    b = 5;
+    console.log(b);
+
+    var variable = "Hola soy una variable VAR"
+
+    for (var i = 0; i < 3; i++) {
+        var variable = "Soy la segunda variable"
+    }
+
+    console.log(variable)
+
+    let variableLet = "Hola soy una variable LET";
+
+    for (var i = 0; i < 3; i++) {
+        let variableLet = "Soy la segunda variable LET";
+    }
+
+    console.log(variableLet);
+
+    /////////////////////////
+
+    var num = 4;
+
+    console.log(typeof num);
+
+    num = "Hola soy num";
+
+    console.log(typeof num);
+    ```
+
+### Notación en JavaScript
+1. iniciacion-notacion.js:
+    ```js
+    // Notación
+    // ; -> Delimitar el final de una línea
+    const b = 4;
+    b + 4;
+
+    // . -> Se utiliza en los objetos para acceder a los atributos 
+    // movil.anchura
+
+    // [] -> listas, arreglos o arrays
+    const ar = [1, 2, 3, 4]
+    console.log(ar[2])
+
+    // () -> Funciones
+    function suma(a, b) {
+        // Se escribe la función
+    }
+
+    // {} -> Llaves para objetos, funciones y estructuras de control
+    const movil = {
+        anchura: 5,
+        altura: 10
+    }
+
+    if (true) {
+        // todo lo que haya entre llaves
+        const constante2 = "hola"
+    }
+    ```
+
+### Listas, Objetos y Fechas en JS
+1. Listas:
+    ```js
+    // Formas de definir listas
+    const lista1 = [1, "hola", ture, undefined, null]
+    const lista2 = new Array(1, "hola", ture, undefined, null)
+    const lista3 = new Array(3)
+    lista3[0] = "Primer elemenot de la lista"
+    const lista4 = [lista1, lista2, lista3]
+    ```
+2. Objetos:
+    ```js
+    // Formas de definir objetos
+    const objeto = {
+        atributo1: 10,
+        atributo2: "letras",
+        "atributo-5": 4,
+        otro_objeto: {
+            atributo1: 10,
+            atributo2: "letras",
+        }
+    }
+
+    objeto.atributo3 = 2022
+    objeto.atributo1 = 12
+    // objeto.atributo-5 = 7
+    ```
+3. Fechas:
+    ```js
+    // Fechas
+    // Librerias de apoyo: Moment.js
+    const ahora = new Date()
+    const fecha_milis = new Date(10)
+    const fecha_cadena = new Date("march 25 2022")
+    const fecha_valores = new Date(1972, 0, 15) // 15 de enero de 1972
+
+    const dia = ahora.getDate()
+    const mes = ahora.getMonth() + 1
+    const anho = ahora.getFullYear()
+    ```
+
+### Ejercicio
++ Crea un nuevo archivo JS que contenga una lista con los siguientes elementos:
+    - Tu nombre (string).
+    - Tu edad (number).
+    - ¿Eres desarrollador? (boolean).
+    - Tu fecha de nacimiento (Date).
+    - Tu libro favorito (Objeto con propiedades: titulo, autor, fecha, url).
++ **Resolución**:
+    ```js
+    const fechaNacimiento = new Date(1972, 0, 12)
+    const libroFavorito = {
+        titulo: "El principito",
+        autor: "Antoine de Saint-Exupéry",
+        fecha: new Date(1943, 3, 6),
+        url: "https://books.google.co.ve/books/about/El_Principito.html?id=1N0KDgAAQBAJ&printsec=frontcover&source=kp_read_button&hl=es-419&redir_esc=y#v=onepage&q&f=false"
+    }
+
+    const lista = [
+        "Pedro Bazó",
+        50,
+        true,
+        fechaNacimiento,
+        libroFavorito
+    ]
+
+    console.log(lista)
+    ```
+
+
+
+## 3.Estructuras de control
+### Bifurcaciones if else y switch
 
 
 
@@ -129,27 +313,14 @@
 
 
 
-### Declaración de variables y escritura dinámica
-
-### Notación en JavaScript
-
-### Listas, Objetos y Fechas en JS
-
+### Comparaciones en JS
+### Bucles for y while
+### Formas de controlar los bucles con continue y break
+### Etiquetas en los bucles
 ### Ejercicio
 
-## 3.Estructuras de control
 
-Bifurcaciones if else y switch
 
-Comparaciones en JS
-
-Bucles for y while
-
-Formas de controlar los bucles con continue y break
-
-Etiquetas en los bucles
-
-Ejercicio
 
 ## 4.Cadenas de texto
 
