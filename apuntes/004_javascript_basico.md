@@ -732,16 +732,16 @@
 
 ### Ejercicio
 + Crea un archivo JS que contenga las siguientes líneas:
-    - Una cadena de texto con tu Nombre
-    - Otra cadena de texto con tu Apellido
-    - Una cadena de texto que se llame "estudiante" concatenando tu Nombre y tu Apellido con un espacio entre medias
-    - Una cadena de texto que se llame "estudianteMayus" que contenga la cadena estudiante pero todo en mayúsculas
-    - Una cadena de texto que se llame "estudianteMinus" que contenga la cadena estudiante pero todo en minúsculas
+    - Una cadena de texto con tu Nombre.
+    - Otra cadena de texto con tu Apellido.
+    - Una cadena de texto que se llame "estudiante" concatenando tu Nombre y tu Apellido con un espacio entre medias.
+    - Una cadena de texto que se llame "estudianteMayus" que contenga la cadena estudiante pero todo en mayúsculas.
+    - Una cadena de texto que se llame "estudianteMinus" que contenga la cadena estudiante pero todo en minúsculas.
     - Una variable que contenga el número de letras de la cadena "estudiante" contando los espacios
-    - Una variable que contenga la primera letra del Nombre
-    - Otra variable que contenga la última letra del Apellido
-    - Una cadena de texto que elimine los espacios de la variable "estudiante"
-    - Una variable booleana que diga si el Nombre está contenido en la variable "estudiante"
+    - Una variable que contenga la primera letra del Nombre.
+    - Otra variable que contenga la última letra del Apellido.
+    - Una cadena de texto que elimine los espacios de la variable "estudiante".
+    - Una variable booleana que diga si el Nombre está contenido en la variable "estudiante".
 + **Resolución**:
     ```js
     nombre = "Pedro"
@@ -769,30 +769,198 @@
 
 
 ## 5.Números en JavaScript
+### Numbers y precisión en JS
++ declaracion-de-variables-numericas.js:
+    ```js
+    // Sesión 05 - Numbers
+    // Declaración de variables numéricas (enteros y con decimales)
+    let a = 5;
 
-Numbers y precisión en JS
+    console.log(a);
 
-Operaciones y redondeo
+    let b = 0.1;
 
-Métodos de numbers y límites en JS
+    console.log(b);
 
-Ejercicio
+    // Precisión
+    let c = 0.2;
+
+    console.log(b + c);
+    // Pequeño truco para obtener valores "reales"
+    console.log(Math.round((0.1 + 0.2) * 100)/100);
+    ```
+
+### Operaciones y redondeo
++ operaciones-aritmeticas-y-redondeo.js:
+    ```js
+    // Principales operaciones aritméticas
+    let a = 3.5;
+    let b = 4.8;
+
+    // Suma (+)
+    console.log(a + b);
+    // Resta (-)
+    console.log(a - b);
+    // Multiplicación (*)
+    console.log(a * b);
+    // División (/)
+    console.log(a / b);
+
+    // Representación de los números en cadenas de texto
+    console.log(typeof a);
+    let a_s = a.toString();
+
+    console.log(a_s);
+    console.log(typeof a_s);
+
+    // Redondeo de números decimales
+    let c = 3.3;
+    let d = c * 3;
+
+    console.log(d);
+    console.log(typeof d);
+
+    // .toFixed(x) - Limitar el número de decimales al valor x
+    console.log(d.toFixed(4));
+    console.log(typeof d.toFixed(4));
+
+    let e = 1839.1232456789;
+    let f = 2213556153215;
+    console.log(e.toFixed(2));
+    console.log(f.toFixed(2));
+
+    // .toPrecision(x) - Limita el número de cifras significativas
+    console.log(e.toPrecision(7));
+    console.log(f.toPrecision(7));
+
+    console.log(typeof f.toPrecision(3));
+    ```
+
+### Métodos de numbers y límites en JS
++ casting-valores-extremos-en-JS.js:
+    ```js
+    // Operador .valueOf() - Obtener valores numéricos a partir de literales
+    let a = 2;
+    let b = new Number(3);
+
+    console.log(a);
+    console.log(b);
+    console.log(a + b);
+    console.log(a.valueOf() + b.valueOf());
+
+    console.log(b.valueOf());
+
+    let str = new String("Hola soy un string");
+    console.log(str);
+    console.log(str.valueOf());
+
+    // NaN (Not a Number) - Infinity
+    let n = Number('adios');
+    console.log(n);
+    console.log(isNaN(n));
+
+    let numerador = 19;
+    let divisor = 0;
+    console.log(numerador / divisor);
+
+    let divisor_2 = null;
+    console.log(numerador / divisor_2);
+
+    // Cómo convertir los string a valores numéricos con Number, parseInt y parseFloat
+    let numero = '5.89';
+    let num2 = 17.2;
+
+    console.log(typeof numero);
+    console.log(numero + num2); // Error de concepto
+
+    console.log(Number(numero) + num2);
+
+    console.log(parseInt(numero))
+    console.log(parseFloat(numero))
+
+    let num3 = 4;
+    console.log(parseInt(num3))
+    console.log(parseFloat(num3))
+
+    // Números hexadecimales (base 16)
+    let numHex = '0x3a5b7';
+    console.log(parseInt(numHex, 16));
+
+    // Obtener los valores máximo y mínimo en Javascript
+    let min_precision = Number.EPSILON;
+    let min_valor_JS = Number.MIN_VALUE;
+    let max_valor_JS = Number.MAX_VALUE;
+
+    console.log(min_precision);
+    console.log(min_valor_JS);
+    console.log(max_valor_JS);
+    ```
+
+### Ejercicio
++ Crea un archivo JS que contenga las siguientes líneas:
+    - Una variable que contenga tu altura en centímetros (entero).
+    - Una variable que contenga tu altura en metros (número de coma flotante).
+    - Una variable que contenga tu peso en kilogramos (número de coma flotante).
+    - Una variable que contenga tu altura en metros redondeada hacia arriba.
+    - Una variable que contenga tu peso en kilogramos redondeado hacia abajo.
+    - Una variable que contenga si "el máximo valor que se puede obtener en Javascript + 1" es igual al máximo valor que se puede obtener en Javascript.
++ **Resolución**:
+    ```js
+    altura_cm = 183
+    altura_m = altura_cm / 100
+    peso_k = 102.3
+    altura_m_up = Math.ceil(altura_m)
+    altura_m_down = Math.floor(altura_m)
+    maximoValorJS = Number.MAX_VALUE;
+    boolMaxValor = maximoValorJS === (maximoValorJS + 1)
+
+    console.log("altura_cm: ", altura_cm)
+    console.log("altura_m: ", altura_m)
+    console.log("peso_k: ", peso_k)
+    console.log("altura_m_up: ", altura_m_up)
+    console.log("altura_m_down: ", altura_m_down)
+    console.log("maximoValorJS: ", maximoValorJS)
+    console.log("maximoValorJS + 1: ", maximoValorJS + 1)
+    console.log("boolMaxValor: ", boolMaxValor)
+    ```
+
 
 ## 6.Trabajando con listas
+### Listas y métodos de mutacion de listas
++ mmm:
+    ```js
+    ```
 
-Listas y métodos de mutacion de listas
+### Concatenación y obtención de fragmentos de listas
++ mmm:
+    ```js
+    ```
 
-Concatenación y obtención de fragmentos de listas
+### Métodos de iteración en listas
++ mmm:
+    ```js
+    ```
 
-Métodos de iteración en listas
+### Métodos avanzados, obtención de listas a partir de listas
++ mmm:
+    ```js
+    ```
 
-Métodos avanzados, obtención de listas a partir de listas
+### Ordenación de listas y comparación entre dos listas
++ mmm:
+    ```js
+    ```
 
-Ordenación de listas y comparación entre dos listas
+### Identificar si existe un valor en un array y objetos iterables
++ mmm:
+    ```js
+    ```
 
-Identificar si existe un valor en un array y objetos iterables
-
-Ejercicio
+### Ejercicio
++ mmm
++ **Resolución**:
+    ```js
+    ```
 
 ## 7.Trabajando con Sets y Objetos
 
@@ -811,6 +979,12 @@ Ejercicio 2
 Ejercicio 3
 
 Ejercicio 4
+
++ mmm
++ **Resolución**:
+    ```js
+    ```
+
 
 ## 8.Introducción a las funciones
 
@@ -915,3 +1089,6 @@ Inicialización de Mapas en HTML
 Geolocalización
 
 Ejercicio
++ mmmm:
+    ```js
+    ```
