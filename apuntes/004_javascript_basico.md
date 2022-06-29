@@ -1313,83 +1313,531 @@
 
 ## 7.Trabajando con Sets y Objetos
 ### Trabajando con Sets
-+ mmm:
++ sets.js:
     ```js
+    // Sets o conjuntos (en castellano)
+    const array = [1, 2, 3, 4, 5, 6, 1, 2, 5, "hola", { id: 5 }, "hola"]
+
+    const miSet = new Set(array)
+
+    console.log(array)
+    console.log(miSet)
+
+    // .add()
+    miSet.add(9)
+    console.log(miSet)
+    miSet.add(4)
+    console.log(miSet)
+
+    // .delete()
+    miSet.delete("hola")
+    console.log(miSet)
+
+    // .clear()
+    // miSet.clear()
+    // console.log(miSet)
+
+    // .has()
+    // console.log(array.includes(2))
+    console.log(miSet.has(40))
+
+    // .size
+    console.log(miSet.size)
+
+    miSet.forEach(valor => {
+        console.log(valor)
+    })
+
+    const it_miSet = miSet.values()
+    console.log(it_miSet)
+
+    const ar_miSet = [ ...miSet ]
+    console.log(ar_miSet[1])
     ```
 
 ### Objetos en JavaScript
-+ mmm:
++ objetos.js:
     ```js
+    // Trabajando con Objetos
+    const obj = {
+        id: 4,
+        nombre: "Juan",
+        apellido: "González",
+        isDeveloper: false,
+        libros_favoritos: ["El método", "El código de la manifestación"],
+        "4-juegos": [1, 2, 3, 4]
+    }
+
+    console.log(obj.id)
+    console.log(obj["4-juegos"])
+
+    const prop = "isDeveloper"
+    console.log(obj[prop])
+
+    const obj2 = obj;
+    console.log(obj2);
+
+    obj2.nombre = "Iñigo"
+    console.log(obj2.nombre)
+    console.log(obj.nombre)
+
+    let val1 = 4
+    let val2 = val1
+
+    val2 = 6
+    console.log(val1)
+    console.log(val2)
+
+    //////////////
+
+    const obj3 = { ...obj }
+
+    console.log(obj.nombre)
+    console.log(obj3.nombre)
+
+    obj3.nombre = "Gorka"
+
+    console.log(obj.nombre)
+    console.log(obj3.nombre)
+
+    /////////////
+    // Cómo ordenar listas de objetos en función de una propiedad
+
+    const listaPeliculas = [
+        { titulo: "Lo que el viento se llevó", anyo: 1939 },
+        { titulo: "Titanic", anyo: 1997 },
+        { titulo: "Moana", anyo: 2016 },
+        { titulo: "El efecto mariposa", anyo: 2004 },
+        { titulo: "TED", anyo: 2012 }
+    ]
+
+    console.log(listaPeliculas)
+    // .sort() -> MUTA EL VALOR DE LA LISTA ORIGINAL
+
+    listaPeliculas.sort((a, b) => a.anyo - b.anyo)
+
+    console.log(listaPeliculas)
     ```
 
 ### Fechas en JavaScript
-+ mmm:
++ fechas.js:
     ```js
+    // Trabajando con fechas
+    const fecha = new Date()
+
+    console.log(fecha)
+
+    // Atención - Los meses inicializan en 0 (0 - Enero, 11 - Diciembre)
+    const fecha2 = new Date(1987, 10, 20, 1, 23, 52, 192)
+
+    console.log(fecha2)
+
+    const fecha3 = new Date(-10000000000000) // Milisegundos
+    console.log(fecha3)
+
+    const fecha4 = new Date("October 13, 1979 12:15:15")
+    console.log(fecha4)
+
+    console.log(fecha < fecha2)
+
+    const fecha5 = new Date(1987, 10, 20, 1, 23, 52, 192)
+    console.log(fecha5)
+
+    console.log(fecha2 === fecha5) // ERROR - No se pueden comparar fechas de esta manera
+
+    console.log(fecha2.getTime() === fecha5.getTime()) // OK - Esta es la forma de comparar la igualdad entre fechas
+
+    /////// Obtener el día, el mes y el año de una fecha
+    // Obtener el día .getDate()
+    console.log(fecha2.getDate())
+
+    // Obtener el mes .getMonth() (0 - Enero, 11 - Diciembre)
+    console.log(fecha2.getMonth() + 1)
+
+    // Obtener el año .getFullYear()
+    console.log(fecha2.getFullYear())
+
+    console.log(fecha2)
+
+    // .toLocaleDateString
+    // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+    console.log(fecha2.toLocaleDateString("en-US"))
     ```
 
 ### Uso de la consola en JavaScript
-+ mmm:
++ Para crear un documento html en blanco en el navegador:
+    + about:blank
++ Escribir por consola:
     ```js
+    const edad = prompt("Cuál es tu edad?")
     ```
 
 ### Ejercicio 1
-+ mmm
++ Crea un archivo llamado conjuntos.js que contenga las siguientes líneas:
+    - Un nuevo Set con los nombres de tu familia.
+    - Modifica el Set original añadiendo tu nombre (duplicado) (debería darte lo mismo).
+    - Modifica el Set original añadiendo el nombre "Javascript" (ya que empieza a formar parte de tu vida ;).
 + **Resolución**:
     ```js
+    const familia = new Set([
+        'Pedro',
+        'Leticia',
+        'Isabel',
+        'María',
+        'Rebeca'
+    ])
+    console.log(familia)
+
+    familia.add('Pedro')
+    console.log(familia)
+
+    familia.add('Javascript')
+    console.log(familia)
     ```
 
 ### Ejercicio 2
-+ mmm
++ Crea un archivo llamado objetos.js que contenga las siguientes líneas:
+    - Un objeto con tus datos personales (nombre, apellido, edad, altura, eresDesarrollador).
+    - Una variable que obtenga tu edad a partir del objeto anterior.
+    - Una lista que contenga el objeto con tus datos personales y un nuevo objeto con los datos personales de tus dos mejores amig@s.
+    - Una nueva lista con los objetos de la lista anterior ordenados por edad, de mayor a menor.
 + **Resolución**:
     ```js
+    datos = {
+        nombre: "Pedro",
+        apellido: "Bazó",
+        edad: 50,
+        altura: 1.82, 
+        eresDesarrollador: true
+    }
+    console.log("datos: ", datos)
+
+    let { edad } = datos
+    console.log("edad: ", edad)
+
+    datos2 = {
+        nombre: "Leticia",
+        apellido: "Rodríguez",
+        edad: 44,
+        altura: 1.63, 
+        eresDesarrollador: false
+    }
+    console.log("datos2: ", datos2)
+
+    datos3 = {
+        nombre: "Isabel",
+        apellido: "Bazó",
+        edad: 20,
+        altura: 1.60, 
+        eresDesarrollador: false
+    }
+    console.log("datos3: ", datos3)
+
+    let lista = [datos, datos2, datos3]
+    console.log("lista: ", lista)
+
+    const listaNueva = [ ...lista ]
+    console.log("listaNueva: ", listaNueva)
+    listaNueva.sort((a, b) => b.edad - a.edad)
+    console.log("listaNueva: ", listaNueva)
     ```
 
 ### Ejercicio 3
-+ mmm
++ Crea un archivo llamado fechas.js que contenga las siguientes líneas:
+    - La fecha de hoy.
+    - La fecha de tu nacimiento.
+    - Un variable que indique si hoy es más tarde (>) que la fecha de tu nacimiento.
+    - Una variable que contenga el día de tu nacimiento.
+    - Una variable que contenga el mes de tu nacimiento (recuerda que Enero es mes 0).
+    - Una variable que contenga el año de tu nacimiento (con 4 dígitos).
 + **Resolución**:
     ```js
+    hoy = new Date()
+    nacimiento = new Date(1972, 0, 12)
+    masTarde = hoy.getTime() > nacimiento.getTime()
+    diaNacimiento = nacimiento.getDate()
+    mesNacimiento = nacimiento.getMonth() + 1
+    anyoNacimiento = nacimiento.getFullYear()
+
+    console.log("hoy:", hoy)
+    console.log("nacimiento:", nacimiento)
+    console.log("masTarde:", masTarde)
+    console.log("diaNacimiento:", diaNacimiento)
+    console.log("mesNacimiento:", mesNacimiento)
+    console.log("anyoNacimiento:", anyoNacimiento)
     ```
 
 ### Ejercicio 4
-+ mmm
++ - Abre una nueva ventana "about:blank" en Google Chrome:
+    - Abre la consola de desarrollador de Google Chrome (F12).
+    - Pregunta al usuario cuál es su edad y almacénala en una variable llamada edad.
 + **Resolución**:
     ```js
+    const edad = prompt("Cuál es tu edad?")
     ```
 
 
 ## 8.Introducción a las funciones
+### Introducción a las funciones en JavaScript
++ declaracion-funciones.js:
+    ```js
+    // Qué son las funciones, cómo se declaran y cómo se utilizan
+    const nom = "Gorka"
 
-Introducción a las funciones en JavaScript
+    // saludar("Miguel")
+    saludar(nom)
+
+    function saludar(nombre) {
+        console.log(`Hola ${nombre}`)
+    }
+
+    ////
+
+    let nombre_2 = "Juan"
+    console.log(nombre_2)
+
+    despedir(nombre_2)
+    console.log(nombre_2)
+
+    function despedir(nombre) {
+        nombre = "Diego"
+        console.log(`Adiós ${nombre}`)
+    }
+
+    ////
+
+    let persona = { nombre: "Juan", apellido: "González" }
+    console.log(persona)
+
+    saludarPersona(persona)
+
+    console.log(persona)
+
+    function saludarPersona(objeto) {
+        objeto.apellido = "Villar"
+        console.log(`Hola ${objeto.nombre} ${objeto.apellido}`)
+    }
+
+    saludar()
+
+    ///////
+
+    function imprimeNumero(numero = 7) { // Parámetros por defecto
+        console.log(numero)
+    }
+
+    imprimeNumero()
+
+    /////////
+
+    function imprimir(...parametros) {
+        console.log(parametros)
+    }
+
+    imprimir(1, 3, 9, 2, "hola", { id: 9 })
+
+    /////
+
+    function suma(...nums) {
+        return nums.reduce((a, b) => a + b)
+    }
+
+    const s = suma(1, 2, 3, 4, 9, 15, 16)
+
+    console.log(s)
+
+    //////
+    let variable = "hola"
+
+    function multiplicar(a = 0, b = 0) {
+        console.log(variable)
+        let variable_interna = "adiós"
+        console.log(variable_interna)
+        return a * b
+    }
+
+    console.log(multiplicar(4, 9))
+    ```
+
+### Funciones de tipo flecha y anónimas
++ funciones-flecha-y-anonimas.js:
+    ```js
+    // Funciones tipo flecha - funciones anónimas
+
+    const array = [1, 5, 6, 2, 7, 12, 8, 92]
+
+    const array2 = array.map((valor) => valor * 2)
+
+    console.log(array2)
+
+    // const dobleDelValor = valor => {
+    //     return valor * 2
+    // }
+    const dobleDelValor = valor => valor * 2
+
+    console.log(doble(6))
+    console.log(dobleDelValor(6))
+
+    const array3 = array.map(dobleDelValor)
+
+    console.log(array3)
+
+    function doble(valor) {
+        return valor * 2
+    }
+    ```
+
+### Carga y sobrecarga de funciones
++ carga-y-sobrecarga-de-funciones.js:
+    ```js
+    // Carga y sobrecarga de funciones
+    function saludar() {
+        hola()
+    }
+
+    function hola() {
+        console.log("Hola! Soy la función hola()")
+    }
+
+    saludar()
+
+    /// 1. global()
+    /// 2. saludar() global()
+    /// 3. hola() saludar() global()
+    /// 4. saludar() global()
+    /// 5. global()
+
+    // function recursivo() {
+    //     recursivo()
+    // }
+
+    // recursivo()
+    ```
+
+### Funciones asíncronas y promesas
++ funciones-asincronas-y-promesas.js:
+    ```js
+    // Funciones asíncronas
+
+    function miAsinc() {
+        // Hace una llamada a una base de datos externa
+        // Puede darnos algún error
+    }
+
+    const miPromesa = new Promise((resolve, reject) => {
+        const i = Math.floor(Math.random() * 2)
+        // Si está todo correcto
+        if (i !== 0) {
+            resolve()
+        } else {
+            reject()
+        }
+    })
+
+    miPromesa
+        .then(() => console.log("Se ha ejecutado de forma correcta"))
+        .catch(() => console.log("ERROR"))
+        .finally(() => console.log("Yo me ejecuto siempre"))
+
+    // async await
+    ```
+
+### Funciones generadoras
++ funciones-generadoras.js:
+    ```js
+    function* generaId() {
+        let id = 0;
+        while(true) {
+            id++
+            if (id === 10) {
+                return id
+            }
+            yield id // Esperando hasta que se vuelva a llamar
+        }
+    }
+
+    const gen = generaId();
+
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    ```
+
+### Ejercicio
++ Crea un archivo JS que contenga las siguientes líneas:
+    - Una función sin parámetros que devuelva siempre "true".
+    - Una función asíncrona que utilice un setTimeout y pase por consola un "Hola soy una promesa" 5 segundos después de haberse ejecutado.
+    - Una función generadora de índices pares automáticos.
++ **Resolución**:
+    ```js
+    // Parte I: Una función sin parámetros que devuelva siempre "true"
+    const cierto = () => true
+
+    // Parte II: Una función asíncrona que utilice un setTimeout y pase por consola un "Hola soy una promesa" 5 segundos después de haberse ejecutado
+    const funcionAsync = new Promise((resolve, reject) => {
+        if (true) {
+            setTimeout(() => console.log("Hola soy una promesa"), 5000)
+        } else {
+            reject()
+        }
+    })
+
+    // Parte III: Una función generadora de índices pares automáticos
+    function* generaId() {
+        let id = 0;
+        while(true) {
+            id += 2
+            yield id
+        }
+    }
+
+    const gen = generaId();
+
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    console.log(gen.next().value)
+    ```
+
+
+## 9.Gestión de errores
+### Errores en JavaScript
 + mmm:
     ```js
     ```
 
-Funciones de tipo flecha y anónimas
+### Gestión de logs en NodeJS
++ mmm:
+    ```js
+    ```
 
-Carga y sobrecarga de funciones
-
-Funciones asíncronas y promesas
-
-Funciones generadoras
-
-Ejercicio
+### Ejercicio
 + mmm
 + **Resolución**:
     ```js
     ```
 
 
-## 9.Gestión de errores
-
-Errores en JavaScript
-
-Gestión de logs en NodeJS
-
-Ejercicio
-
 ## 10.Módulos en JavaScript
 
 Módulos y su utilización con CommonJS
++ mmm:
+    ```js
+    ```
+
 
 Utilizando módulos con ES6
 
@@ -1398,6 +1846,12 @@ Librerías en Node y NPM y su utilización
 Librerías interesantes
 
 Ejercicio
++ mmm
++ **Resolución**:
+    ```js
+    ```
+
+
 
 ## 11.POO en JavaScript
 
