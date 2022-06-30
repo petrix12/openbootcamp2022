@@ -1,6 +1,6 @@
 # JavaScript Básico
 + **Instructor**: Gorka Villar
-+ [Resolución de ejercios](https://github.com/Open-Bootcamp/ResolucionEjercicios/tree/main/Java%20B%C3%A1sico)
++ [Resolución de ejercios](https://github.com/Open-Bootcamp/ResolucionEjercicios/tree/main/JavaScript)
 + [Repositorio del curso](https://github.com/Open-Bootcamp/JavaScript-Basico)
 
 
@@ -1815,27 +1815,139 @@
 
 ## 9.Gestión de errores
 ### Errores en JavaScript
-+ mmm:
++ errores-javascript.js:
     ```js
+    const miFuncion = val => {
+        if (typeof val === "number") {
+            return 2 * val
+        }
+        throw new Error("El valor debe ser de tipo número")
+    }
+
+    // const elDoble = miFuncion("a1a")
+    const numero = "8";
+
+    try {
+        // Código que puede fallar
+        console.log("Está ejecutándose de manera correcta")
+        const doble = miFuncion(numero)
+        console.log(doble)
+    } catch (e) {
+        // En caso de fallar, quiero que ejecutes
+        console.error(`El valor de e es: ${e}`)
+        console.error("ERROR!")
+    } finally {
+        console.log("Esto se va a ejecutar tanto si se produce algún error, como si no existe ninguno")
+    }
+
+    // InternalError, SyntaxError, TypeError, RangeError y ReferenceError
+    // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Error
     ```
 
 ### Gestión de logs en NodeJS
-+ mmm:
-    ```js
+1. Crear proyecto node:
+    + $ npm init -y
+2. Modificar **proyectos\004\09gestion-errores\package.json**:
+    ```json
+    ≡
+    "scripts": {
+        "start": "node index.js"
+    },
+    ≡
     ```
+3. Crear **C:\xampp\htdocs\carrera\bootcamp\proyectos\004\09gestion-errores\index.js**:
+    ```js
+    const logger = require('./logger')
+
+    // logger.log("Hola estoy saliendo por pantalla")
+    logger.info("Hola esto es un mensaje informativo")
+    logger.debug("Esto es un mensaje de debug")
+    logger.warn("Esto es un mensaje de advertencia")
+    logger.error("Esto es un error")
+    ```
+4. Instalar la dependencia Winston:
+    + https://www.npmjs.com/package/winston
+    + $ npm install winston
+5. Crear **proyectos\004\09gestion-errores\logger\index.js**:
+    ```js
+    const winston = require('winston');
+
+    const logger = winston.createLogger({
+        level: 'debug',
+        format: winston.format.json(),
+        // defaultMeta: { service: 'user-service' },
+        transports: [
+            //
+            // - Write all logs with importance level of `error` or less to `error.log`
+            // - Write all logs with importance level of `info` or less to `combined.log`
+            //
+            new winston.transports.Console(),
+            new winston.transports.File({ filename: 'error.log', level: 'error' }),
+            new winston.transports.File({ filename: 'combined.log' }),
+        ],
+    });
+
+    module.exports = logger;
+    ```
+6. Ejecutar proyecto:
+    + $ npm start
 
 ### Ejercicio
-+ mmm
++ Crea un nuevo proyecto de Node:
+    - Instala la dependencia Winston.
+    - En el archivo index.js crea una función que devuelva un error con un mensaje personalizado.
+    - Registra el error en un archivo a través de un try...catch.
 + **Resolución**:
-    ```js
-    ```
+    + $ npm init -y
+    + Modificar **proyectos\004\09gestion-errores\entrega\package.json**:
+        ```json
+        ≡
+        "scripts": {
+            "start": "node index.js"
+        },
+        ≡
+        ```
+    + $ npm install winston
+    + Crear **proyectos\004\09gestion-errores\entrega\logger\index.js**:
+        ```js
+        const winston = require('winston');
 
+        const logger = winston.createLogger({
+            level: 'debug',
+            format: winston.format.json(),
+            // defaultMeta: { service: 'user-service' },
+            transports: [
+                //
+                // - Write all logs with importance level of `error` or less to `error.log`
+                // - Write all logs with importance level of `info` or less to `combined.log`
+                //
+                new winston.transports.Console(),
+                new winston.transports.File({ filename: 'error.log', level: 'error' }),
+                new winston.transports.File({ filename: 'combined.log' }),
+            ],
+        });
+
+        module.exports = logger;
+        ```
+    + Crear **proyectos\004\09gestion-errores\entrega\index.js**:
+        ```js
+        const logger = require('./logger')
+
+        try {
+            logger.info("Hola esto es un mensaje informativo")
+        } catch (error) {
+            logger.error("Esto es un error")
+        }
+        ```
+    + $ npm start
 
 ## 10.Módulos en JavaScript
 
 Módulos y su utilización con CommonJS
 + mmm:
     ```js
+    ≡
+    ≡
     ```
 
 
@@ -1849,6 +1961,8 @@ Ejercicio
 + mmm
 + **Resolución**:
     ```js
+    ≡
+    ≡
     ```
 
 
