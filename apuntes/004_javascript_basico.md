@@ -1942,22 +1942,263 @@
     + $ npm start
 
 ## 10.Módulos en JavaScript
+### Módulos y su utilización con CommonJS
+1. Crear **proyectos\004\10modulos\index.js**:
+    ```js
+    // Formas de importar/exportar módulos
+    // 1. CommonJS - require
+    // 2. Import ES6 - import
 
-Módulos y su utilización con CommonJS
+    // const moduloMatematicas = require("./modulos/matematicas.js")
+    // const factorial = moduloMatematicas.factorial;
+    // const { factorial, suma } = moduloMatematicas;
+    // const suma = moduloMatematicas.suma;
+    // console.log(moduloMatematicas.suma)
+
+    const { factorial, suma } = require("./modulos/matematicas.js")
+
+    const fact = factorial(5)
+    console.log(fact)
+
+    const sum = suma(12, 90)
+    console.log(sum)
+
+    // console.log(module)
+    ```
+2. Crear **proyectos\004\10modulos\detalles.js**:
+    ```js
+    function factorial(a) {
+        // Factorial de 5: 5 * 4 * 3 * 2 * 1
+        let factorial = 1;
+        for (let i = 2; i <= a; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+
+    console.log(factorial(10))
+    ```
+3. Crear **proyectos\004\10modulos\modulos\matematicas.js**:
+    ```js
+    function suma(a, b) {
+        return a + b
+    }
+
+    function multiplica(a, b) {
+        return a * b
+    }
+
+    function eleva(a, b) {
+        return a ** b
+    }
+
+    function factorial(a) {
+        // Factorial de 5: 5 * 4 * 3 * 2 * 1
+        let factorial = 1;
+        for (let i = 2; i <= a; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+
+    module.exports = {
+        suma,
+        multiplica,
+        eleva,
+        factorial
+    }
+    ```
+
+### Utilizando módulos con ES6
+1. Crear carpeta **proyectos\004\10modulos\modulos-es6**.
+2. Crear proyecto:
+    + $ npm init -y
+3. Crear **proyectos\004\10modulos\modulos-es6\index.js**:
+    ```js
+    // import { suma, eleva, nombre } from './modulos/matematicas.js'
+    import * as moduloMatematicas from './modulos/matematicas.js'
+    import getAutor, { libro } from './modulos/literatura.js'
+
+    const sum = moduloMatematicas.suma(4, 12)
+    console.log(sum)
+
+    const potencia = moduloMatematicas.eleva(2, 21)
+    console.log(potencia)
+
+    console.log(moduloMatematicas.nombre)
+
+    console.log(getAutor())
+    console.log(libro)
+    ```
+4. Crear **proyectos\004\10modulos\modulos-es6\modulos\matematicas.js**:
+    ```js
+    export function suma(a, b) {
+        return a + b
+    }
+
+    export function multiplica(a, b) {
+        return a * b
+    }
+
+    export function eleva(a, b) {
+        return a ** b
+    }
+
+    export function factorial(a) {
+        // Factorial de 5: 5 * 4 * 3 * 2 * 1
+        let factorial = 1;
+        for (let i = 2; i <= a; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+
+    export const nombre = "matematicas"
+    ```
+5. Modificar **proyectos\004\10modulos\modulos-es6\package.json**:
+    ```json
+    ≡
+    "main": "index.js",
+    "type": "module",
+    ≡
+    ```
+6. Crear módulo **proyectos\004\10modulos\modulos-es6\modulos\literatura.js**:
+    ```js
+    const getAutor = () => {
+        return "Miguel de Cervantes"
+    }
+
+    export const libro = "Don Quijote de la Mancha"
+
+    export default getAutor
+    ```
+
+### Librerías en Node y NPM y su utilización
++ https://www.npmjs.com
+1. Crear carpeta **proyectos\004\10modulos\video-librerias** e ingresar en ella.
+2. Ejecutar:
+    + $ npm init -y
+3. Modificar **proyectos\004\10modulos\video-librerias\package.json**:
+    ```json
+    ≡
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js"
+    },
+    ≡
+    ```
+4. Ejecutar:
+    + $ npm i axios
+5. Crear **proyectos\004\10modulos\video-librerias\index.js**:
+    ```js
+    // Instalar axios para hacer llamadas a servicios externos
+    import axios from "axios"
+
+    axios.get('https://pokeapi.co/api/v2/pokemon/charmander')
+        .then(function (response) {
+            // handle success
+            console.log("Success!!!")
+            console.log(response.data)
+        })
+        .catch(function (error) {
+            // handle error
+            console.log("Error!!!")
+            console.log(error);
+        })
+    ```
+6. Ejecutar:
+    + $ npm start
+
+### Librerías interesantes
++ **Contenido**: sobre algunas librerias o framework de JavasScript.
+
+### Ejercicio
++ Crea un nuevo proyecto de Node:
+    - Configura el proyecto para utilizar los módulos de ES6.
+    - Crea un archivo controller.js que exporte 2 funciones: suma(a, b) y multiplica(a, b).
+    - En el entrypoint index.js, importa el módulo controller.js.
+    - El entrypoint index.js debe utilizar las funciones del módulo para devolver la multiplicación de suma(1, 2) y suma(4, 5).
+    - Instala e importa la librería chalk (https://www.npmjs.com/package/chalk).
+    - Modifica el último console.log del entrypoint index.js para devolver el resultado en color verde.
++ **Resolución**:
+    + $ npm init -y
+    + Modificar **proyectos\004\10modulos\entrega\package.json**:
+        ```json
+        ≡
+        "main": "index.js",
+        "type": "module",
+        "scripts": {
+            "start": "node index.js"
+        },
+        ≡
+        ```
+    + Crear módulo **proyectos\004\10modulos\entrega\controller.js**:
+        ```js
+        export function suma(a, b) {
+            return a + b
+        }
+
+        export function multiplica(a, b) {
+            return a * b
+        }
+        ```
+    + Crear **proyectos\004\10modulos\entrega\index.js**:
+        ```js
+        importance * as moduloController from './controller.js'
+        import chalk from 'chalk'
+
+        console.log(moduloController.suma(1, 2))
+        console.log(chalk.green(moduloController.suma(4, 5)))
+        ```
+    + $ npm i chalk
+    + $ npm start
+
+
+## 11.POO en JavaScript
+### Introducción a la Programación Orientada a Objetos
 + mmm:
     ```js
     ≡
     ≡
     ```
 
+### Creación y uso de clases en JavaScript
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
 
-Utilizando módulos con ES6
+### Ámbito de las clases, métodos y atributos públicos, privados y protegidos
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
 
-Librerías en Node y NPM y su utilización
+### Getters y Setters en objetos
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
 
-Librerías interesantes
+### Herencia y Polimorfismo
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
 
-Ejercicio
+### Por qué no se habla de Interfaces en JavaScript y alternativas
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
+
+### Ejercicio
 + mmm
 + **Resolución**:
     ```js
@@ -1966,28 +2207,22 @@ Ejercicio
     ```
 
 
-
-## 11.POO en JavaScript
-
-Introducción a la Programación Orientada a Objetos
-
-Creación y uso de clases en JavaScript
-
-Ámbito de las clases, métodos y atributos públicos, privados y protegidos
-
-Getters y Setters en objetos
-
-Herencia y Polimorfismo
-
-Por qué no se habla de Interfaces en JavaScript y alternativas
-
-Ejercicio
-
 ## 12.Depuración de código
 
 Introducción a la Depuración en VSCode
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
 
 Ejercicios
++ mmm
++ **Resolución**:
+    ```js
+    ≡
+    ≡
+    ```
 
 ## 13.Configuracion y uso de ESLint
 
