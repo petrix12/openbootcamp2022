@@ -2157,66 +2157,215 @@
 
 ## 11.POO en JavaScript
 ### Introducción a la Programación Orientada a Objetos
-+ mmm:
++ index.js:
     ```js
-    ≡
-    ≡
+    const persona = {
+        nombre: "Gorka",
+        edad: 34,
+        isDeveloper: true,
+        saludo: function() {
+            console.log('Hello')
+        }
+    }
+
+    // console.log(persona)
+    persona.saludo()
+
+    const otra_persona = {
+        nombre: "Miguel",
+        edad: 15,
+        isDeveloper: false,
+        saludo: function() {
+            console.log('Hello')
+        }
+    }
+
+    otra_persona.saludo()
+
+    // Función factory
+    const creaPersona = (nombre, edad, isDeveloper) => {
+        return {
+            nombre, // nombre: nombre
+            edad,
+            isDeveloper,
+            saludo: function() {
+                console.log('Hello')
+            }
+        }
+    }
+
+    const nueva_persona = creaPersona("Juan", 23, true)
+    console.log(nueva_persona)
+
+    const nueva_persona_2 = creaPersona("Maria", 44, false)
     ```
 
 ### Creación y uso de clases en JavaScript
-+ mmm:
++ instanciacion-clases.js:
     ```js
-    ≡
-    ≡
+    class Persona {
+        constructor(nombre, edad, isDeveloper) {
+            this.nombre = nombre
+            this.edad = edad
+            this.isDeveloper = isDeveloper
+        }
+
+        saludo() {
+            console.log(`Hola, mi nombre es ${this.nombre}, tengo ${this.edad} años.`)
+        }
+    }
+
+    const nueva_persona = new Persona("Gorka", 34, true)
+    console.log(nueva_persona)
+    nueva_persona.saludo()
+
+    let numero = 60 // inicializar
+    console.log(typeof numero)
+
+    let persona_2 = new Persona("Maria", 34, false) // instanciar
+    console.log(typeof persona_2)
+    console.log(persona_2 instanceof Persona)
+
+    // instanceof -> similar a typeof pero para clases
     ```
 
 ### Ámbito de las clases, métodos y atributos públicos, privados y protegidos
-+ mmm:
++ atributos-metodos-privados-protegidos.js:
     ```js
-    ≡
-    ≡
+    class Persona {
+        // Private -> #
+        // Private -> Sólo se puede acceder desde dentro de la clase
+        #nombre
+        #edad
+
+        // Protected -> _
+        // Protected -> Sólo se puede acceder desde dentro de la clase y desde clases descendientes
+        _isDeveloper = true
+        constructor(nom, edad) {
+            this.#nombre = nom
+            this.#edad = edad
+        }
+
+        saludo() {
+            console.log(`Hola, mi nombre es ${this.nombre}, tengo ${this.edad} años.`)
+        }
+
+        obtenNombre() { // Función getter -> Nos permite acceder (de forma controlada) a algún atributo protegido
+            return this.#nombre
+        }
+
+        #obtenEdad() {
+            return this.#edad
+        }
+
+        getEdad() {
+            return this.#edad
+        }
+
+        setEdad(nuevaedad) {
+            this.#edad = nuevaedad
+        }
+    }
+
+    const persona = new Persona("Gorka", 70)
+    // console.log(persona)
+    // console.log(persona.nombre)
+    // persona.saludo()
+    // console.log(persona.obtenNombre())
+    // console.log(persona.#obtenEdad())
+    // console.log(persona._isDeveloper)
+
+    ////////////////////////
+
+    // Getter -> métodos que nos permiten obtener atributos/métodos privados o protegidos
+    const edad = persona.getEdad()
+    console.log(edad)
+
+    // Setter -> métodos que nos permiten cambiar el valor de alguno de los atributos privados o protegidos
+    // Quiero cambiar la edad de la persona
+    persona.setEdad(15)
+    console.log(persona.getEdad())
     ```
 
 ### Getters y Setters en objetos
-+ mmm:
-    ```js
-    ≡
-    ≡
-    ```
++ https://github.com/Open-Bootcamp/JavaScript-Basico/blob/main/sesion-11-programacion-orientada-a-objetos/atributos-metodos-privados-protegidos.js
 
 ### Herencia y Polimorfismo
-+ mmm:
++ herencia.js:
     ```js
-    ≡
-    ≡
+    // Inheritance - Herencia
+    class Persona {
+        _nombre
+        _edad
+        constructor(nombre, edad) {
+            this._nombre = nombre
+            this._edad = edad
+        }
+
+        saludo() {
+            console.log(`Hola, mi nombre es ${this._nombre}, tengo ${this._edad} años.`)
+        }
+    }
+
+    class Desarrollador extends Persona {
+        constructor(nombre, edad, lenguaje) {
+            super(nombre, edad)
+            this.lenguaje = lenguaje
+        }
+
+        saludo() { // Override
+            super.saludo()
+            console.log(`Y soy desarrollador de ${this.lenguaje}`)
+        }
+    }
+
+    const nuevodev = new Desarrollador("Gorka", 34, "Javascript")
+    console.log(nuevodev)
+    nuevodev.saludo()
+
+    // Polimorfismo => Varias formas
     ```
 
 ### Por qué no se habla de Interfaces en JavaScript y alternativas
-+ mmm:
-    ```js
-    ≡
-    ≡
-    ```
++ **Contenido**: sobre las interfaces en JavaScript (realmenten no existen, pero si existen en TypeScript, que es un lenguaje derviado de JavaScript).
 
 ### Ejercicio
-+ mmm
++ Crea un nuevo fichero JS que contenga las siguientes líneas:
+    - Una clase llamada "Estudiante" que tenga:
+        - Una variable llamada nombre.
+        - Otra variable lista llamada asignaturas con 3 asignaturas: Javascript, HTML, CSS.
+        - Un método "obtenDatos" que devuelva un objeto con las propiedades nombre y asignaturas.
+    - Crea una nueva instancia de "Estudiante".
+    - Haz la llamada al método obtenDatos.
 + **Resolución**:
     ```js
-    ≡
-    ≡
+    class Estudiante {
+        nombre = "Pedro"
+        asignaturas = ['Javascript', 'HTML', 'CSS']
+
+        obtenDatos() {
+            return {
+                nombre: this.nombre,
+                asignaturas: this.asignaturas
+            }
+        }
+    }
+
+    const estudiante = new Estudiante
+    const datos = estudiante.obtenDatos()
+    console.log(datos)
     ```
 
 
 ## 12.Depuración de código
-
-Introducción a la Depuración en VSCode
+### Introducción a la Depuración en VSCode
 + mmm:
     ```js
     ≡
     ≡
     ```
 
-Ejercicios
+### Ejercicios
 + mmm
 + **Resolución**:
     ```js
@@ -2224,9 +2373,15 @@ Ejercicios
     ≡
     ```
 
+
 ## 13.Configuracion y uso de ESLint
 
 Qué es el linting y ESLint
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
 
 Fichero de configuración ESLint
 
@@ -2235,6 +2390,13 @@ Instalación y creación de ficheros de configuración personalizados
 Reglas temporales y scrips para ejecución de ESLint en nuestro código
 
 Ejercicio
++ mmm
++ **Resolución**:
+    ```js
+    ≡
+    ≡
+    ```
+
 
 ## 14.Gestión de eventos
 
