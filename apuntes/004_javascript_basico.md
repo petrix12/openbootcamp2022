@@ -2359,18 +2359,56 @@
 
 ## 12.Depuración de código
 ### Introducción a la Depuración en VSCode
-+ mmm:
++ index.js:
     ```js
-    ≡
-    ≡
+    const persona = {
+        nombre: "Gorka",
+        edad: 34
+    }
+
+    console.log(persona)
+
+    function obtenDobleEdad(edad) {
+        return 2 * edad
+    }
+
+    const dobleEdad = obtenDobleEdad(persona.edad)
+
+    console.log(dobleEdad)
+
+    function obtenArray(edad) {
+        let arrayNums = []
+        for (let i = 0; i < 10; i++) {
+            const numero = edad + i
+            console.log(numero)
+            arrayNums = [...arrayNums, numero]
+        }
+        return arrayNums
+    }
+
+    const array = obtenArray(persona.edad)
+
+    console.log(array)
     ```
 
 ### Ejercicios
-+ mmm
++ Crea un nuevo fichero JS que contenga las siguientes líneas:
+    - Una función que admita un parámetro "num", y devuelva una lista con esa cantidad de números de la secuencia de Fibonacci (Por ejemplo: num = 6 => Resultado [1, 1, 2, 3, 5, 8]).
+    - Ejecuta la depuración de VSCode para visualizar la ejecución de la función.
 + **Resolución**:
     ```js
-    ≡
-    ≡
+    function fibonacci(num) {
+        let serie = [1]
+        let anterior = 0
+        for(let i = 1; i < num; i++) {
+            serie = [...serie, anterior + serie[i-1]]
+            anterior = serie[i-1]
+        }
+        return serie
+    }
+
+    const prueba = fibonacci(6)
+    console.log(prueba)
     ```
 
 
