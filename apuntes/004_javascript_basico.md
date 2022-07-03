@@ -2413,21 +2413,103 @@
 
 
 ## 13.Configuracion y uso de ESLint
+### Qué es el linting y ESLint
++ https://eslint.org
 
-Qué es el linting y ESLint
-+ mmm:
+### Fichero de configuración ESLint
++ Crear **proyectos\004\13eslint\index.js**:
     ```js
-    ≡
-    ≡
+    var nombre = "Gorka"
+
+    var nombre2 = "Maria"
+
+    var objeto = {
+        nombre: "Círculo",
+        radio: 2
+    }
+    ```
++ Crear archivo de configuración de reglas ESLint **proyectos\004\13eslint\\.eslintrc.json**:
+    ```json
+    {
+        "rules": {
+            "indent": [
+                "error",
+                4
+            ],
+            "linebreak-style": [
+                "error",
+                "windows"
+            ],
+            "quotes": [
+                "error",
+                "double"
+            ],
+            "semi": [
+                "error",
+                "never"
+            ]
+        }
+    }
     ```
 
-Fichero de configuración ESLint
+### Instalación y creación de ficheros de configuración personalizados
+1. Crear carpeta **proyectos\004\13eslint\eslint-npm**.
+2. Ejecutar:
+    + $ npm init -y
+    + $ npm i -D eslint
+3. Crear **proyectos\004\13eslint\eslint-npm\index.js**:
+    ```js
+    // Este es el archivo que vamos a utilizar
 
-Instalación y creación de ficheros de configuración personalizados
+    const nombre = "Gorka"
 
-Reglas temporales y scrips para ejecución de ESLint en nuestro código
+    /* eslint-disable */
 
-Ejercicio
+    const persona2 = 'Maria';
+
+    /* eslint-enable */
+
+    // En esta línea quiero tener comillas simples (quiero que me desactives la regla de las comillas dobles)
+    const nuevoString = 'Esto es un nuevo string'; // eslint-disable-line
+
+    /* eslint-disable-next-line indent */
+    const string2 = "Más strings"
+
+    console.log("Hola")
+
+    const persona3 = "Maria"
+
+    const nombre3 = "Julián"
+
+    console.log(4)
+    ```
+4. Ejecutar:
+    + $ npm init @eslint/config
+    + ? How would you like to use ESLint? ... 
+        + > To check syntax, find problems, and enforce code style
+    + ? What type of modules does your project use? ... 
+        + > CommonJS (require/exports)
+    + ? Which framework does your project use? ... 
+        + > None of these
+    + ? Does your project use TypeScript? » No / Yes
+        + No
+    + ? Where does your code run? ... 
+        + √ Node
+    + ? How would you like to define a style for your project? .
+        + > Answer questions about your style
+    + ? What format do you want your config file to be in? ... 
+        + > JSON
+    + ? What style of indentation do you use? ... 
+        + > Spaces
+    + ? What quotes do you use for strings? ... 
+        + > Double
+    + ? What line endings do you use? ... 
+        + > Windows
+    + ? Do you require semicolons? » No / Yes
+        + No
+
+### Reglas temporales y scrips para ejecución de ESLint en nuestro código
+### Ejercicio
 + mmm
 + **Resolución**:
     ```js
@@ -2437,40 +2519,367 @@ Ejercicio
 
 
 ## 14.Gestión de eventos
+### Introducción a HTML con JS
++ proyectos\004\14eventos\index.html:
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi primera web con Javascript</title>
+        
+    </head>
+    <body>
+        <h1>Hola mundo</h1>
 
-Introducción a HTML con JS
+        <p id="parrafo">Esto es un párrafo</p>
+        <span id="myElement"></span>
+        <script src="index.js"></script>
 
-Utilización de librerías de terceros
+        <script src="https://unpkg.com/typeit@8.2.0/dist/index.umd.js"></script>
+        <script src="animacion.js"></script>
+    </body>
+    </html>
+    ```
++ proyectos\004\14eventos\index.js:
+    ```js
+    const a = 4
+    const b = 8
 
-Manejo de eventos en JavaScript
+    console.log(a * b)
+    console.log("Hola")
 
-Eventos personalizados
+    const p = document.getElementById("parrafo")
 
-JQuery
+    console.log(p)
+    ```
++ $ npm init -y
++ $ npm install --global http-server
++ proyectos\004\14eventos\package.json:
+    ```json
+    ≡
+    "scripts": {
+        "start": "http-server ."
+    },
+    ≡
+    ```
++ $ npm start
 
-Alertas y Dialogos en pantalla
+### Utilización de librerías de terceros
++ proyectos\004\14eventos\animacion.js:
+    ```js
+    new TypeIt("#myElement", {
+        strings: "Este es un texto personalizado",
+    }).go();
+    ```
 
-Ejercicio
+### Manejo de eventos en JavaScript
++ proyectos\004\14eventos\formulario\index.html:
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario</title>
+    </head>
+    <body>
+        Hola soy el formulario
+        <form action="/" method="post" id="formulario">
+            <input type="text" name="Nombre" placeholder="Cuál es tu nombre"></input>
+            <input type="submit" value="Enviar"></input>
+        </form>
+    </body>
+    <script src="index.js"></script>
+    </html>
+    ```
++ proyectos\004\14eventos\formulario\index.js:
+    ```js
+    const f = document.getElementById("formulario")
+
+    console.log(f)
+
+    f.addEventListener("submit", evento => {
+        console.log(evento)
+        evento.preventDefault()
+    })
+    ```
+
+### Eventos personalizados
++ proyectos\004\14eventos\eventos\index.html:
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eventos Personalizados</title>
+    </head>
+    <body>
+        <h1 id="h-texto">Hola</h1>
+    </body>
+    <script src="index.js"></script>
+    </html>
+    ```
++ proyectos\004\14eventos\eventos\index.js:
+    ```js
+    const hTexto = document.getElementById("h-texto")
+
+    console.log(hTexto)
+
+    hTexto.addEventListener("cambioTexto", evento => {
+        console.log(evento.detail)
+        hTexto.innerText = evento.detail.texto
+        hTexto.style.color = evento.detail.color
+    })
+
+    function cambiarTexto(nuevoTexto, color) {
+        const evento = new CustomEvent("cambioTexto", {
+            detail: {
+                texto: nuevoTexto,
+                color
+            }
+        })
+        hTexto.dispatchEvent(evento)
+    }
+    ```
+
+### JQuery
++ proyectos\004\14eventos\jquery\index.html:
+    ```js
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trabajando con JQuery</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <h1>Trabajando con JQuery</h1>
+        <ul>
+            <li id="el-1">Elemento 1</li>
+            <li id="el-2">Elemento 2</li>
+            <li id="el-3">Elemento 3</li>
+        </ul>
+        <button class="hide-btn">Hide</button>
+        <button class="show-btn">Show</button>
+        <br />
+        <button class="new-element">Add Element</button>
+    </body>
+    <script src="index.js"></script>
+    </html>
+    ```
++ proyectos\004\14eventos\jquery\index.js:
+    ```js
+    // $(selector).acción()
+
+    // $("h1").hide()
+
+    // $(document).ready(() => {
+    $(() => {
+        // Selectores:
+        // id="el-1" => "#el-1"
+        // class="el-1" => ".el-1"
+        // $("#el-1").hide()
+
+        $(".hide-btn").click(() => {
+            // $("h1").hide()
+            $("h1").fadeOut()
+        })
+        $(".show-btn").click(() => {
+            // $("h1").show()
+            $("h1").fadeIn()
+        })
+
+        $("li").dblclick(() => {
+            $("h1").css({ color: "red" })
+        })
+
+        $(".new-element").click(() => {
+            // $("ul").append("<li>New Element</li>")
+            $("ul").prepend("<li>New Element</li>")
+        })
+
+        $("li").mouseenter((elem) => {
+            elem.target.style.color = "blue"
+        })
+
+        $("li").mouseleave(elem => {
+            elem.target.style.color = "black"
+        })
+
+    })
+    ```
+
+### Alertas y Dialogos en pantalla
++ proyectos\004\14eventos\dialogos\index.html:
+    ```js
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diálogos</title>
+    </head>
+    <body>
+        <h1>Diálogos por pantalla</h1>
+        <button id="btn">Botón</button>
+        <button id="info">Más información</button>
+    </body>
+    <script src="index.js"></script>
+    </html>
+    ```
++ proyectos\004\14eventos\dialogos\index.js:
+    ```js
+    const boton = document.querySelector("#btn")
+
+    // console.log(boton)
+
+    boton.addEventListener("click", () => {
+        // alert("Se ha hecho click")
+        // confirm("¿Estás de acuerdo?") && console.log("OK")
+        // confirm("¿Estás de acuerdo?") 
+        //     ? console.log("OK") 
+        //     : console.log("NO!!")
+
+        const respuesta = confirm("¿Seguro?")
+        if (respuesta) {
+            console.log("Estás de acuerdo")
+        } else {
+            console.log("NO estás de acuerdo")
+        }
+    })
+
+    const botonInfo = document.querySelector("#info")
+    botonInfo.addEventListener("click", () => {
+        const nombre = prompt("¿Cuál es tu nombre?")
+        if (nombre) {
+            console.log("Tu nombre es " + nombre)
+        } else {
+            console.log("No has introducido nada")
+        }
+    })
+
+    const lista = [{
+        nombre: "Gorka",
+        edad: 34
+    }, {
+        nombre: "Julen",
+        edad: 21
+    }, {
+        nombre: "Amaia",
+        edad: 30
+    }]
+
+    // console.log(lista)
+    console.table(lista)
+    ```
+
+### Ejercicio
++ Crea un nuevo proyecto de Node
+    - Instala la dependencia HTTP Server en entorno global (https://www.npmjs.com/package/http-server).
+    - Crea un fichero index.html (utiliza el comando "!").
+    - Crea un fichero index.js.
+    - Integra el fichero index.js en el html.
+    - Crea un botón en html (<button>Botón</button>).
+    - Vincula un evento de tipo "click" al botón anterior, que muestre una alerta en el navegador "click en el botón".
+
+- Crea un script para lanzar un servidor de desarrollo con http-server
+
+- Lanza el servidor de desarrollo a través del script anterior y prueba que el botón funciona correctamente
+
+- Integra jQuery a través del CDN (https://releases.jquery.com/)
+
+- En el fichero index.js crea un evento click en el botón a través de jQuery, que muestre por consola "Hola, estoy utilizando jQuery"
++ **Resolución**:
+    + $ npm init -y
+    + $ npm install --global http-server
+    + proyectos\004\14eventos\entrega\index.html
+        ```html
+        ≡
+        ≡
+        ```
+    + proyectos\004\14eventos\entrega\index.js
+        ```js
+        ≡
+        ≡
+        ```
+    + proyectos\004\14eventos\entrega\package.json
+        ```json
+        ≡
+        "scripts": {
+            "start": "http-server ."
+        },
+        ≡
+        ```
+    + $ npm start
+
+
+
+        ```js
+        ≡
+        ≡
+        ```
+
+
 
 ## 15.Persistencia de datos en navegador
+### Persistencia de datos en navegador
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
 
-Persistencia de datos en navegador
+### Ejercicio
++ mmm
++ **Resolución**:
+    ```js
+    ≡
+    ≡
+    ```
 
-Ejercicio
 
 ## 16.Aplicando Drag & Drop
+### Drag and Drop con JavaScript
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
 
-Drag and Drop con JavaScript
+### Ejercicio
++ mmm
++ **Resolución**:
+    ```js
+    ≡
+    ≡
+    ```
 
-Ejercicio
 
 ## 17.Usado Geolocalización
+### Inicialización de Mapas en HTML
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
 
-Inicialización de Mapas en HTML
+### Geolocalización
++ mmm:
+    ```js
+    ≡
+    ≡
+    ```
 
-Geolocalización
-
-Ejercicio
+### Ejercicio
 + mmmm:
     ```js
     ```
