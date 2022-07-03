@@ -2790,26 +2790,42 @@
     - Integra el fichero index.js en el html.
     - Crea un botón en html (<button>Botón</button>).
     - Vincula un evento de tipo "click" al botón anterior, que muestre una alerta en el navegador "click en el botón".
-
-- Crea un script para lanzar un servidor de desarrollo con http-server
-
-- Lanza el servidor de desarrollo a través del script anterior y prueba que el botón funciona correctamente
-
-- Integra jQuery a través del CDN (https://releases.jquery.com/)
-
-- En el fichero index.js crea un evento click en el botón a través de jQuery, que muestre por consola "Hola, estoy utilizando jQuery"
+    - Crea un script para lanzar un servidor de desarrollo con http-server.
+    - Lanza el servidor de desarrollo a través del script anterior y prueba que el botón funciona correctamente.
+    - Integra jQuery a través del CDN (https://releases.jquery.com/).
+    - En el fichero index.js crea un evento click en el botón a través de jQuery, que muestre por consola "Hola, estoy utilizando jQuery".
 + **Resolución**:
     + $ npm init -y
     + $ npm install --global http-server
     + proyectos\004\14eventos\entrega\index.html
         ```html
-        ≡
-        ≡
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Entrega 14</title>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        </head>
+        <body>
+            <button id="btn">Botón</button>
+            <button class="btn-jquery">jQuery</button>
+        </body>
+        <script src="index.js"></script>
+        </html>
         ```
     + proyectos\004\14eventos\entrega\index.js
         ```js
-        ≡
-        ≡
+        const boton = document.querySelector("#btn")
+
+        boton.addEventListener("click", () => {
+            alert("click en el botón")
+        })
+
+        $("button").click(function() {
+            console.log("Hola, estoy utilizando jQuery")
+        })
         ```
     + proyectos\004\14eventos\entrega\package.json
         ```json
@@ -2821,29 +2837,99 @@
         ```
     + $ npm start
 
-
-
-        ```js
-        ≡
-        ≡
-        ```
-
-
-
 ## 15.Persistencia de datos en navegador
 ### Persistencia de datos en navegador
-+ mmm:
++ proyectos\004\15persistencia\index.html:
     ```js
-    ≡
-    ≡
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Persistencia</title>
+    </head>
+    <body>
+        
+    </body>
+    <script src="index.js"></script>
+    </html>
+    ```
++ proyectos\004\15persistencia\index.js:
+    ```js
+    // localStorage.setItem("nombre", "Gorka")
+    // localStorage.setItem("nombre", "Miguel")
+
+    // console.log(localStorage.getItem("nombre"))
+
+    // localStorage.setItem("persona", JSON.stringify({ nombre: "gorka", edad: 32 }))
+
+    // console.log(JSON.parse(localStorage.getItem("persona")))
+
+    // JSON.stringify -> Convierte un objeto/array en string
+    // JSON.parse -> Convierte un objeto/array convertido a través de stringify en un objeto de Javascript
+
+    localStorage.removeItem("nombre")
+
+    sessionStorage.setItem("nombre-sesion", "Gorka")
+
+    /* Cookies */
+
+    document.cookie = "nombreCookie=GorkaCookie"
+
+    document.cookie = "nombreCaducidad=Nombre;expires=" + new Date(2023, 0, 1).toUTCString()
+
+    console.log(document.cookie)
     ```
 
 ### Ejercicio
-+ mmm
++ Crea un nuevo proyecto de Node:
+    - Crea un fichero index.html (utiliza el comando "!").
+    - Crea un fichero index.js.
+    - Integra el fichero index.js en el html.
+    - En el fichero index.js:
+        - Crea una variable con tu nombre
+        - Crea una variable con tu apellido
+        - Crea un objeto con tu nombre y tu apellido
+        - Almacena el objeto anterior en la SessionStorage
+        - Almacena el objeto anterior en la LocalStorage
+        - Crea una cookie que caduque en 2 minutos con los datos del objeto anterior
+    - Observa en Google Chrome cómo se almacenan los datos en la SessionStorage, LocalStorage y las cookies
+    - Cierra el navegador, comenta las líneas que almacenan SessionStorage, LocalStorage y CookieStorage y vuelve a abrirlo
+    - Observa cómo la SessionStorage está vacía
+    - Observa cómo la LocalStorage sigue manteniendo el objeto que has almacenado antes de cerrar el navegador
+    - Observa cómo la cookie sigue manteniendo el objeto que has almacenado antes, aunque ya está caducado
 + **Resolución**:
-    ```js
-    ≡
-    ≡
+    + $ npm init -y
+    + proyectos\004\15persistencia\entrega\index.html
+        ```html
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Persistencia de datos</title>
+        </head>
+        <body>    
+        </body>
+        <script src="index.js"></script>
+        </html>
+        ```
+    + proyectos\004\15persistencia\entrega\index.js
+        ```js
+        let nombre = "Pedro"
+        let apellido = "Bazó"
+        let persona = {
+            nombre,
+            apellido
+        }
+
+        sessionStorage.setItem("persona", JSON.stringify(persona))
+        localStorage.setItem("persona", JSON.stringify(persona))
+
+        const now = new Date()
+        `persona=${JSON.stringify(persona)};expires=${new Date(now.getTime() + 2 * 60000)}`
     ```
 
 
