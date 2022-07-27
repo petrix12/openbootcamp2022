@@ -1,5 +1,5 @@
 # Java Básico
-+ **Instructor**: Víctor Román Archidona
++ **Instructor**: Alan Sastre
 + [Resolución de ejercios](https://github.com/Open-Bootcamp/ResolucionEjercicios/tree/main/Java%20B%C3%A1sico)
 + [Repositorio del curso](https://github.com/Open-Bootcamp/java_basico)
 
@@ -532,13 +532,6 @@
 ## 2.IDE, archivos Java y sintaxis
 ### Instalación, configuración y uso del IDE
 
-
-
-    ```java
-    ≡
-    ```
-
-
 ### Entrega ejercicios tema 1
 + Para este primer ejercicio tendréis que realizar lo siguiente:
     + Crea un proyecto de Java desde 0.
@@ -588,21 +581,37 @@
         ```
 
 ### Enlace al repositorio
++ https://github.com/Open-Bootcamp/java_basico
 
 
 ## 3.Funciones
+### Tipos de funciones en Java
 
-Tipos de funciones en Java
 
-Entrega ejercicios tema 2
+
+    ```java
+    ≡
+    ```
+
+### Entrega ejercicios tema 2
++ Para este ejercicio tendréis que crear una función que reciba un precio y devuelva el precio con el IVA incluido.
++ **Resolución**:
++ Crear clase **proyectos\006java\03funciones\precio\src\main\java\com\example\precio\PrecioIVA.java**:
+    ```java
+    ```
+
 
 ## 4.Estructuras de control
+### Control del flujo en Java
 
-Control del flujo en Java
 
-Dudas Sesiones 1, 2 y 3
 
-Entrega ejercicios tema 3
+    ```java
+    ≡
+    ```
+
+### Dudas Sesiones 1, 2 y 3
+### Entrega ejercicios tema 3
 
 ## 5.Clases, objetos, herencia y polimorfismo
 
