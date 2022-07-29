@@ -598,26 +598,269 @@
 + **Resolución**:
 + Crear clase **proyectos\006java\03funciones\precio\src\main\java\com\example\precio\PrecioIVA.java**:
     ```java
+    package com.example.precio;
+
+    import java.util.Scanner;
+
+    public class PrecioIVA {
+        public static void main(String[] args) {
+            double precio = getPrecio();
+            System.out.println("Precio con IVA: " + precioIVA(precio));
+        }
+
+        static double getPrecio() {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Precio: ");
+            double precio = scanner.nextDouble();
+            return precio;
+        }
+
+        static double precioIVA(double precio) {
+            double IVA = 0.1;
+            return precio * (1 + IVA);
+        }
+    }
     ```
 
 
 ## 4.Estructuras de control
 ### Control del flujo en Java
+1. Ejemplo de **if**:
+    ```java
+    package com.example.estructurascontrol.condicionales;
+
+    public class If {
+        public static void main(String[] args) {
+            int edad = 19;
+            boolean esMayor = edad >= 18; // false
+
+            if(esMayor){
+                System.out.println("Es mayor de edad");
+            }
+
+            if(edad >= 18){
+                System.out.println("Es mayor de edad");
+            }
+        }
+    }
+    ```
+2. Ejemplo de **if else**:
+    ```java
+    package com.example.estructurascontrol.condicionales;
+
+    public class IfElse {
+        public static void main(String[] args) {
+            int edad = 16;
+
+            if (edad >= 18) { // si true entra aquí
+                System.out.println("Es mayor de edad");
+            } else { // si false entra aquí
+                System.out.println("Es menor de edad");
+            }
+        }
+    }
+    ```
+3. Ejemplo de **if else if**:
+    ```java
+    package com.example.estructurascontrol.condicionales;
+
+    public class IfElseIf {
+        public static void main(String[] args) {
+            String dia = "DiaNostro";
+
+            // ejemplos comparar
+            boolean resultadoCompararNum = 5 == 5;
+            boolean resultado = dia.equals("Martes");
+
+            // if else if
+
+            if (dia.equals("Lunes")) {
+                System.out.println("Animo con la semana champions");
+            } else if (dia.equals("Martes")) {
+                System.out.println("Martes con M de Me besas");
+            } else if (dia.equals("Miercoles")) {
+                System.out.println("Miercoles con M de Me besas");
+            } else if (dia.equals("Jueves")) {
+                System.out.println("Ya es jueves");
+            } else if (dia.equals("Viernes")) {
+                System.out.println("Nos fuimos!");
+            } else if (dia.equals("Sabado")) {
+                System.out.println("Nos murimos!");
+            } else if (dia.equals("Domingo")) {
+                System.out.println("Depresión");
+            } else {
+                System.out.println("El día introducido no es un día válido.");
+            }
+        }
+    }
+    ```
+4. Ejemplo de **switch case**:
+    ```java
+    package com.example.estructurascontrol.condicionales;
+
+    public class Switch {
+        public static void main(String[] args) {
+            String dia = "Martes";
+
+            switch(dia){
+                case "Lunes":
+                    System.out.println("Hoy es Lunes!! Animo!!");
+                    break;
+                case "Martes":
+                    System.out.println("Hoy es Martes!! Animo!!");
+                    break;
+                case "Miercoles":
+                    System.out.println("Hoy es Miercoles!! Animo!!");
+                    break;
+                case "Jueves":
+                    System.out.println("Hoy es Jueves!! Animo!!");
+                    break;
+                case "Viernes":
+                    System.out.println("Hoy es Viernes!! Animo!!");
+                    break;
+                case "Sabado":
+                    System.out.println("Hoy es Sabado!! Animo!!");
+                    break;
+                case "Domingo":
+                    System.out.println("Hoy es Domingo!! Animo!!");
+                    break;
+                default:
+                    System.out.println("No es un día válido");
+            }
+        }
+    }
+    ```
+5. Ejemplo de **for**:
+    ```java
+    package com.example.estructurascontrol.repeticion;
+
+    public class For {
+        public static void main(String[] args) {
+            for(int i = 0; i < 20; i++){
+                // System.out.println("El valor de i es: " + i );
+                // System.out.println("Hola mundo");
+            }
+                                // 0        1           2
+            String[] nombres = {"Pepe", "Juanito", "Ruperta"}; // length 3
+            for(int i = 0; i < nombres.length; i++){
+                System.out.println(nombres[i]);
+            }
+
+            int suma = 0;
+            int[] numeros = {5, 7, 8}; // length 3
+            for(int i = 0; i < numeros.length; i++){
+                // suma = suma + numeros[i];
+                suma += numeros[i];
+            }
+        }
+    }
+    ```
+6. Ejemplo de **for each**:
+    ```java
+    package com.example.estructurascontrol.repeticion;
+
+    public class ForEach {
+        public static void main(String[] args) {
+            String[] nombres = {"Pepe", "Juanito", "Ruperta"};
+
+            for(String nombre : nombres){
+                System.out.println(nombre);
+            }
+
+            int[] numeros = {5, 10 , 15};
+
+            int suma = 0;
+            for(int numero : numeros){
+                suma += numero;
+            }
+            System.out.println(suma);
+        }
+    }
+    ```
+7. Ejemplo de **while**:
+    ```java
+    package com.example.estructurascontrol.repeticion;
+
+    /**
+    * Crear un bucle que permita concatenar textos y imprima el resultado final por consola.
+    * Concatenar nombres
+    * Los textos pueden venir de un array String
+    * String[] nombres = {"", "", "", ""};
+    */
+    public class While {
+        public static void main(String[] args) {
+            int contador = 0;
+
+            while(contador < 10){
+                String nombre = "Prueba";
+                contador++;
+                if (contador == 5){
+                    // break;
+                    continue;
+                }
+                System.out.println("Valor de contador  " + contador);
+            }
+            // Variable nombre está fuera del ámbito del que se creó
+            // System.out.println(nombre);
+        }
+    }
+    ```
+
+### Dudas Sesiones 1, 2 y 3
+1. Ejemplo de **Concatenar textos**:
+    ```java
+    package com.example.estructurascontrol.repeticion;
+
+    public class ConcatenarTextos {
+        public static void main(String[] args) {
+            String[] nombres = {"Pepito", "Juanit", "eveready"};
+
+            for(String nombre : nombres){
+
+            }
+        }
+    }
+    ```
+
+### Entrega ejercicios tema 3
++ En este ejercicio tenéis que crear un bucle que permita concatenar textos e imprima el resultado final por consola.
++ Tened en cuenta que los textos pueden venir de un array de tipo String. Por ejemplo:
+    + String[] nombres = {"", "", "", ""}
++ **Resolución**:
+    ```java
+    package com.example.concatenar;
+
+    public class ConcatenarTextos {
+        public static void main(String[] args) {
+            String[] textos = {"Texto 1", "Texto 2", "Texto 3"};
+
+            String textosConcatenados = "";
+            for(String texto : textos){
+                textosConcatenados += (texto + " ");
+            }
+
+            System.out.println("Textos concatenados: " + textosConcatenados);
+        }
+    }
+    ```
 
 
+## 5.Clases, objetos, herencia y polimorfismo
+
+### Conceptos y usos de clases y objetos en Java
+1. Ejemplo de **ppp**:
+    ```java
+    ≡
+    ```
+
+### Entrega ejercicios tema 4
++ mmm
++ **Resolución**:
 
     ```java
     ≡
     ```
 
-### Dudas Sesiones 1, 2 y 3
-### Entrega ejercicios tema 3
-
-## 5.Clases, objetos, herencia y polimorfismo
-
-Conceptos y usos de clases y objetos en Java
-
-Entrega ejercicios tema 4
 
 ## 6.Interfaces
 
