@@ -846,27 +846,280 @@
 
 
 ## 5.Clases, objetos, herencia y polimorfismo
-
 ### Conceptos y usos de clases y objetos en Java
-1. Ejemplo de **ppp**:
+1. Ejemplo de clase **Main**:
+    ```java
+    package poo.clases;
+
+    import poo.herencia.Camion;
+    import poo.herencia.Coche;
+    import poo.herencia.Motocicleta;
+
+    public class Main {
+
+        public static void main(String[] args) {
+
+            // 1. clases y objetos
+            // Clase identificador = new Clase();
+            Vehiculo toyotaPrius = new Vehiculo();
+            Motor motorGTI = new Motor("GTI", 190, 459.0, 6);
+
+            Vehiculo fordMondeo = new Vehiculo("Ford", "Mondeo", 2.1, 2010, false, 0, motorGTI);
+
+            System.out.println(fordMondeo.fabricante);
+            System.out.println(fordMondeo.year);
+            System.out.println(fordMondeo.speed); // 0
+            fordMondeo.acelerar(50);
+            System.out.println(fordMondeo.speed); // 50
+
+            // 2. herencia
+            Motocicleta kawasakiNinja = new Motocicleta();
+            kawasakiNinja.fabricante = "Kawasaki";
+
+            System.out.println("fin de programa");
+
+            // 3. polimorfismo
+            Vehiculo vehiculo;
+
+            vehiculo = new Motocicleta();
+            vehiculo.acelerar(50);
+
+            vehiculo = new Coche();
+            vehiculo.acelerar(50);
+
+            vehiculo = new Camion();
+            vehiculo.acelerar(50);
+
+            // 4. clases abstractas: no se pueden instanciar, solo instancian las clases hijas
+        }
+    }
+    ```
+2. Ejemplo de clase **Vehiculo**:
+    ```java
+    package poo.clases;
+
+    /**
+    * Clase base o superclase o clase padre
+    */
+    public class Vehiculo {
+
+        // 1. atributos
+        protected String fabricante;
+        protected String modelo;
+        protected double cc;
+        protected int year;
+        protected boolean sport;
+        protected int speed;
+        protected Motor motor;
+
+        // 2. constructores
+        public Vehiculo(){
+
+        }
+
+        public Vehiculo(String fabricante, String modelo, double cc, int year, boolean sport, int speed, Motor motor) {
+            this.fabricante = fabricante;
+            this.modelo = modelo;
+            this.cc = cc;
+            this.year = year;
+            this.sport = sport;
+            this.speed = speed;
+            this.motor = motor;
+        }
+
+        public Vehiculo(String fabricante, String modelo){
+            this.fabricante = fabricante;
+            this.modelo = modelo;
+        }
+
+        public Vehiculo(String fabricante, int year) {
+            this.fabricante = fabricante;
+            this.year = year;
+        }
+
+        // 3. métodos (comportamiento)
+        public void acelerar(int quantity){
+            this.speed += quantity;
+        }
+
+        // getter y setter
+
+        // toString
+    }
+    ```
+3. Ejemplo de clase **Motor**:
+    ```java
+    package poo.clases;
+
+    public class Motor {
+        // 1. atributos
+        String modelo;
+        int caballos;
+        double parNm;
+        int numCilindros;
+
+        // 2. constructores
+        public Motor(){
+        }
+
+        public Motor(String modelo, int caballos, double parNm, int numCilindros) {
+            this.modelo = modelo;
+            this.caballos = caballos;
+            this.parNm = parNm;
+            this.numCilindros = numCilindros;
+        }
+
+        // 3. métodos
+    }
+    ```
+4. Ejemplo de clase para ejemplificar herencia **Motocicleta**:
+    ```java
+    package poo.herencia;
+
+    import poo.clases.Motor;
+    import poo.clases.Vehiculo;
+
+    /**
+    * Clase derivada o clase hija o subclase
+    */
+    public class Motocicleta extends Vehiculo {
+        boolean baul;
+
+        public Motocicleta(){
+
+        }
+
+        public Motocicleta(String fabricante, String modelo, double cc, int year, boolean sport, int speed, Motor motor, boolean baul) {
+            super(fabricante, modelo, cc, year, sport, speed, motor);
+            this.baul = baul;
+        }
+    }
+    ```
+5. Ejemplo de clase para ejemplificar herencia **Coche**:
+    ```java
+    package poo.herencia;
+
+    import poo.clases.Vehiculo;
+
+    public class Coche extends Vehiculo {
+
+        int numPuertas;
+    }
+    ```
+6. Ejemplo de clase para ejemplificar herencia **Camion**:
+    ```java
+    package poo.herencia;
+
+    import poo.clases.Vehiculo;
+
+    public class Camion extends Vehiculo {
+        double capacidadCarga;
+
+        public Camion(){
+        }
+    }
+    ```
+
+### Entrega ejercicios tema 4
++ En este ejercicio tendréis que crear una clase SmartDevice. Dentro crearéis las clases hijas: SmartPhone y SmartWatch.
++ Agregaréis atributos tal cual tendrían esos objetos en la realidad.
++ Crear constructor vacío y con todos los parámetros para cada clase.
++ Desde una clase Main: crearéis objetos de cada una y los utilizaréis para imprimir sus valores por consola.
++ **Resolución**:
+    ```java
+    package com.example.clases;
+
+    public class SmartDevice {
+        // Se ha llamado a la clase ejercicio4 para una mejor organización, pero es la SmartDevice
+        String marca;
+        String modelo;
+        String color;
+
+        public SmartDevice() {}
+
+        public SmartDevice(String marca, String modelo, String color) {
+            this.marca = marca;
+            this.modelo = modelo;
+            this.color = color;
+        }
+
+        public static class SmartPhone extends SmartDevice {
+            int ram;
+            String sistema;
+
+            public SmartPhone() {
+                super();
+            }
+
+            public SmartPhone(String marca, String modelo, String color, int ram, String sistema) {
+                super(marca, modelo, color);
+                this.ram = ram;
+                this.sistema = sistema;
+            }
+
+            @Override
+            public String toString() {
+                return "marca=" + marca +
+                        ", modelo=" + modelo +
+                        ", color=" + color +
+                        ", ram=" + ram +
+                        ", sistema=" + sistema;
+            }
+        }
+
+        public static class SmartWatch extends SmartDevice {
+            double pulgadas;
+            String conectividad;
+
+            public SmartWatch() {
+                super();
+            }
+
+            public SmartWatch(String marca, String modelo, String color, double pulgadas, String conectividad) {
+                super(marca, modelo, color);
+                this.pulgadas = pulgadas;
+                this.conectividad = conectividad;
+            }
+
+            @Override
+            public String toString() {
+                return "marca=" + marca +
+                        ", modelo=" + modelo +
+                        ", color=" + color +
+                        ", pulgadas=" + pulgadas +
+                        ", conectividad=" + conectividad;
+            }
+        }
+
+        public static void main(String[] args) {
+            SmartPhone smartPhone = new SmartPhone("Samsung", "S10", "Azul",
+                    8, "Android");
+
+            SmartWatch smartWatch = new SmartWatch("Xiaomi", "Mi Band 6", "Negro",
+                    3.5, "Bluetooth");
+
+            System.out.println("El smartphone es: " + smartPhone + "\nEl smartwatch es: " + smartWatch);
+        }
+    }
+    ```
+
+
+## 6.Interfaces
+
+### structura de las interfaces
+1. Ejemplo de **Main**:
     ```java
     ≡
     ```
 
-### Entrega ejercicios tema 4
-+ mmm
+### Entrega ejercicios tema 5
++ mmmm
 + **Resolución**:
 
     ```java
     ≡
     ```
 
-
-## 6.Interfaces
-
-Estructura de las interfaces
-
-Entrega ejercicios tema 5
 
 ## 7.Refactoring en Java
 
