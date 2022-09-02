@@ -1107,25 +1107,273 @@
 ## 6.Interfaces
 
 ### structura de las interfaces
-1. Ejemplo de **Main**:
-    ```java
-    ≡
-    ```
+1. Ejemplo de proyecto sin interfaces:
+    1. Ejemplo de **Main.java**:
+        ```java
+        package poo.sininterfaces;
+
+        import java.util.List;
+
+        public class Main {
+            public static void main(String[] args) {
+        //        EmpleadoCRUDV1 empleadoCRUDV1 = new EmpleadoCRUDV1();
+        //
+        //        Empleado juanito = new Empleado("Juanito", 30, 40000, true);
+        //        Empleado patricia = new Empleado("Patricia", 30, 40000, true);
+        //        Empleado roberto = new Empleado("Roberto", 30, 40000, true);
+        //
+        //        System.out.println(juanito);
+        //
+        //        // guardar empleados
+        //        empleadoCRUDV1.save(juanito);
+        //        empleadoCRUDV1.save(patricia);
+        //        empleadoCRUDV1.save(roberto);
+        //
+        //        // consultar empleados
+        //        List<Empleado> empleados = empleadoCRUDV1.findAll();
+        //        System.out.println(empleados);
+
+                // usamos V2
+
+                EmpleadoCRUDV2 empleadoCRUDV2 = new EmpleadoCRUDV2();
+
+                Empleado juanito = new Empleado("Juanito", 30, 40000, true);
+                Empleado patricia = new Empleado("Patricia", 30, 40000, true);
+                Empleado roberto = new Empleado("Roberto", 30, 40000, true);
+
+                System.out.println(juanito);
+
+                // consultar empleados
+                List<Empleado> empleados = empleadoCRUDV2.recuperarEmpleados();
+                System.out.println(empleados);
+            }
+        }
+        ```
+    2. Ejemplo de **Empleado.java**:
+        ```java
+        package poo.sininterfaces;
+
+        public class Empleado {
+
+            // 1. atributos
+            String nombre;
+            int edad;
+            double salario;
+            boolean alta;
+
+            // 2. constructores
+            public Empleado(){}
+
+            public Empleado(String nombre, int edad, double salario, boolean alta) {
+                this.nombre = nombre;
+                this.edad = edad;
+                this.salario = salario;
+                this.alta = alta;
+            }
+
+            // metodos
+
+            @Override
+            public String toString() {
+                return "Empleado{" +
+                        "nombre='" + nombre + '\'' +
+                        ", edad=" + edad +
+                        ", salario=" + salario +
+                        ", alta=" + alta +
+                        '}';
+            }
+        }
+        ```
+    3. Ejemplo de **EmpleadoCRUDV1.java**:
+        ```java
+        package poo.sininterfaces;
+
+        import java.util.ArrayList;
+        import java.util.List;
+
+        /**
+        * Create
+        * Retrieve/Read
+        * Update
+        * Delete
+        */
+        public class EmpleadoCRUDV1 {
+            // estructura de datos
+            private List<Empleado> empleados = new ArrayList<>();
+
+            // OPERACIONES CRUD
+
+            // CREATE - guardar un empleado
+            public void save(Empleado empleado){
+                empleados.add(empleado);
+            }
+
+            public List<Empleado> findAll(){
+                return empleados;
+            }
+        }
+        ```
+    4. Ejemplo de **EmpleadoCRUDV2.java**:
+        ```java
+        package poo.sininterfaces;
+
+        import java.util.ArrayList;
+        import java.util.List;
+
+        public class EmpleadoCRUDV2 {
+
+            public List<Empleado> recuperarEmpleados(){
+                // conexion a base de datos
+                List<Empleado> empleados = new ArrayList<>();
+                return empleados;
+            }
+        }
+        ```
+
+2. Ejemplo de proyecto con interfaces:
+    1. Ejemplo de **ZZZZZ**:
+        ```java
+        package poo.coninterfaces;
+
+        import poo.sininterfaces.Empleado;
+
+        public class Main {
+            static EmpleadoCRUD empleadoCRUD;
+
+            public static void main(String[] args) {
+                empleadoCRUD.findAll();
+                empleadoCRUD.save(new Empleado());
+            }
+        }
+        ```
+    2. Ejemplo de **EmpleadoCRUD.java**:
+        ```java
+        package poo.coninterfaces;
+
+        import poo.sininterfaces.Empleado;
+        import java.util.List;
+
+        /**
+        * Se declaran los métodos, no se implementan.
+        *
+        * Actúa como un contrato, dice lo que hay que hacer pero no lo hace
+        */
+        public interface EmpleadoCRUD {
+            void save(Empleado empleado);
+            List<Empleado> findAll();
+            void delete(Empleado empleado);
+        }
+        ```
+    3. Ejemplo de **EmpleadoCRUDMySQL.java**:
+        ```java
+        package poo.coninterfaces;
+
+        import poo.sininterfaces.Empleado;
+        import java.util.List;
+
+        public class EmpleadoCRUDMySQL implements EmpleadoCRUD{
+            @Override
+            public void save(Empleado empleado) {
+            }
+
+            @Override
+            public List<Empleado> findAll() {
+                return null;
+            }
+
+            @Override
+            public void delete(Empleado empleado) {
+            }
+        }
+        ```
+    4. Ejemplo de **EmpleadoCRUDExcel.java**:
+        ```java
+        package poo.coninterfaces;
+
+        import poo.sininterfaces.Empleado;
+        import java.util.List;
+
+        public class EmpleadoCRUDExcel implements EmpleadoCRUD {
+            @Override
+            public void save(Empleado empleado) {
+            }
+
+            @Override
+            public List<Empleado> findAll() {
+                return null;
+            }
+
+            @Override
+            public void delete(Empleado empleado) {
+            }
+        }
+        ```
 
 ### Entrega ejercicios tema 5
-+ mmmm
++ Crear una interfaz CocheCRUD.
++ Crear una implementación CocheCRUDImpl que implemente la interfaz CocheCRUD.
++ Como métodos de CocheCRUD podemos poner:
+    + save()
+    + findAll()
+    + delete()
+    + que simplemente impriman por consola el nombre del propio método.
++ Desde una clase Main, Crear un objeto de tipo CocheCRUDImpl y llamar a cada uno de los métodos.
 + **Resolución**:
+    + CocheCRUD
+        ```java
+        package com.example.demo;
 
-    ```java
-    ≡
-    ```
+        public interface CocheCRUD {
+            void save();
+            void findAll();
+            void delete();
+        }
+        ```
+    + CocheCRUDImpl
+        ```java
+        package com.example.demo;
+
+        public class CocheCRUDImpl implements CocheCRUD{
+            @Override
+            public void save() {
+                System.out.println("save");
+            }
+
+            @Override
+            public void findAll() {
+                System.out.println("findAll");
+            }
+
+            @Override
+            public void delete() {
+                System.out.println("delete");
+            }
+        }
+        ```
+    + Main
+        ```java
+        package com.example.demo;
+
+        public class Main {
+            public static void main(String[] args) {
+                CocheCRUD cocheCrud = new CocheCRUDImpl();
+                cocheCrud.save();
+                cocheCrud.findAll();
+                cocheCrud.delete();
+            }
+        }
+        ```
 
 
 ## 7.Refactoring en Java
 
-Refactorización y conceptos
+### Refactorización y conceptos
+1. Ejemplo de **ZZZZZ**:
+    ```java
+    ≡
+    ```
 
-Dudas Sesiones 4, 5 y 6
+### Dudas Sesiones 4, 5 y 6
 
 ## 8.Tipo de datos avanzados
 
